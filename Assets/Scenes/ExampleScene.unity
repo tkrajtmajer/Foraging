@@ -1560,7 +1560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 1468916673}
-  movementSpeed: 4.2
+  movementSpeed: 2.5
   playerAnimator: {fileID: 1506414261}
 --- !u!1001 &1506414258
 PrefabInstance:
