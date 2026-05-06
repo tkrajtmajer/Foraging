@@ -12,8 +12,6 @@ public class TimeManager : MonoBehaviour
     [Tooltip("Avoid starting on an hour in which the stage of the day changes")]
     [SerializeField] int startHour;
 
-    //Duration of one in-game minute in seconds
-
     private int minutes;
     public int Minutes { get { return minutes; } set { minutes = value; OnMinutesChange(value); } }
 
