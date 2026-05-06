@@ -1439,6 +1439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 1468916673}
   movementSpeed: 4
+  playerAnimator: {fileID: 0}
 --- !u!4 &1661983324 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 732193664784857770, guid: 1295291674fc8194590b1956fea76a7b, type: 3}
