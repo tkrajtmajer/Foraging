@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.Hierarchy;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,12 +7,12 @@ using UnityEngine.Events;
 public class TimeManager : MonoBehaviour
 {
     [Header("Duration & Time Settings")]
-    [Tooltip("Day length in total seconds")]
-    [SerializeField] float dayLength;
+    [Tooltip("Minute duration in total seconds")]
+    [SerializeField] float minuteDuration;
+    [Tooltip("Avoid starting on an hour in which the stage of the day changes")]
     [SerializeField] int startHour;
 
     //Duration of one in-game minute in seconds
-    private float ingameMinuteDuration;
 
     private int minutes;
     public int Minutes { get { return minutes; } set { minutes = value; OnMinutesChange(value); } }
@@ -35,8 +36,7 @@ public class TimeManager : MonoBehaviour
     [RangeAttribute(1, 8)]
     [SerializeField] int nightToSunriseDuration = 8;
 
-    private float modSeconds;
-    public float dayTime;
+    [SerializeField] private float modSeconds;
 
     public static UnityAction<Gradient, float> DayPeriodChange;
 
@@ -55,23 +55,18 @@ public class TimeManager : MonoBehaviour
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
 
-        ingameMinuteDuration = dayLength / (24 * 60);
-        Debug.Log(ingameMinuteDuration);
         Hours = startHour;
     }
 
     private void Update()
     {
-        dayTime += Time.deltaTime;
         modSeconds += Time.deltaTime;
 
-        if (modSeconds >= ingameMinuteDuration) // FINISH FIXING DAYLENGTH VARIABLE (DAY NOT LASTING DAYLENGTH SECONDS LONG)
+        if (modSeconds >= minuteDuration) // FINISH FIXING DAYLENGTH VARIABLE (DAY NOT LASTING DAYLENGTH SECONDS LONG)
         {
             ++Minutes;
             modSeconds = 0;
         }
-
-        if (dayTime >= dayLength) dayTime = 0;
 
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -94,7 +89,7 @@ public class TimeManager : MonoBehaviour
 
     public int GetDayTimeSeconds()
     {
-        return (int)(GetDayTimeMinutes() * ingameMinuteDuration);
+        return (int)(GetDayTimeMinutes() * minuteDuration);
     }
 
     private void OnMinutesChange(int min)
@@ -117,23 +112,23 @@ public class TimeManager : MonoBehaviour
     {
         if (hour == 6)
         {
-            StartCoroutine(LerpLight(sunriseToMorningGradient, sunriseToMorningDuration * 60 * ingameMinuteDuration));
-            DayPeriodChange.Invoke(sunriseToMorningGradient, sunriseToMorningDuration * 60 * ingameMinuteDuration);
+            StartCoroutine(LerpLight(sunriseToMorningGradient, sunriseToMorningDuration * 60 * minuteDuration));
+            DayPeriodChange.Invoke(sunriseToMorningGradient, sunriseToMorningDuration * 60 * minuteDuration);
         }
         else if (hour == 9)
         {
-            StartCoroutine(LerpLight(morningToAfternoonGradient, morningToAfternoonDuration * 60 * ingameMinuteDuration));
-            DayPeriodChange.Invoke(morningToAfternoonGradient, morningToAfternoonDuration * 60 * ingameMinuteDuration);
+            StartCoroutine(LerpLight(morningToAfternoonGradient, morningToAfternoonDuration * 60 * minuteDuration));
+            DayPeriodChange.Invoke(morningToAfternoonGradient, morningToAfternoonDuration * 60 * minuteDuration);
         }
         else if (hour == 17)
         {
-            StartCoroutine(LerpLight(afternoonToNightGradient, afternoonToNightDuration * 60 * ingameMinuteDuration));
-            DayPeriodChange.Invoke(afternoonToNightGradient, afternoonToNightDuration * 60 * ingameMinuteDuration);
+            StartCoroutine(LerpLight(afternoonToNightGradient, afternoonToNightDuration * 60 * minuteDuration));
+            DayPeriodChange.Invoke(afternoonToNightGradient, afternoonToNightDuration * 60 * minuteDuration);
         }
         else if (hour == 2)
         {
-            StartCoroutine(LerpLight(nightToSunriseGradient, nightToSunriseDuration * 60 * ingameMinuteDuration));
-            DayPeriodChange.Invoke(nightToSunriseGradient, nightToSunriseDuration * 60 * ingameMinuteDuration);
+            StartCoroutine(LerpLight(nightToSunriseGradient, nightToSunriseDuration * 60 * minuteDuration));
+            DayPeriodChange.Invoke(nightToSunriseGradient, nightToSunriseDuration * 60 * minuteDuration);
         }
     }
 
@@ -142,6 +137,7 @@ public class TimeManager : MonoBehaviour
         for (float i = 0; i < duration; i += Time.deltaTime)
         {
             globalLight.color = lightGradient.Evaluate(i / duration);
+            //Debug.Log("relative time: " + i + " / " + duration);
             yield return null;
         }
     }

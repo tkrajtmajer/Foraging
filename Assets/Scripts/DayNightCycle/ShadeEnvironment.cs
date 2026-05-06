@@ -6,7 +6,7 @@ public class ShadeEnvironment : MonoBehaviour
     private SpriteRenderer _renderer;
 
     [RangeAttribute(0.0f, 1.0f)]
-    [SerializeField] float colorStrength;
+    [SerializeField] float colorStrength = 0.8f;
 
     private void Awake()
     {
