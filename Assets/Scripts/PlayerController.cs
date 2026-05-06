@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     InputSystem_Actions controls;
     Vector2 moveDirection;
 
+    [SerializeField] Animator playerAnimator;
+
     private void Awake()
     {
         controls = new InputSystem_Actions();
@@ -34,8 +36,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // move player in the direction of the keyboard input
         Vector3 move = new Vector3(moveDirection.x, 0f, moveDirection.y);
-
         playerController.Move(move * movementSpeed * Time.deltaTime);
+
+        // trigger animation in the animator
+        float speedFromInput = move.magnitude;
+        playerAnimator.SetFloat("speed", speedFromInput);
+
+        // rotate player to face the move direction
+        if (move != Vector3.zero) {
+            transform.rotation = Quaternion.LookRotation(move);
+        }
     }
 }
