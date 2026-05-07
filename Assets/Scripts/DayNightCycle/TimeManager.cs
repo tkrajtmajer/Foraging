@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Hierarchy;
@@ -45,6 +46,8 @@ public class TimeManager : MonoBehaviour
     [SerializeField] Gradient nightToSunriseGradient;
 
     [SerializeField] Light globalLight;
+
+    public static event Action OnDayEnded;
 
     public static TimeManager Instance {get; private set;}
 
@@ -96,7 +99,7 @@ public class TimeManager : MonoBehaviour
         {
             ++Hours;
             minutes = 0;
-            Debug.Log("hour passed" + hours);
+            //Debug.Log("hour passed" + hours);
         }
 
         if (hours >= 24)
@@ -127,6 +130,8 @@ public class TimeManager : MonoBehaviour
         {
             StartCoroutine(LerpLight(nightToSunriseGradient, nightToSunriseDuration * 60 * minuteDuration));
             DayPeriodChange.Invoke(nightToSunriseGradient, nightToSunriseDuration * 60 * minuteDuration);
+
+            OnDayEnded?.Invoke();
         }
     }
 
