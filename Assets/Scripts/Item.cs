@@ -1,7 +1,7 @@
-public enum ItemLocation {
-    Forest,
-    River
-} 
+//public enum ItemLocation {
+//    Forest,
+//    River
+//} 
 
 [System.Serializable]
 public class Item
