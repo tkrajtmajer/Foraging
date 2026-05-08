@@ -191,8 +191,9 @@ GameObject:
   m_Component:
   - component: {fileID: 37416859}
   - component: {fileID: 37416858}
+  - component: {fileID: 37416860}
   m_Layer: 0
-  m_Name: TimeManager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,14 +214,14 @@ MonoBehaviour:
   minuteDuration: 0.01
   startHour: 1
   sunriseToMorningDuration: 3
-  morningToAfternoonDuration: 8
+  morningToAfternoonDuration: 5
   afternoonToNightDuration: 5
-  nightToSunriseDuration: 7
+  nightToSunriseDuration: 2
   modSeconds: 0
   sunriseToMorningGradient:
     serializedVersion: 2
     key0: {r: 0.69411767, g: 0.61960787, b: 0.28627452, a: 1}
-    key1: {r: 1, g: 0.9925845, b: 0.75157225, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -249,7 +250,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   morningToAfternoonGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0.99215686, b: 0.7529412, a: 1}
+    key0: {r: 1, g: 1, b: 1, a: 1}
     key1: {r: 1, g: 0.8117647, b: 0.54509807, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -353,6 +354,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &37416860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37416857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717f1a2e887d07a5fadc24484c577f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDay: 1
+  maxDays: 7
+  itemDatabase: {fileID: 11400000, guid: 92258bf44bda227c29d420f0b266aa68, type: 2}
 --- !u!1001 &117966439
 PrefabInstance:
   m_ObjectHideFlags: 0
