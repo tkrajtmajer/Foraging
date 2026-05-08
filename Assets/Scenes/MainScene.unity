@@ -214,14 +214,14 @@ MonoBehaviour:
   minuteDuration: 0.01
   startHour: 1
   sunriseToMorningDuration: 3
-  morningToAfternoonDuration: 8
+  morningToAfternoonDuration: 5
   afternoonToNightDuration: 5
-  nightToSunriseDuration: 7
+  nightToSunriseDuration: 2
   modSeconds: 0
   sunriseToMorningGradient:
     serializedVersion: 2
     key0: {r: 0.69411767, g: 0.61960787, b: 0.28627452, a: 1}
-    key1: {r: 1, g: 0.9925845, b: 0.75157225, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -250,7 +250,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   morningToAfternoonGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0.99215686, b: 0.7529412, a: 1}
+    key0: {r: 1, g: 1, b: 1, a: 1}
     key1: {r: 1, g: 0.8117647, b: 0.54509807, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -369,17 +369,6 @@ MonoBehaviour:
   currentDay: 1
   maxDays: 7
   itemDatabase: {fileID: 11400000, guid: 92258bf44bda227c29d420f0b266aa68, type: 2}
-  currentRecipe:
-    recipeDifficulty: 0
-    recipeIngredients: []
-  allRecipes:
-  - recipeDifficulty: 0
-    recipeIngredients:
-    - itemDifficulty: 0
-      itemName: 
-      location: 0
-      description: 
-      isPoisonous: 0
 --- !u!1001 &117966439
 PrefabInstance:
   m_ObjectHideFlags: 0

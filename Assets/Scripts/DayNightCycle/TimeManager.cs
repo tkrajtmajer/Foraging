@@ -26,14 +26,14 @@ public class TimeManager : MonoBehaviour
     [RangeAttribute(1, 3)]
     [SerializeField] int sunriseToMorningDuration = 3;
     [Tooltip("Duration in in-game hours")]
-    [RangeAttribute(1, 8)]
-    [SerializeField] int morningToAfternoonDuration = 8;
+    [RangeAttribute(1, 6)]
+    [SerializeField] int morningToAfternoonDuration = 5;
     [Tooltip("Duration in in-game hours")]
     [RangeAttribute(1, 5)]
-    [SerializeField] int afternoonToNightDuration = 5;
+    [SerializeField] int afternoonToNightDuration = 4;
     [Tooltip("Duration in in-game hours")]
-    [RangeAttribute(1, 8)]
-    [SerializeField] int nightToSunriseDuration = 8;
+    [RangeAttribute(1, 2)]
+    [SerializeField] int nightToSunriseDuration = 2;
 
     [SerializeField] private float modSeconds;
 
@@ -116,17 +116,17 @@ public class TimeManager : MonoBehaviour
             StartCoroutine(LerpLight(sunriseToMorningGradient, sunriseToMorningDuration * 60 * minuteDuration));
             DayPeriodChange.Invoke(sunriseToMorningGradient, sunriseToMorningDuration * 60 * minuteDuration);
         }
-        else if (hour == 9)
+        else if (hour == 12)
         {
             StartCoroutine(LerpLight(morningToAfternoonGradient, morningToAfternoonDuration * 60 * minuteDuration));
             DayPeriodChange.Invoke(morningToAfternoonGradient, morningToAfternoonDuration * 60 * minuteDuration);
         }
-        else if (hour == 17)
+        else if (hour == 18)
         {
             StartCoroutine(LerpLight(afternoonToNightGradient, afternoonToNightDuration * 60 * minuteDuration));
             DayPeriodChange.Invoke(afternoonToNightGradient, afternoonToNightDuration * 60 * minuteDuration);
         }
-        else if (hour == 2)
+        else if (hour == 4)
         {
             StartCoroutine(LerpLight(nightToSunriseGradient, nightToSunriseDuration * 60 * minuteDuration));
             DayPeriodChange.Invoke(nightToSunriseGradient, nightToSunriseDuration * 60 * minuteDuration);
