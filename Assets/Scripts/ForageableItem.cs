@@ -21,5 +21,5 @@ public class ForageableData : ScriptableObject
 
     [Header("Visuals")]
     public Sprite silhouetteImage;
-    // public GameObject itemPrefab; // Reference to the 3D model prefab for the item maybe for later
+    public GameObject modelPrefab; 
 }

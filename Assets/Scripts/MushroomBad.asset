@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
-  m_Name: Mushroom
+  m_Name: MushroomBad
   m_EditorClassIdentifier: 
-  itemName: mushroom
-  description: gives magical power to beautiful people
+  itemName: MushroomBad
+  description: gives bad powers to still magical people
   itemDifficulty: 0
   location: 0
   isPoisonous: 0
-  season: Summer
-  silhouetteImage: {fileID: 21300000, guid: f30b0913b68609f449558fa61ce68a4c, type: 3}
-  modelPrefab: {fileID: 3150674933021483287, guid: 02c7f33c110472744a4c5461f2943559, type: 3}
+  season: Winter
+  silhouetteImage: {fileID: 0}
+  modelPrefab: {fileID: 919132149155446097, guid: 76735014b3f56f34abff40d411a0e04d, type: 3}
