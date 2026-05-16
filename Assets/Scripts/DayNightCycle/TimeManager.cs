@@ -56,6 +56,7 @@ public class TimeManager : MonoBehaviour
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
 
+        Days = GameManager.Instance.currentDay;
         Hours = startHour;
     }
 
@@ -67,19 +68,6 @@ public class TimeManager : MonoBehaviour
         {
             ++Minutes;
             modSeconds = 0;
-        }
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Debug.Log(days);
-        }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Debug.Log(hours);
-        }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            Debug.Log(minutes);
         }
     }
 
@@ -99,12 +87,11 @@ public class TimeManager : MonoBehaviour
         {
             ++Hours;
             minutes = 0;
-            //Debug.Log("hour passed" + hours);
         }
 
         if (hours >= 24)
         {
-            ++Days;
+            GameManager.Instance.currentDay = ++Days;
             Hours = 0;
         }
     }
@@ -140,7 +127,6 @@ public class TimeManager : MonoBehaviour
         for (float i = 0; i < duration; i += Time.deltaTime)
         {
             globalLight.color = lightGradient.Evaluate(i / duration);
-            //Debug.Log("relative time: " + i + " / " + duration);
             yield return null;
         }
     }
