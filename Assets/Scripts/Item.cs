@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public enum ItemLocation {
     Forest,
     River
@@ -11,4 +13,8 @@ public class Item
     public ItemLocation location;
     public string description;
     public bool isPoisonous;
+
+    public bool wasDiscovered;
+    public Sprite itemOccludedSprite;
+    public Sprite itemFoundSprite;
 }
