@@ -56,6 +56,10 @@ public class TimeManager : MonoBehaviour
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
 
+    }
+
+    private void Start()
+    {
         Days = GameManager.Instance.currentDay;
         Hours = startHour;
     }
@@ -91,7 +95,7 @@ public class TimeManager : MonoBehaviour
 
         if (hours >= 24)
         {
-            GameManager.Instance.currentDay = ++Days;
+            ++Days;
             Hours = 0;
         }
     }

@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 37416859}
   - component: {fileID: 37416858}
   - component: {fileID: 37416860}
+  - component: {fileID: 37416861}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -369,6 +370,85 @@ MonoBehaviour:
   currentDay: 1
   maxDays: 7
   itemDatabase: {fileID: 11400000, guid: 92258bf44bda227c29d420f0b266aa68, type: 2}
+--- !u!114 &37416861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37416857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eac9d697a9b8d84189f6d49a557f47c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 654994256}
+  pinPrefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
+  mapOpen: 0
+  selectedPinType: 0
+  pinPooler: {fileID: 751520372}
+  toggleMapAction:
+    m_Name: Toggle Map
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d84a9ab8-9edd-4104-8ab6-bdc48e31560f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 3d33dd74-343c-4f6a-872c-982c38fd29db
+      m_Path: <Keyboard>/tab
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Toggle Map
+      m_Flags: 0
+    m_Flags: 0
+  pinActions:
+    m_Name: Pin Actions
+    m_Id: 7e5c46c9-0ab4-4ff2-b85f-6161a4a1853b
+    m_Asset: {fileID: 0}
+    m_Actions:
+    - m_Name: Place Pin
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 72c4ed20-c2c5-4be2-9947-575aaa6d6b69
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: Switch Pin Type
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 951b5013-e6f6-40b7-afc6-2fa9d535239f
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Bindings:
+    - m_Name: 
+      m_Id: 7b226d6f-b97f-4aa0-8bcd-99d1c8b45c88
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Place Pin
+      m_Flags: 0
+    - m_Name: 
+      m_Id: cb9ebb0d-d22d-4158-95bc-f99169300eb4
+      m_Path: <Keyboard>/p
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Switch Pin Type
+      m_Flags: 0
+  PinList:
+  - type: 0
+    sprite: {fileID: -183939406271800499, guid: 6488fcaa61661ca489406b7cd2b1f0ce, type: 3}
+    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
+  - type: 1
+    sprite: {fileID: 21300000, guid: f376b89a1510ca6e59d6e98f54b8d083, type: 3}
+    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
 --- !u!1001 &117966439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -954,7 +1034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 1, y: 1, z: 1}
+    PositionDamping: {x: 0, y: 0, z: 0}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
@@ -1108,7 +1188,7 @@ GameObject:
   - component: {fileID: 525366250}
   - component: {fileID: 525366249}
   m_Layer: 0
-  m_Name: Panel
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1251,7 +1331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &654994257
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1265,6 +1345,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 525366248}
+  - {fileID: 751520371}
   m_Father: {fileID: 981466334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1459,6 +1540,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 732193664784857770, guid: 1295291674fc8194590b1956fea76a7b, type: 3}
   m_PrefabInstance: {fileID: 703133009}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &751520370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 751520371}
+  - component: {fileID: 751520372}
+  m_Layer: 0
+  m_Name: MapPinPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &751520371
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751520370}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 654994257}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &751520372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751520370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f2e0f57b09aea49b1a00edaea97ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrespawnGraveAmount: 3
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

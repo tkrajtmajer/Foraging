@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+
+        Debug.Log(currentDay);
     }
 
     private void OnEnable()
