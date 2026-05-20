@@ -4,19 +4,26 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class MapManager : MonoBehaviour
 {
     [SerializeField] GameObject map;
+    [SerializeField] AreaMap areaMap;
     [SerializeField] GameObject pinPrefab;
     public bool mapOpen = false;
+    public bool areaMapOpen = false;
 
     public PinType selectedPinType = PinType.Mushroom;
     [SerializeField] MapPinPooler pinPooler;
 
-    public static MapManager Instance;
-    public InputAction toggleMapAction;
+    public AreaMap.AreaType currentArea = AreaMap.AreaType.Forest;
+
+    public static MapManager Instance { get; private set; }
+    public InputActionMap toggleMapActions;
     public InputActionMap pinActions;
+
+    //public static event UnityAction<MapPinPooler, PinType> pinPlacedEvent;
 
     private void Awake()
     {
@@ -30,20 +37,21 @@ public class MapManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
 
-        toggleMapAction.performed += ToggleMap;
+        toggleMapActions["Toggle Map"].performed += ToggleMap;
+        toggleMapActions["Toggle Area Map"].performed += ToggleAreaMap;
         pinActions["Place Pin"].performed += PlacePin;
         pinActions["Switch Pin Type"].performed += SwitchPinType;
     }
 
     private void OnEnable()
     {
-        toggleMapAction.Enable();
+        toggleMapActions.Enable();
         pinActions.Enable();
     }
 
     private void OnDisable()
     {
-        toggleMapAction.Disable();
+        toggleMapActions.Disable();
         pinActions.Disable();
     }
 
@@ -51,6 +59,21 @@ public class MapManager : MonoBehaviour
     {
         mapOpen = !mapOpen;
         map.SetActive(mapOpen);
+
+        if (areaMapOpen)
+        {
+            areaMapOpen = false;
+            areaMap.gameObject.SetActive(false);
+        }
+        
+    }
+
+    private void ToggleAreaMap(InputAction.CallbackContext context) 
+    {
+        if (mapOpen) return;
+
+        areaMapOpen = !areaMapOpen;
+        areaMap.gameObject.SetActive(areaMapOpen);
     }
 
     public enum PinType
@@ -74,6 +97,7 @@ public class MapManager : MonoBehaviour
 
     public void PlacePin(InputAction.CallbackContext context)
     {
+        //pinPlacedEvent.Invoke(pinPooler, selectedPinType);
         if (!mapOpen) return;
         Vector2 mousePos = Input.mousePosition;
         MapPin newPin = pinPooler.GetMapPin(selectedPinType);
