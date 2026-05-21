@@ -4,6 +4,7 @@ using UnityEngine;
 public class ForageableInteractable : MonoBehaviour, IInteractable
 {
     [SerializeField] private ForageableData forageableData;
+    public ForageableData Data => forageableData; // public getter, cool
 
     public static event Action<ForageableData> OnForageableInteracted;
 
