@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
-  m_Name: Mushroom
+  m_Name: MushroomBad
   m_EditorClassIdentifier: 
-  itemName: mushroom
-  description: gives magical power to beautiful people
+  itemName: bad mushroom
+  description: a new bad bad room room skibidibobbi shroom
   itemDifficulty: 0
   location: 0
   isPoisonous: 0
-  season: Summer
-  silhouetteImage: {fileID: 21300000, guid: f30b0913b68609f449558fa61ce68a4c, type: 3}
-  modelPrefab: {fileID: 3150674933021483287, guid: 02c7f33c110472744a4c5461f2943559, type: 3}
+  season: 
+  silhouetteImage: {fileID: 0}
+  modelPrefab: {fileID: 8561632287459613331, guid: 1ebac9907298d694a8f61a5482f48d1c, type: 3}

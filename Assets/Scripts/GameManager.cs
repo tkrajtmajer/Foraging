@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ItemDatabase itemDatabase;
     internal Recipe currentRecipe; // used by UI
     private List<Recipe> allRecipes = new();
-    //internal String[] discoveredItems; // maybe better strings? we save the name of each discovered item
+    //internal String[] discoveredItems; // maybe better hashmap? 
     private HashSet<ForageableData> discoveredItems = new HashSet<ForageableData>(); // hashset to prevent duplicate, also why internal before?
 
 
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         TimeManager.OnDayEnded += UpdateTimeProgress;
+        SpawnRandomItem(new Vector3(-2.0f, 0.15f, -4.0f)); // test
     }
 
     private void OnDisable()
@@ -62,6 +63,17 @@ public class GameManager : MonoBehaviour
 
     private void PlaceItemsOnMap(Recipe recipe) {
         // TODO: for item in recipe : place item on map based on location
+    }
+
+    public void SpawnRandomItem(Vector3 spawnPosition)
+    {
+        if (itemDatabase.allItemPrefabs.Count == 0) return;
+
+        // Pick a random prefab from the ItemDatabase database
+        int randomIndex = UnityEngine.Random.Range(0, itemDatabase.allItemPrefabs.Count);
+        GameObject prefabToSpawn = itemDatabase.allItemPrefabs[randomIndex];
+
+        Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
     }
 
     // TODO: this has to be subscribed to the interaction event that will make discover the item (i still didnt understand when its going to be discovered D:)
