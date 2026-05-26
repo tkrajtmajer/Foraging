@@ -10,6 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2783c65e7f2ea9cd3876323179b5d1b9, type: 3}
-  m_Name: ItemsList
+  m_Name: ItemDatabase
   m_EditorClassIdentifier: 
-  allItems: []
+  allItemPrefabs:
+  - {fileID: 8561632287459613331, guid: a686ff1dc19cc4f47b51ed8dadccb8d9, type: 3}
+  - {fileID: 8561632287459613331, guid: 1ebac9907298d694a8f61a5482f48d1c, type: 3}
