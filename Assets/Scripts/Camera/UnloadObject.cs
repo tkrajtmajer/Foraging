@@ -8,7 +8,7 @@ using UnityEngine.Rendering;
 
 public class UnloadObject : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    GameObject player;
     List<Object> unloadedObjects;
     List<Object> objectsToUnload;
     [SerializeField] float maxIntersections;
