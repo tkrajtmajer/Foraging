@@ -9,15 +9,11 @@ using UnityEngine.Events;
 public class MapManager : MonoBehaviour
 {
     [SerializeField] GameObject map;
-    [SerializeField] AreaMap areaMap;
     [SerializeField] GameObject pinPrefab;
     public bool mapOpen = false;
-    public bool areaMapOpen = false;
 
     public PinType selectedPinType = PinType.Mushroom;
     [SerializeField] MapPinPooler pinPooler;
-
-    public AreaMap.AreaType currentArea = AreaMap.AreaType.Forest;
 
     public static MapManager Instance { get; private set; }
     public InputActionMap toggleMapActions;
@@ -38,7 +34,6 @@ public class MapManager : MonoBehaviour
         }
 
         toggleMapActions["Toggle Map"].performed += ToggleMap;
-        toggleMapActions["Toggle Area Map"].performed += ToggleAreaMap;
         pinActions["Place Pin"].performed += PlacePin;
         pinActions["Switch Pin Type"].performed += SwitchPinType;
     }
@@ -59,21 +54,6 @@ public class MapManager : MonoBehaviour
     {
         mapOpen = !mapOpen;
         map.SetActive(mapOpen);
-
-        if (areaMapOpen)
-        {
-            areaMapOpen = false;
-            areaMap.gameObject.SetActive(false);
-        }
-        
-    }
-
-    private void ToggleAreaMap(InputAction.CallbackContext context) 
-    {
-        if (mapOpen) return;
-
-        areaMapOpen = !areaMapOpen;
-        areaMap.gameObject.SetActive(areaMapOpen);
     }
 
     public enum PinType

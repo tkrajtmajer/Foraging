@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
 
-        Debug.Log(currentDay);
+        //Debug.Log(currentDay);
     }
 
     private void OnEnable()
