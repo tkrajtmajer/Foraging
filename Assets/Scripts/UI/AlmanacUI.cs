@@ -30,15 +30,15 @@ public class AlmanacUI : MonoBehaviour
     private int currentPage = 1;
     private int nrOfPages;
     private bool bookOpen = false;
-     private bool individualView = false;
+    private bool individualView = false;
     private int currentSelected = 1;
     private List<AlmanacItemUI> currentItems = new();
 
     void Start() {
-        int allItemsSize = GameManager.Instance.itemDatabase.allItems.Length;
+        int allItemsSize = GameManager.Instance.itemDatabase.allItemPrefabs.Count;
 
         nrOfPages = Mathf.CeilToInt(allItemsSize / (itemsPerPage*2.0f));
-        // Debug.Log(nrOfPages);
+        Debug.Log(nrOfPages);
 
         //DrawItemsUI();
         almanacUIContainer.SetActive(false);
@@ -85,13 +85,13 @@ public class AlmanacUI : MonoBehaviour
         for (int i = itemContainer.childCount - 1; i >= 0; i--) Destroy(itemContainer.GetChild(i).gameObject);
         currentItems.Clear();
 
-        Item[] allItems = GameManager.Instance.itemDatabase.allItems;
+        List<GameObject> allItems = GameManager.Instance.itemDatabase.allItemPrefabs;
 
         int startIdx = (currentPage - 1) * (itemsPerPage * 2);
-        int endIdx = Mathf.Min(startIdx + (itemsPerPage * 2), allItems.Length);
+        int endIdx = Mathf.Min(startIdx + (itemsPerPage * 2), allItems.Count);
 
         for (int i = startIdx; i < endIdx; i++) {
-            Item currentItem = allItems[i];
+            ForageableData currentItem = allItems[i].GetComponent<ForageableInteractable>().Data;
 
             GameObject itemUI = Instantiate(itemPrefab, itemContainer);
 
@@ -146,12 +146,12 @@ public class AlmanacUI : MonoBehaviour
     }
 
     private void Select() {
-        Item selectedItem = currentItems[currentSelected-1].itemData;
+        ForageableData selectedItem = currentItems[currentSelected-1].itemData;
 
         itemNameUI.text = selectedItem.itemName;
         itemDescriptionUI.text = selectedItem.description;
         itemPoisonousUI.text = selectedItem.isPoisonous? "Poisonous" : "Not poisonous";
         itemLocationUI.text = selectedItem.location.ToString();
-        itemSpriteUI.sprite = selectedItem.wasDiscovered? selectedItem.itemFoundSprite : selectedItem.itemOccludedSprite;
+        itemSpriteUI.sprite = selectedItem.wasDiscovered? selectedItem.silhouetteImage : selectedItem.silhouetteImageOccluded;
     }
 }

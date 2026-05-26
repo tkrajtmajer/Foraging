@@ -10,17 +10,17 @@ public class AlmanacItemUI : MonoBehaviour
     [SerializeField] private Image itemSprite;
     [SerializeField] private TMP_Text itemName;
 
-    public Item itemData;
+    public ForageableData itemData;
     
-    public void UseItemData(Item item) {
-        itemData = item;
+    public void UseItemData(ForageableData data) {
+        itemData = data;
 
-        if (item.wasDiscovered) {
-            itemSprite.sprite = item.itemFoundSprite;
-            itemName.text = item.itemName;
+        if (data.wasDiscovered) {
+            itemSprite.sprite = data.silhouetteImage;
+            itemName.text = data.itemName;
         }
         else {
-            itemSprite.sprite = item.itemOccludedSprite;
+            itemSprite.sprite = data.silhouetteImageOccluded;
         }
     }
 

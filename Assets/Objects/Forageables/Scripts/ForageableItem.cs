@@ -2,7 +2,10 @@ using UnityEngine;
 public enum ItemLocation
 {
     Forest,
-    River
+    RiverBank,
+    Beach,
+    Field,
+    Woodland
 }
 
 // create foreagable data in assets menu by Right Click -> Create > Foraging > New Forageable Data
@@ -21,5 +24,9 @@ public class ForageableData : ScriptableObject
 
     [Header("Visuals")]
     public Sprite silhouetteImage;
+    public Sprite silhouetteImageOccluded;
     public GameObject modelPrefab; 
+
+    [Header("Internal")]
+    public bool wasDiscovered = false; //doesn't have to be public
 }

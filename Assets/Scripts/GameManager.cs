@@ -7,12 +7,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int currentDay = 1;
     [SerializeField] private int maxDays = 7;
 
-    [SerializeField] private ItemDatabase itemDatabase;
+    public ItemDatabase itemDatabase;
     internal Recipe currentRecipe; // used by UI
     private List<Recipe> allRecipes = new();
     //internal String[] discoveredItems; // maybe better hashmap? 
-    private HashSet<ForageableData> discoveredItems = new HashSet<ForageableData>(); // hashset to prevent duplicate, also why internal before?
-
+    //private HashSet<ForageableData> discoveredItems = new HashSet<ForageableData>(); // hashset to prevent duplicate, also why internal before?
 
     public static GameManager Instance { get; private set; }
 
@@ -31,7 +30,7 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         TimeManager.OnDayEnded += UpdateTimeProgress;
-        SpawnRandomItem(new Vector3(-2.0f, 0.15f, -4.0f)); // test
+        //SpawnRandomItem(new Vector3(-2.0f, 0.15f, -4.0f)); // test
     }
 
     private void OnDisable()
@@ -77,19 +76,19 @@ public class GameManager : MonoBehaviour
     }
 
     // TODO: this has to be subscribed to the interaction event that will make discover the item (i still didnt understand when its going to be discovered D:)
-    public void CheckIfDiscovered(ForageableInteractable interactedObject)
-    {
-        ForageableData itemData = interactedObject.Data;
+    // public void CheckIfDiscovered(ForageableInteractable interactedObject)
+    // {
+    //     ForageableData itemData = interactedObject.Data;
 
-        // HashSet.Add returns true if it's a new item, false if it already exists
-        if (discoveredItems.Add(itemData))
-        {
-            Debug.Log($"New item discovered: {itemData.name}!");
-            // unlock almanac entry, etc.
-        }
-        else
-        {
-            Debug.Log($"You already knew about: {itemData.name}");
-        }
-    }
+    //     // HashSet.Add returns true if it's a new item, false if it already exists
+    //     if (discoveredItems.Add(itemData))
+    //     {
+    //         Debug.Log($"New item discovered: {itemData.name}!");
+    //         // unlock almanac entry, etc.
+    //     }
+    //     else
+    //     {
+    //         Debug.Log($"You already knew about: {itemData.name}");
+    //     }
+    // }
 }
