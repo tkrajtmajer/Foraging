@@ -123,7 +123,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""852140f2-7766-474d-8707-702459ba45f3"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
@@ -655,6 +655,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenMap"",
+                    ""type"": ""Button"",
+                    ""id"": ""e84b4240-7aaa-403f-a77c-d6e95833914c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1075,6 +1084,28 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""TrackedDeviceOrientation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3bcfea9d-f189-4b1e-b6cf-1b706511a1bf"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""OpenMap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48ff915d-8204-42dc-805b-c7dec7b5117b"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""OpenMap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1165,6 +1196,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        m_UI_OpenMap = m_UI.FindAction("OpenMap", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1440,6 +1472,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_ScrollWheel;
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
+    private readonly InputAction m_UI_OpenMap;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1491,6 +1524,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/TrackedDeviceOrientation".
         /// </summary>
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/OpenMap".
+        /// </summary>
+        public InputAction @OpenMap => m_Wrapper.m_UI_OpenMap;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1547,6 +1584,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
+            @OpenMap.started += instance.OnOpenMap;
+            @OpenMap.performed += instance.OnOpenMap;
+            @OpenMap.canceled += instance.OnOpenMap;
         }
 
         /// <summary>
@@ -1588,6 +1628,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled -= instance.OnTrackedDeviceOrientation;
+            @OpenMap.started -= instance.OnOpenMap;
+            @OpenMap.performed -= instance.OnOpenMap;
+            @OpenMap.canceled -= instance.OnOpenMap;
         }
 
         /// <summary>
@@ -1834,5 +1877,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "OpenMap" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOpenMap(InputAction.CallbackContext context);
     }
 }
