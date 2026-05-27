@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -10,7 +11,9 @@ public class AlmanacItemUI : MonoBehaviour
     [SerializeField] private Image itemSprite;
     [SerializeField] private TMP_Text itemName;
 
-    public ForageableData itemData;
+    internal ForageableData itemData;
+
+    public Action<AlmanacItemUI> ItemSelected;
     
     public void UseItemData(ForageableData data) {
         itemData = data;
@@ -22,6 +25,10 @@ public class AlmanacItemUI : MonoBehaviour
         else {
             itemSprite.sprite = data.silhouetteImageOccluded;
         }
+    }
+
+    public void SelectItem() {
+        ItemSelected?.Invoke(this);
     }
 
     public void ToggleActive(bool isActive) {

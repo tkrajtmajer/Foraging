@@ -38,9 +38,7 @@ public class AlmanacUI : MonoBehaviour
         int allItemsSize = GameManager.Instance.itemDatabase.allItemPrefabs.Count;
 
         nrOfPages = Mathf.CeilToInt(allItemsSize / (itemsPerPage*2.0f));
-        Debug.Log(nrOfPages);
 
-        //DrawItemsUI();
         almanacUIContainer.SetActive(false);
         itemizedViewContainer.SetActive(true);
         individualViewContainer.SetActive(false);
@@ -68,14 +66,12 @@ public class AlmanacUI : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.K)) ChangeSelected(-1);
 
             if (Input.GetKeyDown(KeyCode.Return)) {
-                individualView = true;
                 ToggleItemDetails();
             }
         }
 
         else if(bookOpen && individualView) {
             if(Input.GetKeyDown(KeyCode.Backspace)) {
-                individualView = false;
                 ToggleItemDetails();
             }
         }
@@ -109,11 +105,12 @@ public class AlmanacUI : MonoBehaviour
 
             AlmanacItemUI ui = itemUI.GetComponent<AlmanacItemUI>();
             ui.UseItemData(currentItem);
+            ui.ItemSelected += HandleButtonSelect;
             currentItems.Add(ui);
         }
     }
 
-    private void ChangePage(int direction) {
+    public void ChangePage(int direction) {
         if (currentPage + direction < 1 || currentPage + direction > nrOfPages) return;
         
         currentPage += direction;
@@ -133,9 +130,11 @@ public class AlmanacUI : MonoBehaviour
         currentItems[currentSelected-1].ToggleActive(true);
     }
 
-    private void ToggleItemDetails() {
+    public void ToggleItemDetails() {
+        individualView = !individualView;
+
         if(individualView) {
-            Select();
+            Select(currentItems[currentSelected-1].itemData);
             itemizedViewContainer.SetActive(false);
             individualViewContainer.SetActive(true);
         }
@@ -145,13 +144,20 @@ public class AlmanacUI : MonoBehaviour
         }
     }
 
-    private void Select() {
-        ForageableData selectedItem = currentItems[currentSelected-1].itemData;
-
+    private void Select(ForageableData selectedItem) {
         itemNameUI.text = selectedItem.itemName;
         itemDescriptionUI.text = selectedItem.description;
         itemPoisonousUI.text = selectedItem.isPoisonous? "Poisonous" : "Not poisonous";
-        itemLocationUI.text = selectedItem.location.ToString();
+        itemLocationUI.text = selectedItem.location.ToString() + ", " + selectedItem.season;
         itemSpriteUI.sprite = selectedItem.wasDiscovered? selectedItem.silhouetteImage : selectedItem.silhouetteImageOccluded;
     }
+
+    private void HandleButtonSelect(AlmanacItemUI uiItem) {
+        Select(uiItem.itemData);
+
+        individualView = true;
+        itemizedViewContainer.SetActive(false);
+        individualViewContainer.SetActive(true);
+    }
+    
 }
