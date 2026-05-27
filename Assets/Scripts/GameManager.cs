@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private int currentDay = 1;
+    [SerializeField] public int currentDay = 1;
     [SerializeField] private int maxDays = 7;
 
     public ItemDatabase itemDatabase;
@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+
+        //Debug.Log(currentDay);
     }
 
     private void OnEnable()
