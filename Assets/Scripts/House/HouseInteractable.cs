@@ -9,6 +9,5 @@ public class HouseInteractable : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log($"Score: {GameManager.GetRecipeScore(debugInventory)}!");
-        Debug.Log("hello");
     }
 }

@@ -105,8 +105,6 @@ public class GameManager : MonoBehaviour
         // we copy the player inventory list to remove the matching items
         List<GameObject> remaining = new List<GameObject>(playerObjects);
 
-        Debug.Log(Instance);
-        Debug.Log(Instance.currentRecipe.forageablesInRecipe);
         foreach (ForageableInteractable neededItem in Instance.currentRecipe.forageablesInRecipe)
         {
             for (int i = 0; i < remaining.Count; i++)
@@ -117,6 +115,7 @@ public class GameManager : MonoBehaviour
                 if (playerItem != null &&
                     playerItem.Data.itemName == neededItem.Data.itemName)
                 {
+                    Debug.Log(playerItem.Data.itemName);
                     score++;
                     remaining.RemoveAt(i); // we remove to prevent double matching
                     break;
