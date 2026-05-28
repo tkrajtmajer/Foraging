@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -34,27 +35,44 @@ public class AlmanacUI : MonoBehaviour
     private int currentSelected = 1;
     private List<AlmanacItemUI> currentItems = new();
 
+    private bool viewFromInspect = false;
+    public static event Action CloseAlmanac;
+    [Header("Drag")]
+    [SerializeField] DragUI dragUI;
+
     void Start() {
         int allItemsSize = GameManager.Instance.itemDatabase.allItemPrefabs.Count;
 
         nrOfPages = Mathf.CeilToInt(allItemsSize / (itemsPerPage*2.0f));
+        HideAlmanac();
+    }
 
-        almanacUIContainer.SetActive(false);
-        itemizedViewContainer.SetActive(true);
-        individualViewContainer.SetActive(false);
+    void OnEnable() {
+        InspectUI.OpenAlmanac += ShowFromInspect;
+    }
+
+    void OnDisable() {
+        InspectUI.OpenAlmanac -= ShowFromInspect;
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.J)) {
-            if (bookOpen) {
-                bookOpen = false;
-                almanacUIContainer.SetActive(false);
-            }
-            else {
-                bookOpen = true;
-                almanacUIContainer.SetActive(true);
-                DrawItemsUI();
-                ChangeSelected(0);
+        if(UIManager.Instance.currentUIState != UIState.Inspect) {
+            if (Input.GetKeyDown(KeyCode.J)) {
+                if (bookOpen) {
+                    if (viewFromInspect) return;
+
+                    HideAlmanac();
+                    Time.timeScale = 1f;
+                    UIManager.Instance.SetState(UIState.None);
+                }
+                else {
+                    ShowAlmanac();
+                    ShowItemizedView();
+                    DrawItemsUI();
+                    ChangeSelected(0);
+                    Time.timeScale = 0f;
+                    UIManager.Instance.SetState(UIState.Almanac);
+                }
             }
         }
 
@@ -135,12 +153,21 @@ public class AlmanacUI : MonoBehaviour
 
         if(individualView) {
             Select(currentItems[currentSelected-1].itemData);
-            itemizedViewContainer.SetActive(false);
-            individualViewContainer.SetActive(true);
+            ShowIndividualView();
         }
         else {
-            itemizedViewContainer.SetActive(true);
-            individualViewContainer.SetActive(false);
+            if(viewFromInspect) {
+                Debug.Log("view from inspect");
+                CloseAlmanac?.Invoke();
+                viewFromInspect = false;
+                individualView = false;
+                HideAlmanac();
+            }
+            else {
+                ShowItemizedView();
+            }
+
+            dragUI.CleanUp();
         }
     }
 
@@ -150,14 +177,47 @@ public class AlmanacUI : MonoBehaviour
         itemPoisonousUI.text = selectedItem.isPoisonous? "Poisonous" : "Not poisonous";
         itemLocationUI.text = selectedItem.location.ToString() + ", " + selectedItem.season;
         itemSpriteUI.sprite = selectedItem.wasDiscovered? selectedItem.silhouetteImage : selectedItem.silhouetteImageOccluded;
+
+        dragUI.SetupDragRender(selectedItem);
     }
 
     private void HandleButtonSelect(AlmanacItemUI uiItem) {
         Select(uiItem.itemData);
+        ShowIndividualView();
+    }
 
+    private void ShowFromInspect(ForageableData selectedItem) {
+        Select(selectedItem);
+
+        viewFromInspect = true;
+        ShowAlmanac();
+        ShowIndividualView();
+    }
+
+    private void ShowItemizedView()
+    {
+        individualView = false;
+        itemizedViewContainer.SetActive(true);
+        individualViewContainer.SetActive(false);
+    }
+
+    private void ShowIndividualView()
+    {
         individualView = true;
         itemizedViewContainer.SetActive(false);
         individualViewContainer.SetActive(true);
+    }
+
+    private void ShowAlmanac()
+    {
+        bookOpen = true;
+        almanacUIContainer.SetActive(true);
+    }
+
+    private void HideAlmanac()
+    {
+        bookOpen = false;
+        almanacUIContainer.SetActive(false);
     }
     
 }
