@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int maxDays = 7;
 
     [SerializeField] private ItemDatabase itemDatabase;
+    [SerializeField] private List<Recipe> allRecipes = new List<Recipe>();
     internal Recipe currentRecipe; // used by UI
-    private List<Recipe> allRecipes = new();
     //internal String[] discoveredItems; // maybe better hashmap? 
     private HashSet<ForageableData> discoveredItems = new HashSet<ForageableData>(); // hashset to prevent duplicate, also why internal before?
 
@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        currentRecipe = allRecipes[0];
         TimeManager.OnDayEnded += UpdateTimeProgress;
         SpawnRandomItem(new Vector3(-2.0f, 0.15f, -4.0f)); // test
     }
@@ -49,8 +50,8 @@ public class GameManager : MonoBehaviour
         } 
 
         // prepare next recipe
-        currentRecipe = GenerateNewRecipe();
-        allRecipes.Add(currentRecipe);
+        //currentRecipe = GenerateNewRecipe();
+        //allRecipes.Add(currentRecipe);
 
         // update recipe UI
 
@@ -94,4 +95,37 @@ public class GameManager : MonoBehaviour
             Debug.Log($"You already knew about: {itemData.name}");
         }
     }
+
+
+    public static int GetRecipeScore(
+    List<GameObject> playerObjects)
+    {
+        int score = 0;
+
+        // we copy the player inventory list to remove the matching items
+        List<GameObject> remaining = new List<GameObject>(playerObjects);
+
+        Debug.Log(Instance);
+        Debug.Log(Instance.currentRecipe.forageablesInRecipe);
+        foreach (ForageableInteractable neededItem in Instance.currentRecipe.forageablesInRecipe)
+        {
+            for (int i = 0; i < remaining.Count; i++)
+            {
+                ForageableInteractable playerItem =
+                    remaining[i].GetComponent<ForageableInteractable>();
+
+                if (playerItem != null &&
+                    playerItem.Data.itemName == neededItem.Data.itemName)
+                {
+                    score++;
+                    remaining.RemoveAt(i); // we remove to prevent double matching
+                    break;
+                }
+            }
+        }
+
+        return score;
+    }
+
+
 }

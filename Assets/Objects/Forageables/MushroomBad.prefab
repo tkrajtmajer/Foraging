@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8119879813283254819}
   - component: {fileID: 3425928164998586339}
   - component: {fileID: 2032236045845198186}
-  m_Layer: 6
+  m_Layer: 25
   m_Name: MushroomBad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,9 +116,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: 76735014b3f56f34abff40d411a0e04d, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: -3901555261274843773, guid: 76735014b3f56f34abff40d411a0e04d, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 76735014b3f56f34abff40d411a0e04d, type: 3}
       propertyPath: m_Name
       value: mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76735014b3f56f34abff40d411a0e04d, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
