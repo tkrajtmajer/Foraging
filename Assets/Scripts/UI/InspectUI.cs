@@ -1,22 +1,19 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems; // for drags
 using TMPro;
 
-public class InspectUI : MonoBehaviour, IDragHandler
+public class InspectUI : MonoBehaviour
 {
     [Header("UI References")]
     [SerializeField] private GameObject inspectPanel; // UI parent
     [SerializeField] private Image itemImage;
+    [SerializeField] DragUI dragUI;
     [SerializeField] private TextMeshProUGUI itemDescription;
 
-
-    [Header("3d Item Render")]
-    [SerializeField] private Transform spawnPointModel; // point where the model is going to spawn
-    [SerializeField] private float rotationSpeed = 0.5f;
-
     private ForageableData currentForageableData;
-    private GameObject currentSpawnedModel;
+
+    public static event Action<ForageableData> OpenAlmanac;
 
     private void Awake()
     {
@@ -26,6 +23,14 @@ public class InspectUI : MonoBehaviour, IDragHandler
     private void Start()
     {
         inspectPanel.SetActive(false);
+    }
+
+    void OnEnable() {
+        AlmanacUI.CloseAlmanac += ShowInspect;
+    }
+
+    void OnDisable() {
+        AlmanacUI.CloseAlmanac -= ShowInspect;
     }
 
     private void OnDestroy()
@@ -38,39 +43,20 @@ public class InspectUI : MonoBehaviour, IDragHandler
         // TODO - if journal.IsDiscovered(data) -> show image, else show silhouette
         itemImage.sprite = forageableData.silhouetteImage;
         itemDescription.text = forageableData.description;
-        Debug.Log("hello?");
+        //Debug.Log("hello?");
         inspectPanel.SetActive(true);
 
-        // 3d render part
-        if (currentSpawnedModel != null)
-        {
-            Destroy(currentSpawnedModel);
-        }
-        
-        if (forageableData.modelPrefab != null)
-        {
-            currentSpawnedModel = Instantiate(forageableData.modelPrefab, spawnPointModel.position, Quaternion.identity);
-            currentSpawnedModel.transform.SetParent(spawnPointModel);
-        }
+        currentForageableData = forageableData;
+        dragUI.SetupDragRender(currentForageableData);
 
         // pause the game
         Time.timeScale = 0f;
+        UIManager.Instance.SetState(UIState.Inspect);
     }
 
-
-    // this method is called ON THIS UI object when you click and drag
-    public void OnDrag(PointerEventData eventData)
-    {
-        if (currentSpawnedModel != null)
-        {
-            // eventData.delta gives us the mouse movement since the last frame
-            float rotX = -eventData.delta.y * rotationSpeed;
-            float rotY = -eventData.delta.x * rotationSpeed;
-
-            // Rotate the object around the camera's axes so the rotation feels intuitive
-            currentSpawnedModel.transform.Rotate(Vector3.up, rotY, Space.World);
-            currentSpawnedModel.transform.Rotate(Vector3.right, rotX, Space.World);
-        }
+    public void OpenAlmanacForItem() {
+        inspectPanel.SetActive(false);
+        OpenAlmanac?.Invoke(currentForageableData);
     }
 
     public void OnCollectButtonClicked()
@@ -90,11 +76,13 @@ public class InspectUI : MonoBehaviour, IDragHandler
         inspectPanel.SetActive(false);
         Time.timeScale = 1f;
 
-        // clean up 3d model
-        if (currentSpawnedModel != null)
-        {
-            Destroy(currentSpawnedModel);
-        }
+        dragUI.CleanUp();
+        UIManager.Instance.SetState(UIState.None);
+    }
+
+    private void ShowInspect() {
+        Debug.Log("show inspect again");
+        inspectPanel.SetActive(true);
     }
 
 
