@@ -105,22 +105,22 @@ public class TimeManager : MonoBehaviour
         if (hour == 6)
         {
             StartCoroutine(LerpLight(sunriseToMorningGradient, sunriseToMorningDuration * 60 * minuteDuration));
-            DayPeriodChange.Invoke(sunriseToMorningGradient, sunriseToMorningDuration * 60 * minuteDuration);
+            //DayPeriodChange.Invoke(sunriseToMorningGradient, sunriseToMorningDuration * 60 * minuteDuration);
         }
         else if (hour == 12)
         {
             StartCoroutine(LerpLight(morningToAfternoonGradient, morningToAfternoonDuration * 60 * minuteDuration));
-            DayPeriodChange.Invoke(morningToAfternoonGradient, morningToAfternoonDuration * 60 * minuteDuration);
+            //DayPeriodChange.Invoke(morningToAfternoonGradient, morningToAfternoonDuration * 60 * minuteDuration);
         }
         else if (hour == 18)
         {
             StartCoroutine(LerpLight(afternoonToNightGradient, afternoonToNightDuration * 60 * minuteDuration));
-            DayPeriodChange.Invoke(afternoonToNightGradient, afternoonToNightDuration * 60 * minuteDuration);
+            //DayPeriodChange.Invoke(afternoonToNightGradient, afternoonToNightDuration * 60 * minuteDuration);
         }
         else if (hour == 4)
         {
             StartCoroutine(LerpLight(nightToSunriseGradient, nightToSunriseDuration * 60 * minuteDuration));
-            DayPeriodChange.Invoke(nightToSunriseGradient, nightToSunriseDuration * 60 * minuteDuration);
+            //DayPeriodChange.Invoke(nightToSunriseGradient, nightToSunriseDuration * 60 * minuteDuration);
 
             OnDayEnded?.Invoke();
         }

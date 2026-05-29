@@ -19,4 +19,6 @@ MonoBehaviour:
   isPoisonous: 0
   season: 
   silhouetteImage: {fileID: 0}
+  silhouetteImageOccluded: {fileID: 0}
   modelPrefab: {fileID: 8561632287459613331, guid: a686ff1dc19cc4f47b51ed8dadccb8d9, type: 3}
+  wasDiscovered: 1

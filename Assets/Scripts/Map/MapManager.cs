@@ -52,8 +52,18 @@ public class MapManager : MonoBehaviour
 
     private void ToggleMap(InputAction.CallbackContext context) 
     {
-        mapOpen = !mapOpen;
-        map.SetActive(mapOpen);
+        if (mapOpen)
+        {
+            mapOpen = false;
+            map.SetActive(false);
+            UIManager.Instance.SetState(UIState.None);
+        }
+        else if (UIManager.Instance.currentUIState == UIState.None)
+        {
+            mapOpen = true;
+            map.SetActive(true);
+            UIManager.Instance.SetState(UIState.Map);
+        }
     }
 
     public enum PinType
