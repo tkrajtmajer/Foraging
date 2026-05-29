@@ -3,7 +3,7 @@ using UnityEngine;
 public class ManageInventory : MonoBehaviour
 {
     [SerializeField] Inventory inventory;
-    [SerializeField] GameObject mush;
+    [SerializeField] ForageableInteractable mush;
     public int currentSlot;
 
     private void Update()

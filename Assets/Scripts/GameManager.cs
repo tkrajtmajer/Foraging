@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int currentDay = 1;
     [SerializeField] private int maxDays = 7;
 
-    [SerializeField] private ItemDatabase itemDatabase;
+    [SerializeField] public ItemDatabase itemDatabase;
     [SerializeField] private List<Recipe> allRecipes = new List<Recipe>();
     internal Recipe currentRecipe; // used by UI
     //internal String[] discoveredItems; // maybe better hashmap? 
