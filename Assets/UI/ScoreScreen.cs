@@ -7,9 +7,11 @@ public class ScoreScreen : MonoBehaviour
     [SerializeField] private GameObject scorePanel;
     [SerializeField] private TextMeshProUGUI scoreText;
 
+    private int score = 99;
+
     private void Awake()
     {
-        HouseInteractable.OnHouseInteracted += OpenUI;
+        //HouseInteractable.OnHouseInteracted += OpenUI;
     }
 
     private void Start()
@@ -29,7 +31,7 @@ public class ScoreScreen : MonoBehaviour
         CloseUI();
     }
 
-    public void OpenUI(int score)
+    public void OpenUI()
     {
         scoreText.text = $"You got {score}/3";
         scorePanel.SetActive(true);

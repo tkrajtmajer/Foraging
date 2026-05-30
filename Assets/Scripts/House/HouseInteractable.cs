@@ -6,13 +6,14 @@ using UnityEngine;
 public class HouseInteractable : MonoBehaviour, IInteractable
 {
 
-    public List<GameObject> debugInventory = new List<GameObject>();
+    //public List<GameObject> debugInventory = new List<GameObject>();
 
-    public static event Action<int> OnHouseInteracted;
+    public static event Action OnHouseInteracted;
 
     public void Interact()
     {
-        OnHouseInteracted?.Invoke(GameManager.GetRecipeScore(debugInventory));
-        Debug.Log($"Score: {GameManager.GetRecipeScore(debugInventory)}!");
+        OnHouseInteracted?.Invoke();
+        //OnHouseInteracted?.Invoke(GameManager.GetRecipeScore(debugInventory));
+        //Debug.Log($"Score: {GameManager.GetRecipeScore(debugInventory)}!");
     }
 }
