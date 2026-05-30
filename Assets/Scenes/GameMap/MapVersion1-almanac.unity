@@ -533,7 +533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentDay: 1
   maxDays: 7
-  itemDatabase: {fileID: 11400000, guid: 444698d812225f04390a7409ee97cf05, type: 2}
+  itemDatabase: {fileID: 11400000, guid: 59080c4679214f1c097788def6a27059, type: 2}
 --- !u!114 &124870089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +673,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  globalLight: {fileID: 0}
+  globalLight: {fileID: 1778750123}
 --- !u!4 &124870090
 Transform:
   m_ObjectHideFlags: 0

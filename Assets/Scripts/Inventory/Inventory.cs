@@ -8,9 +8,11 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] int inventorySize = 5;
     [SerializeField] public List<ItemInventoryData> inventory = new();
+    [SerializeField] Vector3 displacement;
     private List<GameObject> inventorySlotsUI = new();
 
-    [SerializeField] GameObject mush;
+    private GameObject player;
+
     public int currentSlot;
 
     private void Update()
@@ -34,11 +36,6 @@ public class Inventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             currentSlot = 4;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TryAddObject(mush.GetComponent<ForageableInteractable>());
         }
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
@@ -73,13 +70,17 @@ public class Inventory : MonoBehaviour
             ItemInventoryData empty = new ItemInventoryData(null, true);
             inventory.Add(empty);
         }
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Start()
     {
+        Transform child = transform.GetChild(0);
         for (int i = 0; i < inventorySize; i++)
         {
-            inventorySlotsUI.Add(transform.GetChild(i).gameObject);
+            inventorySlotsUI.Add(child.GetChild(i).GetChild(0).gameObject);
+            inventorySlotsUI[i].GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         }
     }
 
@@ -120,7 +121,9 @@ public class Inventory : MonoBehaviour
 
     public void DropObject(ForageableInteractable obj)
     {
-
+        GameObject newObj = Instantiate(obj.Data.modelPrefab);
+        newObj.transform.position = player.transform.position + player.transform.forward;
+        newObj.transform.position += 0.2f * displacement;
     }
 
     private void UpdateUISlot(int slot, bool remove=false)
@@ -128,9 +131,11 @@ public class Inventory : MonoBehaviour
         if (remove)
         {
             inventorySlotsUI[slot].GetComponent<Image>().sprite = null;
+            inventorySlotsUI[slot].GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
             return;
         }
 
         inventorySlotsUI[slot].GetComponent<Image>().sprite = inventory[slot].interactable.Data.silhouetteImage;
+        inventorySlotsUI[slot].GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 }

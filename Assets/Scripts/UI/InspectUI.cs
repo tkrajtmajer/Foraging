@@ -11,6 +11,7 @@ public class InspectUI : MonoBehaviour
     [SerializeField] DragUI dragUI;
     [SerializeField] private TextMeshProUGUI itemDescription;
 
+    private ForageableInteractable currentForageable;
     private ForageableData currentForageableData;
 
     public static event Action<ForageableData> OpenAlmanac;
@@ -38,8 +39,11 @@ public class InspectUI : MonoBehaviour
         ForageableInteractable.OnForageableInteracted -= OpenInspectUI;
     }
 
-    private void OpenInspectUI(ForageableData forageableData)
+    private void OpenInspectUI(ForageableInteractable forageable)
     {
+        ForageableData forageableData = forageable.Data;
+        currentForageable = forageable;
+
         // TODO - if journal.IsDiscovered(data) -> show image, else show silhouette
         itemImage.sprite = forageableData.silhouetteImage;
         itemDescription.text = forageableData.description;
@@ -62,8 +66,8 @@ public class InspectUI : MonoBehaviour
     public void OnCollectButtonClicked()
     {
         // Inventory logic
-        //Inventory.Instance.TryAddObject(currentForageableData);
-
+        Inventory.Instance.TryAddObject(currentForageable);
+        currentForageable.Collect();
 
         CloseUI();
     }
