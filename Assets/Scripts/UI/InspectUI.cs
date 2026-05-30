@@ -61,7 +61,10 @@ public class InspectUI : MonoBehaviour
 
     public void OnCollectButtonClicked()
     {
-        // TODO - add to inventory logic Inventory.add(currentForageableData)
+        // Inventory logic
+        //Inventory.Instance.TryAddObject(currentForageableData);
+
+
         CloseUI();
     }
 

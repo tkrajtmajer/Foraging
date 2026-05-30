@@ -15,11 +15,13 @@ public class ForageableInteractable : MonoBehaviour, IInteractable
         OnForageableInteracted?.Invoke(forageableData);
 
         // TODO: Disable player movement?
+        // Already done in InspectUI, right?
     }
 
     public void Collect()
     {
         // if the player chooses to collect, UI calls this method to destroy object
+        Inventory.Instance.TryAddObject(this);
         Destroy(gameObject);
     }
 
