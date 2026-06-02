@@ -9,33 +9,46 @@ public class Inventory : MonoBehaviour
     [SerializeField] int inventorySize = 5;
     [SerializeField] public List<ItemInventoryData> inventory = new();
     [SerializeField] Vector3 displacement;
+    [SerializeField] private GameObject inventoryContainer;
+    [SerializeField] private Sprite frameActive;
+    [SerializeField] private Sprite frameInactive;
     private List<GameObject> inventorySlotsUI = new();
 
     private GameObject player;
 
-    public int currentSlot;
+    public int currentSlot = 0;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            SetSlotActive(currentSlot, false);
             currentSlot = 0;
+            SetSlotActive(currentSlot, true);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            SetSlotActive(currentSlot, false);
             currentSlot = 1;
+            SetSlotActive(currentSlot, true);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+            SetSlotActive(currentSlot, false);
             currentSlot = 2;
+            SetSlotActive(currentSlot, true);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
+            SetSlotActive(currentSlot, false);
             currentSlot = 3;
+            SetSlotActive(currentSlot, true);
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
+            SetSlotActive(currentSlot, false);
             currentSlot = 4;
+            SetSlotActive(currentSlot, true);
         }
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
@@ -76,7 +89,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        Transform child = transform.GetChild(0);
+        Transform child = inventoryContainer.transform;
         for (int i = 0; i < inventorySize; i++)
         {
             inventorySlotsUI.Add(child.GetChild(i).GetChild(0).gameObject);
@@ -104,6 +117,9 @@ public class Inventory : MonoBehaviour
         {
             inventory[slot].interactable = obj;
             inventory[slot].empty = false;
+            SetSlotActive(currentSlot, false);
+            currentSlot = slot;
+            SetSlotActive(currentSlot, true);
             UpdateUISlot(slot);
         }
     }
@@ -137,5 +153,11 @@ public class Inventory : MonoBehaviour
 
         inventorySlotsUI[slot].GetComponent<Image>().sprite = inventory[slot].interactable.Data.silhouetteImage;
         inventorySlotsUI[slot].GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    }
+
+    void SetSlotActive(int slot, bool isActive) {
+        Image borderImage = inventorySlotsUI[slot].transform.parent.GetComponent<Image>();
+
+        borderImage.sprite = isActive ? frameActive : frameInactive;
     }
 }
