@@ -18,6 +18,7 @@ public class MapPinPooler : MonoBehaviour
             {
                 GameObject pinObject = Instantiate(MapManager.Instance.PinList[i].prefab, this.transform);
                 pinObject.gameObject.SetActive(false);
+                pinObject.GetComponent<RectTransform>().localScale = new Vector3(0.39f, 0.39f, 0.39f);
                 pinObject.GetComponent<UnityEngine.UI.Image>().sprite = MapManager.Instance.PinList[i].sprite;
                 MapPin mapPin = pinObject.GetComponent<MapPin>();
                 PinPool.Add(mapPin.gameObject);
@@ -41,6 +42,7 @@ public class MapPinPooler : MonoBehaviour
 
         GameObject pinObject = Instantiate(MapManager.Instance.PinList[(int)type].prefab, this.transform);
         pinObject.gameObject.SetActive(false);
+        pinObject.GetComponent<RectTransform>().localScale = new Vector3(0.39f, 0.39f, 0.39f);
         pinObject.GetComponent<UnityEngine.UI.Image>().sprite = MapManager.Instance.PinList[(int)type].sprite;
         MapPin mapPin = pinObject.GetComponent<MapPin>();
         pool.Add(mapPin.gameObject);
