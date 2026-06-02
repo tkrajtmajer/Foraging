@@ -5,6 +5,7 @@ public enum UIState
     None,
     Inspect,
     Almanac,
+    Map,
     Pause
 }
 
