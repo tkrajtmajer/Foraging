@@ -14,6 +14,12 @@ public class GameManager : MonoBehaviour
     private HashSet<ForageableData> discoveredItems = new HashSet<ForageableData>(); // hashset to prevent duplicate, also why internal before?
 
 
+    public string mainSceneName = "MainScene";
+    public string scoreSceneName = "ScoreScene";
+    public string endSceneName = "EndScene";
+
+
+
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -32,9 +38,8 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        currentRecipe = allRecipes[0];
         TimeManager.OnDayEnded += UpdateTimeProgress;
-        SpawnRandomItem(new Vector3(-2.0f, 0.15f, -4.0f)); // test
+        InitDay(1);
     }
 
     private void OnDisable()
@@ -43,30 +48,14 @@ public class GameManager : MonoBehaviour
     }
 
     private void UpdateTimeProgress() {
-        currentDay++;
+        FinishDay();
+        //currentDay++;
 
-        if (currentDay > maxDays) {
-            Debug.Log("End game for now");
-        } 
-
-        // prepare next recipe
-        //currentRecipe = GenerateNewRecipe();
-        //allRecipes.Add(currentRecipe);
-
-        // update recipe UI
-
-        // place items
-        PlaceItemsOnMap(currentRecipe);
+        //if (currentDay > maxDays) {
+        //    Debug.Log("End game for now");
+        //} 
     }
 
-    private Recipe GenerateNewRecipe() {
-        // create next recipe based on difficulty, for example on first few days, easy ingredients, after that harder
-        return null;
-    }
-
-    private void PlaceItemsOnMap(Recipe recipe) {
-        // TODO: for item in recipe : place item on map based on location
-    }
 
     public void SpawnRandomItem(Vector3 spawnPosition)
     {
@@ -78,6 +67,62 @@ public class GameManager : MonoBehaviour
 
         Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
     }
+
+
+    public void FinishDay()
+    {
+        GoToScoreScene();
+    }
+
+    public void InitDay(int day)
+    {
+        currentDay = day;
+        currentRecipe = allRecipes[currentDay-1];
+    }
+
+    public void NextDay()
+    {
+        currentDay++;
+        Debug.Log(currentDay);
+
+        if (currentDay > allRecipes.Count){
+            Debug.Log("Trigger finish game");
+            GoToEndScene();
+            return;
+        }
+        InitDay(currentDay);
+        GoToMainScene();
+    }
+
+    public void RestartDay()
+    {
+        InitDay(currentDay);
+        GoToMainScene();
+    }
+
+    public void RestartGame()
+    {
+        currentDay = 1;
+        GoToMainScene();
+    }
+
+    public void GoToMainScene()
+    {
+        ScreenFader.Instance.FadeAndLoadScene(mainSceneName);
+    }
+
+    public void GoToScoreScene()
+    {
+        ScreenFader.Instance.FadeAndLoadScene(scoreSceneName);
+    }
+
+    public void GoToEndScene()
+    {
+        ScreenFader.Instance.FadeAndLoadScene(endSceneName);
+    }
+
+
+
 
     // TODO: this has to be subscribed to the interaction event that will make discover the item (i still didnt understand when its going to be discovered D:)
     public void CheckIfDiscovered(ForageableInteractable interactedObject)
@@ -97,27 +142,30 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public static int GetRecipeScore(
-    List<GameObject> playerObjects)
+    public static int GetRecipeScore()
     {
         int score = 0;
 
         // we copy the player inventory list to remove the matching items
-        List<GameObject> remaining = new List<GameObject>(playerObjects);
+        List<ForageableInteractable> playerForageables = new List<ForageableInteractable>();
+        foreach (var item in Inventory.Instance.inventory)
+        {
+            playerForageables.Add(item.interactable);
+        }
 
         foreach (ForageableInteractable neededItem in Instance.currentRecipe.forageablesInRecipe)
         {
-            for (int i = 0; i < remaining.Count; i++)
+            for (int i = 0; i < playerForageables.Count; i++)
             {
                 ForageableInteractable playerItem =
-                    remaining[i].GetComponent<ForageableInteractable>();
+                    playerForageables[i].GetComponent<ForageableInteractable>();
 
                 if (playerItem != null &&
                     playerItem.Data.itemName == neededItem.Data.itemName)
                 {
                     Debug.Log(playerItem.Data.itemName);
                     score++;
-                    remaining.RemoveAt(i); // we remove to prevent double matching
+                    playerForageables.RemoveAt(i); // we remove to prevent double matching
                     break;
                 }
             }

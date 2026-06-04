@@ -6,6 +6,7 @@ public class ScoreScreen : MonoBehaviour
 {
     [SerializeField] private GameObject scorePanel;
     [SerializeField] private TextMeshProUGUI scoreText;
+    
 
     private int score = 99;
 
@@ -16,7 +17,7 @@ public class ScoreScreen : MonoBehaviour
 
     private void Start()
     {
-        scorePanel.SetActive(false);
+        scorePanel.SetActive(true);
     }
 
 
@@ -24,11 +25,13 @@ public class ScoreScreen : MonoBehaviour
     public void OnNextButtonClicked()
     {
         CloseUI();
+        GameManager.Instance.NextDay();
     }
 
     public void OnRetryButtonClicked()
     {
         CloseUI();
+        GameManager.Instance.RestartDay();
     }
 
     public void OpenUI()
@@ -42,7 +45,7 @@ public class ScoreScreen : MonoBehaviour
         scorePanel.SetActive(false);
         Time.timeScale = 1f;
 
-        UIManager.Instance.SetState(UIState.None);
+        //UIManager.Instance.SetState(UIState.None);
     }
 
 }

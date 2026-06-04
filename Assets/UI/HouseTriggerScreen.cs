@@ -18,6 +18,7 @@ public class HouseTriggerScreen : MonoBehaviour
     public void OnYesButtonClicked()
     {
         Debug.Log("Trigger end of the day");
+        GameManager.Instance.FinishDay();
         CloseUI();
     }
 

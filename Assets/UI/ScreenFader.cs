@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScreenFader : MonoBehaviour
 {
@@ -66,5 +67,49 @@ public class ScreenFader : MonoBehaviour
 
         // unblock UI clicks
         faderCanvasGroup.blocksRaycasts = false;
+    }
+
+    /// Fades to black, load and change scene, then fades back to clear.
+    public void FadeAndLoadScene(string sceneName)
+    {
+        StartCoroutine(FadeAndLoadRoutine(sceneName));
+    }
+
+    private IEnumerator FadeAndLoadRoutine(string sceneName)
+    {
+        faderCanvasGroup.blocksRaycasts = true;
+
+        float time = 0;
+        while (time < fadeDuration)
+        {
+            time += Time.unscaledDeltaTime;
+            faderCanvasGroup.alpha = Mathf.Lerp(0, 1, time / fadeDuration);
+            yield return null;
+        }
+        faderCanvasGroup.alpha = 1;
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
+        // ? prevent the scene from activating instantly 
+        // asyncLoad.allowSceneActivation = false; 
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        yield return new WaitForEndOfFrame();
+
+        time = 0;
+        while (time < fadeDuration)
+        {
+            time += Time.unscaledDeltaTime;
+            faderCanvasGroup.alpha = Mathf.Lerp(1, 0, time / fadeDuration);
+            yield return null;
+        }
+        faderCanvasGroup.alpha = 0;
+
+        faderCanvasGroup.blocksRaycasts = false;
+        // asyncLoad.allowSceneActivation = false; 
     }
 }
