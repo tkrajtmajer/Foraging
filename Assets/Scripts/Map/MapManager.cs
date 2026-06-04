@@ -30,7 +30,6 @@ public class MapManager : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
 
         toggleMapActions["Toggle Map"].performed += ToggleMap;
