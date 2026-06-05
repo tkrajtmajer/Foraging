@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         //} 
     }
 
-    private void LoadLevel(LevelManager.LevelData levelData)
+    private void LoadLevel(LevelData levelData)
     {
         InitDay(levelData.levelNumber, levelData.recipe);
     }
