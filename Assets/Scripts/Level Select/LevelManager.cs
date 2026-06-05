@@ -7,16 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] ItemDatabase itemDatabase;
-    [SerializeField] Recipe recipe;
+    //[SerializeField] ItemDatabase itemDatabase;
+    [SerializeField] private List<Recipe> allRecipes = new List<Recipe>();
 
-    public event Action<LevelData> LevelLoaded;
+    public static event Action<LevelData> LevelLoaded;
 
     [Serializable]
     public class LevelData
     {
         public int levelNumber;
-        public List<Recipe> recipes;
+        public Recipe recipe;
         public bool unlocked;
         //public 
     }

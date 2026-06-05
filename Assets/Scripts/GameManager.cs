@@ -8,15 +8,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int maxDays = 7;
 
     [SerializeField] public ItemDatabase itemDatabase;
-    [SerializeField] private List<Recipe> allRecipes = new List<Recipe>();
     internal Recipe currentRecipe; // used by UI
     //internal String[] discoveredItems; // maybe better hashmap? 
     private HashSet<ForageableData> discoveredItems = new HashSet<ForageableData>(); // hashset to prevent duplicate, also why internal before?
 
-
-    public string mainSceneName = "MainScene";
-    public string scoreSceneName = "ScoreScene";
-    public string endSceneName = "EndScene";
+    public int finalMainSceneIdx = 2;
+    public int mainSceneIdx = 3; //"MainScene";
+    public int scoreSceneIdx = 4; //"ScoreScene";
+    public int endSceneIdx = 5; //"EndScene";
 
 
 
@@ -39,12 +38,14 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         TimeManager.OnDayEnded += UpdateTimeProgress;
-        InitDay(1);
+        LevelManager.LevelLoaded += LoadLevel;
+        InitDay(1, LevelManager.Instance.levelList[1].recipe);
     }
 
     private void OnDisable()
     {
         TimeManager.OnDayEnded -= UpdateTimeProgress;
+        LevelManager.LevelLoaded -= LoadLevel;
     }
 
     private void UpdateTimeProgress() {
@@ -56,6 +57,10 @@ public class GameManager : MonoBehaviour
         //} 
     }
 
+    private void LoadLevel(LevelManager.LevelData levelData)
+    {
+        InitDay(levelData.levelNumber, levelData.recipe);
+    }
 
     public void SpawnRandomItem(Vector3 spawnPosition)
     {
@@ -74,10 +79,11 @@ public class GameManager : MonoBehaviour
         GoToScoreScene();
     }
 
-    public void InitDay(int day)
+    public void InitDay(int day, Recipe recipe)
     {
         currentDay = day;
-        currentRecipe = allRecipes[currentDay-1];
+        if (currentRecipe != recipe) currentRecipe = recipe;
+        //currentRecipe =  allRecipes[currentDay-1];
     }
 
     public void NextDay()
@@ -85,18 +91,18 @@ public class GameManager : MonoBehaviour
         currentDay++;
         Debug.Log(currentDay);
 
-        if (currentDay > allRecipes.Count){
+        if (currentDay > maxDays){
             Debug.Log("Trigger finish game");
             GoToEndScene();
             return;
         }
-        InitDay(currentDay);
+        InitDay(currentDay, LevelManager.Instance.levelList[currentDay].recipe);
         GoToMainScene();
     }
 
     public void RestartDay()
     {
-        InitDay(currentDay);
+        InitDay(currentDay, currentRecipe);
         GoToMainScene();
     }
 
@@ -108,17 +114,18 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainScene()
     {
-        ScreenFader.Instance.FadeAndLoadScene(mainSceneName);
+        //ScreenFader.Instance.FadeAndLoadScene(mainSceneIdx);
+        ScreenFader.Instance.FadeAndLoadScene(finalMainSceneIdx);
     }
 
     public void GoToScoreScene()
     {
-        ScreenFader.Instance.FadeAndLoadScene(scoreSceneName);
+        ScreenFader.Instance.FadeAndLoadScene(scoreSceneIdx);
     }
 
     public void GoToEndScene()
     {
-        ScreenFader.Instance.FadeAndLoadScene(endSceneName);
+        ScreenFader.Instance.FadeAndLoadScene(endSceneIdx);
     }
 
 

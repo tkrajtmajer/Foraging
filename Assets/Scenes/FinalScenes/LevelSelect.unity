@@ -247,11 +247,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11576593b067ab44b9f7aa86a04aca66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDatabase: {fileID: 0}
-  recipe:
-    recipeDifficulty: 0
-    recipeIngredients: []
-  levelList: []
+  allRecipes:
+  - {fileID: 11400000, guid: c4012873d29183e4f86d817a831ed068, type: 2}
+  - {fileID: 11400000, guid: a8f643e0c1b0f31478dfc594553c3fdb, type: 2}
+  - {fileID: 11400000, guid: 3731151702467d8498bc80f9a987d78f, type: 2}
+  levelList:
+  - levelNumber: 1
+    recipe: {fileID: 11400000, guid: c4012873d29183e4f86d817a831ed068, type: 2}
+    unlocked: 1
+  - levelNumber: 2
+    recipe: {fileID: 11400000, guid: a8f643e0c1b0f31478dfc594553c3fdb, type: 2}
+    unlocked: 1
+  - levelNumber: 3
+    recipe: {fileID: 11400000, guid: 3731151702467d8498bc80f9a987d78f, type: 2}
+    unlocked: 1
+  - levelNumber: 4
+    recipe: {fileID: 11400000, guid: c4012873d29183e4f86d817a831ed068, type: 2}
+    unlocked: 1
 --- !u!1 &1865885395
 GameObject:
   m_ObjectHideFlags: 0
