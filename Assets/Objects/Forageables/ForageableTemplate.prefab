@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8119879813283254819}
   - component: {fileID: 3425928164998586339}
   - component: {fileID: 2032236045845198186}
-  m_Layer: 6
+  m_Layer: 25
   m_Name: ForageableTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}

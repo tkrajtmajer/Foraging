@@ -7,11 +7,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int currentDay = 1;
     [SerializeField] private int maxDays = 7;
 
-    public ItemDatabase itemDatabase;
+    [SerializeField] public ItemDatabase itemDatabase;
+    [SerializeField] private List<Recipe> allRecipes = new List<Recipe>();
     internal Recipe currentRecipe; // used by UI
-    private List<Recipe> allRecipes = new();
     //internal String[] discoveredItems; // maybe better hashmap? 
-    //private HashSet<ForageableData> discoveredItems = new HashSet<ForageableData>(); // hashset to prevent duplicate, also why internal before?
+    private HashSet<ForageableData> discoveredItems = new HashSet<ForageableData>(); // hashset to prevent duplicate, also why internal before?
+
+
+    public string mainSceneName = "MainScene";
+    public string scoreSceneName = "ScoreScene";
+    public string endSceneName = "EndScene";
+
+
 
     public static GameManager Instance { get; private set; }
 
@@ -32,7 +39,7 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         TimeManager.OnDayEnded += UpdateTimeProgress;
-        //SpawnRandomItem(new Vector3(-2.0f, 0.15f, -4.0f)); // test
+        InitDay(1);
     }
 
     private void OnDisable()
@@ -41,30 +48,14 @@ public class GameManager : MonoBehaviour
     }
 
     private void UpdateTimeProgress() {
-        currentDay++;
+        FinishDay();
+        //currentDay++;
 
-        if (currentDay > maxDays) {
-            Debug.Log("End game for now");
-        } 
-
-        // prepare next recipe
-        currentRecipe = GenerateNewRecipe();
-        allRecipes.Add(currentRecipe);
-
-        // update recipe UI
-
-        // place items
-        PlaceItemsOnMap(currentRecipe);
+        //if (currentDay > maxDays) {
+        //    Debug.Log("End game for now");
+        //} 
     }
 
-    private Recipe GenerateNewRecipe() {
-        // create next recipe based on difficulty, for example on first few days, easy ingredients, after that harder
-        return null;
-    }
-
-    private void PlaceItemsOnMap(Recipe recipe) {
-        // TODO: for item in recipe : place item on map based on location
-    }
 
     public void SpawnRandomItem(Vector3 spawnPosition)
     {
@@ -77,20 +68,111 @@ public class GameManager : MonoBehaviour
         Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
     }
 
-    // TODO: this has to be subscribed to the interaction event that will make discover the item (i still didnt understand when its going to be discovered D:)
-    // public void CheckIfDiscovered(ForageableInteractable interactedObject)
-    // {
-    //     ForageableData itemData = interactedObject.Data;
 
-    //     // HashSet.Add returns true if it's a new item, false if it already exists
-    //     if (discoveredItems.Add(itemData))
-    //     {
-    //         Debug.Log($"New item discovered: {itemData.name}!");
-    //         // unlock almanac entry, etc.
-    //     }
-    //     else
-    //     {
-    //         Debug.Log($"You already knew about: {itemData.name}");
-    //     }
-    // }
+    public void FinishDay()
+    {
+        GoToScoreScene();
+    }
+
+    public void InitDay(int day)
+    {
+        currentDay = day;
+        currentRecipe = allRecipes[currentDay-1];
+    }
+
+    public void NextDay()
+    {
+        currentDay++;
+        Debug.Log(currentDay);
+
+        if (currentDay > allRecipes.Count){
+            Debug.Log("Trigger finish game");
+            GoToEndScene();
+            return;
+        }
+        InitDay(currentDay);
+        GoToMainScene();
+    }
+
+    public void RestartDay()
+    {
+        InitDay(currentDay);
+        GoToMainScene();
+    }
+
+    public void RestartGame()
+    {
+        currentDay = 1;
+        GoToMainScene();
+    }
+
+    public void GoToMainScene()
+    {
+        ScreenFader.Instance.FadeAndLoadScene(mainSceneName);
+    }
+
+    public void GoToScoreScene()
+    {
+        ScreenFader.Instance.FadeAndLoadScene(scoreSceneName);
+    }
+
+    public void GoToEndScene()
+    {
+        ScreenFader.Instance.FadeAndLoadScene(endSceneName);
+    }
+
+
+
+
+    // TODO: this has to be subscribed to the interaction event that will make discover the item (i still didnt understand when its going to be discovered D:)
+    public void CheckIfDiscovered(ForageableInteractable interactedObject)
+    {
+        ForageableData itemData = interactedObject.Data;
+
+        // HashSet.Add returns true if it's a new item, false if it already exists
+        if (discoveredItems.Add(itemData))
+        {
+            Debug.Log($"New item discovered: {itemData.name}!");
+            // unlock almanac entry, etc.
+        }
+        else
+        {
+            Debug.Log($"You already knew about: {itemData.name}");
+        }
+    }
+
+
+    public static int GetRecipeScore()
+    {
+        int score = 0;
+
+        // we copy the player inventory list to remove the matching items
+        List<ForageableInteractable> playerForageables = new List<ForageableInteractable>();
+        foreach (var item in Inventory.Instance.inventory)
+        {
+            playerForageables.Add(item.interactable);
+        }
+
+        foreach (ForageableInteractable neededItem in Instance.currentRecipe.forageablesInRecipe)
+        {
+            for (int i = 0; i < playerForageables.Count; i++)
+            {
+                ForageableInteractable playerItem =
+                    playerForageables[i].GetComponent<ForageableInteractable>();
+
+                if (playerItem != null &&
+                    playerItem.Data.itemName == neededItem.Data.itemName)
+                {
+                    Debug.Log(playerItem.Data.itemName);
+                    score++;
+                    playerForageables.RemoveAt(i); // we remove to prevent double matching
+                    break;
+                }
+            }
+        }
+
+        return score;
+    }
+
+
 }
