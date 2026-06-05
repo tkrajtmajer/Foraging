@@ -41,6 +41,10 @@ public class InspectUI : MonoBehaviour
 
     private void OpenInspectUI(ForageableInteractable forageable)
     {
+        // pause the game
+        Time.timeScale = 0f;
+        UIManager.Instance.SetState(UIState.Inspect);
+
         ForageableData forageableData = forageable.Data;
         currentForageable = forageable;
 
@@ -52,10 +56,6 @@ public class InspectUI : MonoBehaviour
 
         currentForageableData = forageableData;
         dragUI.SetupDragRender(currentForageableData);
-
-        // pause the game
-        Time.timeScale = 0f;
-        UIManager.Instance.SetState(UIState.Inspect);
     }
 
     public void OpenAlmanacForItem() {

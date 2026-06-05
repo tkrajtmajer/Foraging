@@ -6,7 +6,11 @@ public enum UIState
     Inspect,
     Almanac,
     Map,
-    Pause
+    Pause,
+    Inventory,
+    HouseTrigger,
+    Score,
+    Ending
 }
 
 public class UIManager : MonoBehaviour
@@ -23,12 +27,29 @@ public class UIManager : MonoBehaviour
         }
         else {
             Instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
     }
 
     public void SetState(UIState state)
     {
         currentUIState = state;
+
+        switch (currentUIState)
+        {
+            case UIState.HouseTrigger:
+                print("House Trigger UI state");
+                TimeManager.Instance.gameObject.SetActive(false);
+                break;
+            case UIState.None:
+                print("UI Closed, restart time");
+                TimeManager.Instance.gameObject.SetActive(true);
+                break;
+            default:
+                print("Default UI stop everything!!");
+                TimeManager.Instance.gameObject.SetActive(false);
+                break;
+        }
     }
 }
 

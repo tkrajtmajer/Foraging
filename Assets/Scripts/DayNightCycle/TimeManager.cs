@@ -134,4 +134,10 @@ public class TimeManager : MonoBehaviour
             yield return null;
         }
     }
+
+    public void ResetTime()
+    {
+        hours = startHour;
+        minutes = 0;
+    }
 }

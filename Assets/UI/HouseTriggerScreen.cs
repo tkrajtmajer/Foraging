@@ -32,12 +32,14 @@ public class HouseTriggerScreen : MonoBehaviour
     {
         houseTriggerPanel.SetActive(true);
         Time.timeScale = 0f;
+        UIManager.Instance.SetState(UIState.HouseTrigger);
     }
 
     public void CloseUI()
     {
         houseTriggerPanel.SetActive(false);
         Time.timeScale = 1f;
+        UIManager.Instance.SetState(UIState.None);
     }
 
 }

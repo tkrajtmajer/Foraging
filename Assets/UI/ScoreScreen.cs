@@ -17,7 +17,7 @@ public class ScoreScreen : MonoBehaviour
 
     private void Start()
     {
-        scorePanel.SetActive(true);
+        OpenUI();
     }
 
 
@@ -37,15 +37,16 @@ public class ScoreScreen : MonoBehaviour
     public void OpenUI()
     {
         scoreText.text = $"You got {score}/3";
+        // TO DO - logic check to unlock next button (2/3 or higher)
         scorePanel.SetActive(true);
+        UIManager.Instance.SetState(UIState.Score);
     }
 
     public void CloseUI()
     {
         scorePanel.SetActive(false);
         Time.timeScale = 1f;
-
-        //UIManager.Instance.SetState(UIState.None);
+        UIManager.Instance.SetState(UIState.None);
     }
 
 }

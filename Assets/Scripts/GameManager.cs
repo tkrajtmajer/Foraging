@@ -49,11 +49,6 @@ public class GameManager : MonoBehaviour
 
     private void UpdateTimeProgress() {
         FinishDay();
-        //currentDay++;
-
-        //if (currentDay > maxDays) {
-        //    Debug.Log("End game for now");
-        //} 
     }
 
 
@@ -78,6 +73,7 @@ public class GameManager : MonoBehaviour
     {
         currentDay = day;
         currentRecipe = allRecipes[currentDay-1];
+        TimeManager.Instance.ResetTime();
     }
 
     public void NextDay()

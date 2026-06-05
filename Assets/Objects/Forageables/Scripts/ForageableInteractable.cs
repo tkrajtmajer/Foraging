@@ -13,9 +13,6 @@ public class ForageableInteractable : MonoBehaviour, IInteractable
         Debug.Log("Interacted with forageable object!");
         // emit signal to UI to display forageable data
         OnForageableInteracted?.Invoke(this);
-
-        // TODO: Disable player movement?
-        // Already done in InspectUI, right?
     }
 
     public void Collect()
