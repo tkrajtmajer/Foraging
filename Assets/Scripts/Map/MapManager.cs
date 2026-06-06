@@ -5,10 +5,11 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class MapManager : MonoBehaviour
 {
-    [SerializeField] GameObject map;
+    [SerializeField] GameObject mapContainer;
     [SerializeField] GameObject pinPrefab;
     public bool mapOpen = false;
 
@@ -41,12 +42,26 @@ public class MapManager : MonoBehaviour
     {
         toggleMapActions.Enable();
         pinActions.Enable();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
     {
         toggleMapActions.Disable();
         pinActions.Disable();
+
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == GameManager.Instance.finalMainSceneIdx)
+        {
+            GameObject mapUI = GameObject.Find("MapUI");
+            mapContainer = mapUI.transform.GetChild(0).gameObject;
+            pinPooler = mapContainer.GetComponentInChildren<MapPinPooler>();
+        }
     }
 
     private void ToggleMap(InputAction.CallbackContext context) 
@@ -54,13 +69,13 @@ public class MapManager : MonoBehaviour
         if (mapOpen)
         {
             mapOpen = false;
-            map.SetActive(false);
+            mapContainer.SetActive(false);
             UIManager.Instance.SetState(UIState.None);
         }
         else if (UIManager.Instance.currentUIState == UIState.None)
         {
             mapOpen = true;
-            map.SetActive(true);
+            mapContainer.SetActive(true);
             UIManager.Instance.SetState(UIState.Map);
         }
     }
