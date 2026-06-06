@@ -695,10 +695,7 @@ MonoBehaviour:
   currentDay: 1
   maxDays: 7
   itemDatabase: {fileID: 11400000, guid: 59080c4679214f1c097788def6a27059, type: 2}
-  allRecipes:
-  - {fileID: 11400000, guid: c4012873d29183e4f86d817a831ed068, type: 2}
-  - {fileID: 11400000, guid: a8f643e0c1b0f31478dfc594553c3fdb, type: 2}
-  - {fileID: 11400000, guid: 3731151702467d8498bc80f9a987d78f, type: 2}
+  finalMainSceneIdx: 2
   mainSceneIdx: 3
   scoreSceneIdx: 4
   endSceneIdx: 5
@@ -6835,7 +6832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27dce14f9b8c2b44b94e5acf1d8504b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minuteDuration: 0.01
+  minuteDuration: 0.05
   startHour: 1
   sunriseToMorningDuration: 3
   morningToAfternoonDuration: 5

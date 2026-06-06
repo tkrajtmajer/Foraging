@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
             GoToEndScene();
             return;
         }
+        LevelManager.Instance.currentLevel = currentDay;
         InitDay(currentDay, LevelManager.Instance.levelList[currentDay].recipe);
         GoToMainScene();
     }
