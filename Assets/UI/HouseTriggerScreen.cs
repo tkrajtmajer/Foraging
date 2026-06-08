@@ -5,9 +5,13 @@ public class HouseTriggerScreen : MonoBehaviour
     [SerializeField] private GameObject houseTriggerPanel;
 
 
-    private void Awake()
+    private void OnEnable()
     {
         HouseInteractable.OnHouseInteracted += OpenUI;
+    }
+    private void OnDisable()
+    {
+        HouseInteractable.OnHouseInteracted -= OpenUI;
     }
 
     private void Start()

@@ -8,102 +8,102 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.001
-    second: {fileID: 2100000, guid: 6edd2d35ca4e3fdc48f84c7e6b81550b, type: 2}
+    second: {fileID: 2100000, guid: d37579b816bd97dac85ff97fd6e2b11b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: backpack.001
-    second: {fileID: 2100000, guid: dbb57af42df5fdf21855bb1c64ef7ca2, type: 2}
+    second: {fileID: 2100000, guid: a078f73e1a0a38778b7fe1c5a2609606, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: bag-light.001
-    second: {fileID: 2100000, guid: d58854ae181f007f0aefcebec966fab1, type: 2}
+    second: {fileID: 2100000, guid: a078f73e1a0a38778b7fe1c5a2609606, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: bag-mid.001
-    second: {fileID: 2100000, guid: 4590ecc5f5820a4babbb6bdba005beab, type: 2}
+    second: {fileID: 2100000, guid: a078f73e1a0a38778b7fe1c5a2609606, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: cover-dark.001
-    second: {fileID: 2100000, guid: 831b3521a2e2cfeeab1b966311f331c6, type: 2}
+    second: {fileID: 2100000, guid: 5f34854e3eea6652d97fa6e9733c6cb5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: cover-light.001
-    second: {fileID: 2100000, guid: a269adb0dec9543519d08746c331ad16, type: 2}
+    second: {fileID: 2100000, guid: 5f34854e3eea6652d97fa6e9733c6cb5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ears-dark.001
-    second: {fileID: 2100000, guid: 1a40b3446631b1a9d9e5ac174f7a6a52, type: 2}
+    second: {fileID: 2100000, guid: fc2235ae5dc64f70aa15896987a2b205, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ears-light.001
-    second: {fileID: 2100000, guid: 481266caf90105507a29361f93f3d26d, type: 2}
+    second: {fileID: 2100000, guid: fc2235ae5dc64f70aa15896987a2b205, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ears-mid.001
-    second: {fileID: 2100000, guid: 066740a1a788cdfc4b4e0d1bced33c60, type: 2}
+    second: {fileID: 2100000, guid: fc2235ae5dc64f70aa15896987a2b205, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: eyes.001
-    second: {fileID: 2100000, guid: 207e7f4de140612f6bd1a4483f89ae4e, type: 2}
+    second: {fileID: 2100000, guid: 6035c92c4e2724a41a6fb35622a4df2f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mouse_dark.001
-    second: {fileID: 2100000, guid: fe03e2ee3be0a212e97e4f5e0b105dad, type: 2}
+    second: {fileID: 2100000, guid: 44e978a17a470a217bf96148bc7b55d7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mouse_light.001
-    second: {fileID: 2100000, guid: a408ead0282768a4bb120a0c5364b2b0, type: 2}
+    second: {fileID: 2100000, guid: 44e978a17a470a217bf96148bc7b55d7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mouse_mid.001
-    second: {fileID: 2100000, guid: d652b82252617ece883589aeedadcc56, type: 2}
+    second: {fileID: 2100000, guid: 44e978a17a470a217bf96148bc7b55d7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: red-dark.001
-    second: {fileID: 2100000, guid: b7136dfc52f685105992c4bc05e005d7, type: 2}
+    second: {fileID: 2100000, guid: 6879585c7c5e01ca88c2d0ddd5e9ac04, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: red-light.001
-    second: {fileID: 2100000, guid: a8a8d295372ed9f6aa193196246b38ac, type: 2}
+    second: {fileID: 2100000, guid: 6879585c7c5e01ca88c2d0ddd5e9ac04, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: shoes-dark.001
-    second: {fileID: 2100000, guid: 74a5907a32016cd5cb6e1bd1fff49128, type: 2}
+    second: {fileID: 2100000, guid: 4a4d535ec969323c09289453970826f5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: shoes-light.001
-    second: {fileID: 2100000, guid: 2ed702793e61647beb21a54dcac3a5f9, type: 2}
+    second: {fileID: 2100000, guid: 4a4d535ec969323c09289453970826f5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: shoes-mid.001
-    second: {fileID: 2100000, guid: 847cfaee446c715d19644f4e9cdbc232, type: 2}
+    second: {fileID: 2100000, guid: 4a4d535ec969323c09289453970826f5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: tail.001
-    second: {fileID: 2100000, guid: 0c65178cf15010fc4bc18360e94a4624, type: 2}
+    second: {fileID: 2100000, guid: 17a7dd5deb6cd63bca1d0d60cfd5f8af, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: whiskers.001
-    second: {fileID: 2100000, guid: 5c1713b54c52033e3b459935b28f6da4, type: 2}
+    second: {fileID: 2100000, guid: b73f04d769df87a2fa7b879be4b5e357, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

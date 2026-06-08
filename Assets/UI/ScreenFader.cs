@@ -70,12 +70,16 @@ public class ScreenFader : MonoBehaviour
     }
 
     /// Fades to black, load and change scene, then fades back to clear.
-    public void FadeAndLoadScene(string sceneName)
+    //public void FadeAndLoadScene(string sceneName)
+    //{
+    //    StartCoroutine(FadeAndLoadRoutine(sceneName));
+    //}
+    public void FadeAndLoadScene(int sceneName)
     {
         StartCoroutine(FadeAndLoadRoutine(sceneName));
     }
 
-    private IEnumerator FadeAndLoadRoutine(string sceneName)
+    private IEnumerator FadeAndLoadRoutine(int sceneName) // was string sceneName before
     {
         faderCanvasGroup.blocksRaycasts = true;
 
