@@ -1,10 +1,12 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Level : MonoBehaviour
 {
     [SerializeField] public LevelData levelData;
     [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] public Button button;
     bool isSelected;
 
     private void Start()
