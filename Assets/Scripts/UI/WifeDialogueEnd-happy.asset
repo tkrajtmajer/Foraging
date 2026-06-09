@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e7f31c8fe428fc9885fc953872e501e, type: 3}
-  m_Name: Recipe 2
+  m_Script: {fileID: 11500000, guid: 29db22c94e0641ef99312bf76573da3d, type: 3}
+  m_Name: WifeDialogueEnd-happy
   m_EditorClassIdentifier: 
-  forageablesInRecipe:
-  - {fileID: 11400000, guid: 6309c34091c1cdb49b2f9c115554344b, type: 2}
+  speakerName: Wife
+  sentences:
+  - Husband, you did it, we are well fed :3

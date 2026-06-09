@@ -10,14 +10,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] public ItemDatabase itemDatabase;
     internal Recipe currentRecipe; // used by UI
     //internal String[] discoveredItems; // maybe better hashmap? 
-    private HashSet<ForageableData> discoveredItems = new HashSet<ForageableData>(); // hashset to prevent duplicate, also why internal before?
+    //private HashSet<ForageableData> discoveredItems = new HashSet<ForageableData>(); // hashset to prevent duplicate, also why internal before?
 
-    public int finalMainSceneIdx = 2;
-    public int mainSceneIdx = 3; //"MainScene";
-    public int scoreSceneIdx = 4; //"ScoreScene";
-    public int endSceneIdx = 5; //"EndScene";
+    internal int finalMainSceneIdx = 3;
+    internal int scoreSceneIdx = 4; //"ScoreScene";
+    internal int endSceneIdx = 5; //"EndScene";
 
-
+    internal int score;
+    internal List<ForageableData> previousInventory;
 
     public static GameManager Instance { get; private set; }
 
@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         LevelManager.Instance.currentLevel = currentDay;
-        InitDay(currentDay, LevelManager.Instance.levelList[currentDay].recipe);
+        InitDay(currentDay, LevelManager.Instance.levelList[currentDay - 1].recipe);
         GoToMainScene();
     }
 
@@ -121,6 +121,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToScoreScene()
     {
+        score = GetRecipeScore();
         ScreenFader.Instance.FadeAndLoadScene(scoreSceneIdx);
     }
 
@@ -130,48 +131,47 @@ public class GameManager : MonoBehaviour
     }
 
 
-
-
     // TODO: this has to be subscribed to the interaction event that will make discover the item (i still didnt understand when its going to be discovered D:)
-    public void CheckIfDiscovered(ForageableInteractable interactedObject)
-    {
-        ForageableData itemData = interactedObject.Data;
+    // public void CheckIfDiscovered(ForageableInteractable interactedObject)
+    // {
+    //     ForageableData itemData = interactedObject.Data;
 
-        // HashSet.Add returns true if it's a new item, false if it already exists
-        if (discoveredItems.Add(itemData))
-        {
-            Debug.Log($"New item discovered: {itemData.name}!");
-            // unlock almanac entry, etc.
-        }
-        else
-        {
-            Debug.Log($"You already knew about: {itemData.name}");
-        }
-    }
+    //     // HashSet.Add returns true if it's a new item, false if it already exists
+    //     if (discoveredItems.Add(itemData))
+    //     {
+    //         Debug.Log($"New item discovered: {itemData.name}!");
+    //         // unlock almanac entry, etc.
+    //     }
+    //     else
+    //     {
+    //         Debug.Log($"You already knew about: {itemData.name}");
+    //     }
+    // }
 
 
-    public static int GetRecipeScore()
+    public int GetRecipeScore()
     {
         int score = 0;
 
         // we copy the player inventory list to remove the matching items
-        List<ForageableInteractable> playerForageables = new List<ForageableInteractable>();
+        List<ForageableData> playerForageables = new List<ForageableData>();
         foreach (var item in Inventory.Instance.inventory)
         {
-            playerForageables.Add(item.interactable);
+            playerForageables.Add(item.data);
         }
 
-        foreach (ForageableInteractable neededItem in Instance.currentRecipe.forageablesInRecipe)
+        previousInventory = new List<ForageableData>(playerForageables);
+
+        foreach (ForageableData neededItem in Instance.currentRecipe.forageablesInRecipe)
         {
             for (int i = 0; i < playerForageables.Count; i++)
             {
-                ForageableInteractable playerItem =
-                    playerForageables[i].GetComponent<ForageableInteractable>();
+                ForageableData playerItem = playerForageables[i];
 
-                if (playerItem != null &&
-                    playerItem.Data.itemName == neededItem.Data.itemName)
+                if (playerItem.itemName == neededItem.itemName)
                 {
-                    Debug.Log(playerItem.Data.itemName);
+                    //Debug.Log(playerItem.itemName);
+                    playerItem.wasDiscovered = true;
                     score++;
                     playerForageables.RemoveAt(i); // we remove to prevent double matching
                     break;
