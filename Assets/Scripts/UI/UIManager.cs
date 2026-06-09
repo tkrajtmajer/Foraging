@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum UIState
 {
-    None,
+    None, // inventory and recipes don't count since they should stay on
     Inspect,
     Almanac,
     Map,

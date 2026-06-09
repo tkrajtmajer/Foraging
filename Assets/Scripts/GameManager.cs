@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     //internal String[] discoveredItems; // maybe better hashmap? 
     //private HashSet<ForageableData> discoveredItems = new HashSet<ForageableData>(); // hashset to prevent duplicate, also why internal before?
 
+    internal int menuScene = 1;
     internal int finalMainSceneIdx = 3;
     internal int scoreSceneIdx = 4; //"ScoreScene";
     internal int endSceneIdx = 5; //"EndScene";
