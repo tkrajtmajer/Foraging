@@ -22,7 +22,7 @@ public class FeedbackUI : MonoBehaviour
 
     int currentItemToShow = 0;
 
-    List<ForageableData> goodObjects;
+    List<ForageableData> goodObjects = new();
     List<ForageableData> currentRecipe;
     List<ForageableData> playerInventory;
 
@@ -50,10 +50,10 @@ public class FeedbackUI : MonoBehaviour
     }
 
     void SpawnSpriteInArea(RectTransform area, Sprite sprite) {
-        Vector2 size = area.rect.size;
+        Rect rect = area.rect;
 
-        float x = UnityEngine.Random.Range(-size.x * 0.5f, size.x * 0.5f);
-        float y = UnityEngine.Random.Range(-size.y * 0.5f, size.y * 0.5f);
+        float x = UnityEngine.Random.Range(rect.xMin, rect.xMax);
+        float y = UnityEngine.Random.Range(rect.yMin, rect.yMax);
 
         Vector2 spawnPos = new Vector2(x, y);
 

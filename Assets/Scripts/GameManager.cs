@@ -157,7 +157,9 @@ public class GameManager : MonoBehaviour
         List<ForageableData> playerForageables = new List<ForageableData>();
         foreach (var item in Inventory.Instance.inventory)
         {
-            playerForageables.Add(item.data);
+            if (item.empty != true) {
+                playerForageables.Add(item.data);
+            }
         }
 
         previousInventory = new List<ForageableData>(playerForageables);
