@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forageablesInRecipe:
   - {fileID: 11400000, guid: 6309c34091c1cdb49b2f9c115554344b, type: 2}
+  - {fileID: 11400000, guid: 6309c34091c1cdb49b2f9c115554344b, type: 2}
+  - {fileID: 11400000, guid: 6309c34091c1cdb49b2f9c115554344b, type: 2}
+  - {fileID: 11400000, guid: 6309c34091c1cdb49b2f9c115554344b, type: 2}
