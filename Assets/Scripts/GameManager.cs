@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         TimeManager.OnDayEnded += UpdateTimeProgress;
         LevelManager.LevelLoaded += LoadLevel;
-        InitDay(1, LevelManager.Instance.levelList[1].recipe);
+        InitDay(1, LevelManager.Instance.levelList[0].recipe);
     }
 
     private void OnDisable()
