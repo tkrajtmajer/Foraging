@@ -217,7 +217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &27084195
 RectTransform:
   m_ObjectHideFlags: 0
@@ -711,7 +711,6 @@ GameObject:
   m_Component:
   - component: {fileID: 124870090}
   - component: {fileID: 124870088}
-  - component: {fileID: 124870087}
   - component: {fileID: 124870086}
   m_Layer: 0
   m_Name: Manager
@@ -732,101 +731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5f7b910de19e7ee93ff0aceb33022b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &124870087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124870085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eac9d697a9b8d84189f6d49a557f47c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapContainer: {fileID: 708100481}
-  pinPrefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
-  mapOpen: 0
-  selectedPinType: 0
-  pinPooler: {fileID: 435030437}
-  toggleMapActions:
-    m_Name: Toggle Map Actions
-    m_Id: 2a168235-1306-4e95-9f02-b8ea0aa4b3e3
-    m_Asset: {fileID: 0}
-    m_Actions:
-    - m_Name: Toggle Map
-      m_Type: 1
-      m_ExpectedControlType: Button
-      m_Id: f9e27f79-fc9d-4a97-b97f-30bf991e721e
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Bindings:
-    - m_Name: 
-      m_Id: c76ba8df-fca6-4988-819b-1cc62ca9e629
-      m_Path: <Keyboard>/m
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Toggle Map
-      m_Flags: 0
-    - m_Name: 
-      m_Id: e1af5a96-eb13-448f-90a0-5f56a9547454
-      m_Path: <Keyboard>/tab
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Toggle Map
-      m_Flags: 0
-  pinActions:
-    m_Name: Pin Actions
-    m_Id: 7e5c46c9-0ab4-4ff2-b85f-6161a4a1853b
-    m_Asset: {fileID: 0}
-    m_Actions:
-    - m_Name: Place Pin
-      m_Type: 1
-      m_ExpectedControlType: Button
-      m_Id: 72c4ed20-c2c5-4be2-9947-575aaa6d6b69
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    - m_Name: Switch Pin Type
-      m_Type: 1
-      m_ExpectedControlType: Button
-      m_Id: 951b5013-e6f6-40b7-afc6-2fa9d535239f
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Bindings:
-    - m_Name: 
-      m_Id: 7b226d6f-b97f-4aa0-8bcd-99d1c8b45c88
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Pin
-      m_Flags: 0
-    - m_Name: 
-      m_Id: cb9ebb0d-d22d-4158-95bc-f99169300eb4
-      m_Path: <Keyboard>/o
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Switch Pin Type
-      m_Flags: 0
-  PinList:
-  - type: 0
-    sprite: {fileID: -183939406271800499, guid: 6488fcaa61661ca489406b7cd2b1f0ce, type: 3}
-    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
-  - type: 1
-    sprite: {fileID: 21300000, guid: f376b89a1510ca6e59d6e98f54b8d083, type: 3}
-    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
-  - type: 1
-    sprite: {fileID: 21300000, guid: 4e1ad4ac5779d6c48ada0974c3153931, type: 3}
-    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
 --- !u!114 &124870088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2288,7 +2192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &302912320
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2408,7 +2312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &304035245
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2591,7 +2495,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 311172173}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1073564540}
+        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
+        m_MethodName: SelectPinType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &311172173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2612,7 +2528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f1acded1f055fc45bea2cbde5482e7e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35bb76258ba737d4091a34129e1d3b59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2711,7 +2627,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 313946978}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1073564540}
+        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
+        m_MethodName: SelectPinType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &313946978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2724,7 +2652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 8fb7082b00a3ff840a6e86869825dde1, type: 2}
+  m_Material: {fileID: 2100000, guid: a6e6f7cd1dd146f4389d3c0b16125fbc, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2768,7 +2696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &314728196
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3519,7 +3447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f2e0f57b09aea49b1a00edaea97ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrespawnGraveAmount: 3
+  PrespawnPinAmount: 0
 --- !u!1 &463187415
 GameObject:
   m_ObjectHideFlags: 0
@@ -6738,6 +6666,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048318879}
   m_CullTransparentMesh: 1
+--- !u!1 &1073564539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1073564541}
+  - component: {fileID: 1073564540}
+  m_Layer: 0
+  m_Name: MapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1073564540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073564539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eac9d697a9b8d84189f6d49a557f47c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapContainer: {fileID: 708100481}
+  pinPrefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
+  mapRect: {fileID: 1626315241}
+  mapOpen: 0
+  selectedPinType: 0
+  pinPooler: {fileID: 435030437}
+  toggleMapActions:
+    m_Name: Toggle Map Actions
+    m_Id: 2a168235-1306-4e95-9f02-b8ea0aa4b3e3
+    m_Asset: {fileID: 0}
+    m_Actions:
+    - m_Name: Toggle Map
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: f9e27f79-fc9d-4a97-b97f-30bf991e721e
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Bindings:
+    - m_Name: 
+      m_Id: c76ba8df-fca6-4988-819b-1cc62ca9e629
+      m_Path: <Keyboard>/m
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Toggle Map
+      m_Flags: 0
+    - m_Name: 
+      m_Id: e1af5a96-eb13-448f-90a0-5f56a9547454
+      m_Path: <Keyboard>/tab
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Toggle Map
+      m_Flags: 0
+  pinActions:
+    m_Name: Pin Actions
+    m_Id: 7e5c46c9-0ab4-4ff2-b85f-6161a4a1853b
+    m_Asset: {fileID: 0}
+    m_Actions:
+    - m_Name: Place Pin
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 72c4ed20-c2c5-4be2-9947-575aaa6d6b69
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: Switch Pin Type
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 951b5013-e6f6-40b7-afc6-2fa9d535239f
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Bindings:
+    - m_Name: 
+      m_Id: 7b226d6f-b97f-4aa0-8bcd-99d1c8b45c88
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Place Pin
+      m_Flags: 0
+    - m_Name: 
+      m_Id: cb9ebb0d-d22d-4158-95bc-f99169300eb4
+      m_Path: <Keyboard>/o
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Switch Pin Type
+      m_Flags: 0
+  PinList:
+  - type: 0
+    sprite: {fileID: 21300000, guid: 1f1acded1f055fc45bea2cbde5482e7e, type: 3}
+    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
+  - type: 1
+    sprite: {fileID: 21300000, guid: 94613b56e5e37ca439d327929822234f, type: 3}
+    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
+  - type: 2
+    sprite: {fileID: 21300000, guid: 35bb76258ba737d4091a34129e1d3b59, type: 3}
+    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
+--- !u!4 &1073564541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073564539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 382.02896, y: 606.4065, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1090156228
 GameObject:
   m_ObjectHideFlags: 0
@@ -6756,7 +6812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1090156229
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7738,7 +7794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1311778679
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8268,7 +8324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1460175679
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8722,7 +8778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1566290663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10992,7 +11048,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1883446752}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1073564540}
+        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
+        m_MethodName: SelectPinType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1883446752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11790,7 +11858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2044196488
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12433,6 +12501,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1778750124}
   - {fileID: 1443518472}
+  - {fileID: 1073564541}
   - {fileID: 124870090}
   - {fileID: 1647830722}
   - {fileID: 1017219095}

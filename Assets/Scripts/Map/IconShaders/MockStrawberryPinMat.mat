@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1f1acded1f055fc45bea2cbde5482e7e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 94613b56e5e37ca439d327929822234f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -42,6 +42,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _ColorMask: 15
+    - _OutlineOn: 0
+    - _OutlineThickness: 0
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
@@ -52,6 +54,7 @@ Material:
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
     - _FilterColor: {r: 1, g: 0.7390866, b: 0.41799998, a: 0}
-    - _Green: {r: 0.5882353, g: 0.6901961, b: 0.45882344, a: 0}
+    - _Green: {r: 0.27450982, g: 0.49411765, b: 0, a: 0}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
