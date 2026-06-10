@@ -6,13 +6,11 @@ public class ShowPlayerInMap : MonoBehaviour
     private GameObject player;
     private Camera cam;
     private RectTransform rect;
-    [SerializeField] private GameObject env;
+    [SerializeField] private GameObject map;
+    private RectTransform mapRect;
 
-    [SerializeField] Vector2 bottomLeft = new Vector2(-209.4f, -182.6f); // +- 50
-    [SerializeField] Vector2 topRight = new Vector2(210.8f, 188.4f);
     [SerializeField] public Vector2 worldToMapScale;
     [SerializeField] Vector2 mapOriginVec;
-    //[SerializeField] Vector2 moveScale = new Vector2(1, 1);
 
     private void Awake()
     {
@@ -20,14 +18,16 @@ public class ShowPlayerInMap : MonoBehaviour
         cam = Camera.main;
         rect = transform.GetComponent<RectTransform>();
 
-        Vector2 mapSize = new Vector2(topRight.x - bottomLeft.x, topRight.y - bottomLeft.y);
+        mapRect = map.GetComponent<RectTransform>();
+
+        Vector2 mapSize = mapRect.rect.size;
         Vector2 worldSize = new Vector2(100, 100);
         worldToMapScale = new Vector2(mapSize.x / worldSize.x, mapSize.y / worldSize.y);
     }
 
     private void Update()
     {
-        Vector2 pos = WorldToMapPos(player.transform.position + env.transform.position);
+        Vector2 pos = WorldToMapPos(player.transform.position);
         rect.anchoredPosition = pos;
 
         if (Input.GetKeyDown(KeyCode.V))
@@ -39,10 +39,11 @@ public class ShowPlayerInMap : MonoBehaviour
 
     private Vector2 WorldToMapPos(Vector3 playerWorldPos)
     {
-        Vector2 worldOriginVec = new Vector3(player.transform.position.x, player.transform.position.z);
+        Vector2 worldOriginVec = new Vector2(player.transform.position.x, player.transform.position.z);
         mapOriginVec = new Vector2(worldOriginVec.x * worldToMapScale.x, worldOriginVec.y * worldToMapScale.y);
+        Vector2 mapLocalPos = new Vector2(mapRect.localPosition.x, mapRect.localPosition.y);
 
-        return bottomLeft + mapOriginVec;
+        return mapLocalPos - mapRect.rect.size / 2 + mapOriginVec;
     }
 
 }
