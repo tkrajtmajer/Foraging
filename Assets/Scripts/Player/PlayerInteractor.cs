@@ -7,9 +7,11 @@ public class PlayerInteractor : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            TryInteract();
+        if(UIManager.Instance.currentUIState == UIState.None) {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                TryInteract();
+            }
         }
     }
 

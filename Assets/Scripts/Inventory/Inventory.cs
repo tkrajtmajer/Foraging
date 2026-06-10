@@ -59,9 +59,9 @@ public class Inventory : MonoBehaviour
     [Serializable]
     public class ItemInventoryData
     {
-        public ItemInventoryData(ForageableInteractable item, bool emptySlot) { interactable = item; empty = emptySlot; }
+        public ItemInventoryData(ForageableData itemData, bool emptySlot) { data = itemData; empty = emptySlot; }
 
-        public ForageableInteractable interactable;
+        public ForageableData data;
         public bool empty;
     }
 
@@ -115,7 +115,7 @@ public class Inventory : MonoBehaviour
         int slot = GetFirstEmptySlot();
         if (slot != -1)
         {
-            inventory[slot].interactable = obj;
+            inventory[slot].data = obj.Data;
             inventory[slot].empty = false;
             SetSlotActive(currentSlot, false);
             currentSlot = slot;
@@ -128,16 +128,16 @@ public class Inventory : MonoBehaviour
     {
         if (!inventory[slot].empty)
         {
-            DropObject(inventory[slot].interactable);
-            inventory[slot].interactable = null;
+            DropObject(inventory[slot].data);
+            inventory[slot].data = null;
             inventory[slot].empty = true;
             UpdateUISlot(slot, true);
         }
     }
 
-    public void DropObject(ForageableInteractable obj)
+    public void DropObject(ForageableData data)
     {
-        GameObject newObj = Instantiate(obj.Data.modelPrefab);
+        GameObject newObj = Instantiate(data.modelPrefab);
         newObj.transform.position = player.transform.position + player.transform.forward;
         newObj.transform.position += 0.2f * displacement;
     }
@@ -151,7 +151,7 @@ public class Inventory : MonoBehaviour
             return;
         }
 
-        inventorySlotsUI[slot].GetComponent<Image>().sprite = inventory[slot].interactable.Data.silhouetteImage;
+        inventorySlotsUI[slot].GetComponent<Image>().sprite = inventory[slot].data.silhouetteImage;
         inventorySlotsUI[slot].GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
