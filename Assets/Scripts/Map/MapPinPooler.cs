@@ -4,7 +4,7 @@ using UnityEngine;
 public class MapPinPooler : MonoBehaviour
 {
     List<List<GameObject>> PinPools;
-    [SerializeField] int PrespawnGraveAmount;
+    [SerializeField] int PrespawnPinAmount;
 
     private void Start()
     {
@@ -14,7 +14,7 @@ public class MapPinPooler : MonoBehaviour
         {
             List<GameObject> PinPool = new();
 
-            for (int j = 0; j < PrespawnGraveAmount; j++)
+            for (int j = 0; j < PrespawnPinAmount; j++)
             {
                 GameObject pinObject = Instantiate(MapManager.Instance.PinList[i].prefab, this.transform);
                 pinObject.gameObject.SetActive(false);

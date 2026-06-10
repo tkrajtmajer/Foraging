@@ -6,14 +6,16 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using System.Runtime.CompilerServices;
 
 public class MapManager : MonoBehaviour
 {
     [SerializeField] GameObject mapContainer;
     [SerializeField] GameObject pinPrefab;
+    [SerializeField] RectTransform mapRect;
     public bool mapOpen = false;
 
-    public PinType selectedPinType = PinType.Mushroom;
+    public PinType selectedPinType = PinType.WildStrawberry;
     [SerializeField] MapPinPooler pinPooler;
 
     public static MapManager Instance { get; private set; }
@@ -35,7 +37,7 @@ public class MapManager : MonoBehaviour
 
         toggleMapActions["Toggle Map"].performed += ToggleMap;
         pinActions["Place Pin"].performed += PlacePin;
-        pinActions["Switch Pin Type"].performed += SwitchPinType;
+        //pinActions["Switch Pin Type"].performed += SwitchPinType;
     }
 
     private void OnEnable()
@@ -82,8 +84,9 @@ public class MapManager : MonoBehaviour
 
     public enum PinType
     {
-        Mushroom,
-        Banana,
+        WildStrawberry,
+        MockStrawberry,
+        Rosemary,
     }
 
     [Serializable]
@@ -104,12 +107,24 @@ public class MapManager : MonoBehaviour
         //pinPlacedEvent.Invoke(pinPooler, selectedPinType);
         if (!mapOpen) return;
         Vector2 mousePos = Input.mousePosition;
+        //Debug.Log(mousePos);
+        if (!MapContainsMouse(mousePos)) return;
         MapPin newPin = pinPooler.GetMapPin(selectedPinType);
         newPin.Spawn(mousePos);
+    }
+
+    private bool MapContainsMouse(Vector2 mousePos)
+    {
+        return RectTransformUtility.RectangleContainsScreenPoint(mapRect, mousePos);
     }
 
     public void SwitchPinType(InputAction.CallbackContext context)
     {
         selectedPinType = (PinType)(((int)(selectedPinType) + 1) % PinList.Count);
+    }
+
+    public void SelectPinType(int idx)
+    {
+        selectedPinType = (MapManager.PinType)idx;
     }
 }
