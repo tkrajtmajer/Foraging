@@ -29,12 +29,6 @@ public class ShowPlayerInMap : MonoBehaviour
     {
         Vector2 pos = WorldToMapPos(player.transform.position);
         rect.anchoredPosition = pos;
-
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            Debug.Log(rect.position);
-            Debug.Log(rect.anchoredPosition);
-        }
     }
 
     private Vector2 WorldToMapPos(Vector3 playerWorldPos)
