@@ -42,8 +42,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _ColorMask: 15
-    - _OutlineOn: 1
-    - _OutlineThickness: 0.2
+    - _OutlineOn: 0
+    - _OutlineThickness: 0
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
@@ -55,6 +55,6 @@ Material:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
     - _FilterColor: {r: 1, g: 0.74276686, b: 0.5613207, a: 0}
     - _Green: {r: 0.5882353, g: 0.6901961, b: 0.45882344, a: 0}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
+    - _OutlineColor: {r: 0.9607843, g: 0.47843137, b: 0.09019608, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

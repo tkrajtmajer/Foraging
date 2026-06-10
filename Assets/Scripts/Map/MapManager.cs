@@ -87,6 +87,10 @@ public class MapManager : MonoBehaviour
         WildStrawberry,
         MockStrawberry,
         Rosemary,
+        Dandelion,
+        AloeVera,
+        StingingNettle,
+        WildGarlic,
     }
 
     [Serializable]

@@ -217,7 +217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &27084195
 RectTransform:
   m_ObjectHideFlags: 0
@@ -280,7 +280,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 27084197}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1073564540}
+        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
+        m_MethodName: SelectPinType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &27084197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f1acded1f055fc45bea2cbde5482e7e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c09762448952fde41875dd733bbb0677, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2192,7 +2204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &302912320
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2255,7 +2267,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 302912322}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1073564540}
+        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
+        m_MethodName: SelectPinType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &302912322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2276,7 +2300,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f1acded1f055fc45bea2cbde5482e7e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 261c93ee38dc2f3459a36102ad21a2a0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2696,7 +2720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &314728196
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2759,7 +2783,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 314728198}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1073564540}
+        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
+        m_MethodName: SelectPinType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &314728198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2780,7 +2816,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f1acded1f055fc45bea2cbde5482e7e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7e36ad237e7af8841b2252ec0a161da7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6778,6 +6814,18 @@ MonoBehaviour:
     prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
   - type: 2
     sprite: {fileID: 21300000, guid: 35bb76258ba737d4091a34129e1d3b59, type: 3}
+    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
+  - type: 3
+    sprite: {fileID: 21300000, guid: ba0d73a80ff955c44ab74d0cf4d0f4f1, type: 3}
+    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
+  - type: 4
+    sprite: {fileID: 21300000, guid: 261c93ee38dc2f3459a36102ad21a2a0, type: 3}
+    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
+  - type: 5
+    sprite: {fileID: 21300000, guid: 7e36ad237e7af8841b2252ec0a161da7, type: 3}
+    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
+  - type: 6
+    sprite: {fileID: 21300000, guid: c09762448952fde41875dd733bbb0677, type: 3}
     prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
 --- !u!4 &1073564541
 Transform:
@@ -11858,7 +11906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2044196488
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11921,7 +11969,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2044196490}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1073564540}
+        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
+        m_MethodName: SelectPinType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2044196490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11942,7 +12002,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f1acded1f055fc45bea2cbde5482e7e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba0d73a80ff955c44ab74d0cf4d0f4f1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
