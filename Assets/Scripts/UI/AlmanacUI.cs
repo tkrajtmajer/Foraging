@@ -56,16 +56,16 @@ public class AlmanacUI : MonoBehaviour
     }
 
     void Update() {
-        if(UIManager.Instance.currentUIState != UIState.Inspect) {
-            if (Input.GetKeyDown(KeyCode.J)) {
-                if (bookOpen) {
-                    if (viewFromInspect) return;
+        if (Input.GetKeyDown(KeyCode.J)) {
+            if (bookOpen) {
+                if (viewFromInspect) return;
 
-                    HideAlmanac();
-                    Time.timeScale = 1f;
-                    UIManager.Instance.SetState(UIState.None);
-                }
-                else {
+                HideAlmanac();
+                Time.timeScale = 1f;
+                UIManager.Instance.SetState(UIState.None);
+            }
+            else {
+                if(UIManager.Instance.currentUIState == UIState.None) {
                     ShowAlmanac();
                     ShowItemizedView();
                     DrawItemsUI();
