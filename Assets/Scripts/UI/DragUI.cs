@@ -31,7 +31,7 @@ public class DragUI : MonoBehaviour, IDragHandler
         {
             // eventData.delta gives us the mouse movement since the last frame
             float rotX = -eventData.delta.y * rotationSpeed;
-            float rotY = -eventData.delta.x * rotationSpeed;
+            float rotY = eventData.delta.x * rotationSpeed;
 
             // Rotate the object around the camera's axes so the rotation feels intuitive
             currentSpawnedModel.transform.Rotate(Vector3.up, rotY, Space.World);
