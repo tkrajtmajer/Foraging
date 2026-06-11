@@ -3,7 +3,12 @@ guid: 219d85e5faeebd047a81261d5a941137
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: nettle
+    second: {fileID: 2100000, guid: ae15ee061dc32c54c96bfdb2f568ebd2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

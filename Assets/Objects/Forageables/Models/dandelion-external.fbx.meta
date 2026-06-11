@@ -3,7 +3,17 @@ guid: ff641b5366ef8404c9b19004d5e9d9e8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dandilion_Head_Material
+    second: {fileID: 2100000, guid: 7644bfb1fab85e24390f369c82865156, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaf_Material
+    second: {fileID: 2100000, guid: 7210f911655f7074985ea9681ba9aecf, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
