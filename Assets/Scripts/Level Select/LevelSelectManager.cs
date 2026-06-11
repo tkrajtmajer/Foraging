@@ -7,6 +7,8 @@ public class LevelSelectManager : MonoBehaviour
 {
     public int maxLevel = 3;
     [SerializeField] GameObject levelsContainer;
+    //[SerializeField] GameObject levelPrefab;
+    [SerializeField] int levelMoveAmount = 310;
 
     public static event UnityAction<int> LevelSelected;
 
@@ -29,8 +31,7 @@ public class LevelSelectManager : MonoBehaviour
     {
         if (scene.buildIndex == 1)
         {
-            // Magic number 226. Could substitute for levelsContainer.transform.localPosition.y
-            levelsContainer.transform.localPosition = new Vector3((LevelManager.Instance.currentLevel - 1) * -310, 226, 0);
+            levelsContainer.transform.localPosition = new Vector3((LevelManager.Instance.currentLevel - 1) * -levelMoveAmount, levelsContainer.transform.localPosition.y, 0);
             MoveLevels(0);
         }
     }
@@ -42,7 +43,7 @@ public class LevelSelectManager : MonoBehaviour
         if (LevelManager.Instance.currentLevel == 1 & side == 1) return;
         if (LevelManager.Instance.currentLevel == maxLevel & side == -1) return;
         LevelManager.Instance.currentLevel -= side;
-        levelsContainer.transform.localPosition += side * new Vector3(310, 0, 0);
+        levelsContainer.transform.localPosition += side * new Vector3(levelMoveAmount, 0, 0);
         foreach (Level level in levelsContainer.GetComponentsInChildren<Level>())
         {
             float alpha;

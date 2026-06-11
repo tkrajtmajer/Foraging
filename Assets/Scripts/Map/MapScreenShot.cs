@@ -37,8 +37,5 @@ public class MapScreenShot : MonoBehaviour
     {
         string m_Path = Application.dataPath;
         ScreenCapture.CaptureScreenshot(m_Path + "/MapPicture.png", 1);
-        ScreenCapture.CaptureScreenshot(m_Path + "/MapPicture2x.png", 2);
-        ScreenCapture.CaptureScreenshot(m_Path + "/MapPicture5x.png", 5);
-        ScreenCapture.CaptureScreenshot(m_Path + "/MapPicture10x.png", 10);
     }
 }
