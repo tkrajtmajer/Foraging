@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Aloe Vera
   description: 
-  itemDifficulty: 1
+  itemDifficulty: 0
   location: 0
   isPoisonous: 0
   season: Spring

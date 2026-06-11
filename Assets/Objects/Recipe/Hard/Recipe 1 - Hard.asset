@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7f31c8fe428fc9885fc953872e501e, type: 3}
   m_Name: Recipe 1 - Hard
   m_EditorClassIdentifier: 
-  forageablesInRecipe: []
+  forageablesInRecipe:
+  - {fileID: 11400000, guid: 6a89407c45cb9e84b8b9f21b8999575c, type: 2}
+  - {fileID: 11400000, guid: 6a89407c45cb9e84b8b9f21b8999575c, type: 2}
+  - {fileID: 11400000, guid: b04279f494bfdcc428f35a6955c40074, type: 2}
+  - {fileID: 11400000, guid: 4abf5e7d44bceae449cd8c504b6fd333, type: 2}
+  - {fileID: 11400000, guid: 4abf5e7d44bceae449cd8c504b6fd333, type: 2}

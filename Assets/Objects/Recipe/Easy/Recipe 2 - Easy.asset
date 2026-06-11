@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Recipe 2 - Easy
   m_EditorClassIdentifier: 
   forageablesInRecipe:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 0eb7332a706c67e469eefff55623c71f, type: 2}
+  - {fileID: 11400000, guid: 6a89407c45cb9e84b8b9f21b8999575c, type: 2}
+  - {fileID: 11400000, guid: 6a89407c45cb9e84b8b9f21b8999575c, type: 2}

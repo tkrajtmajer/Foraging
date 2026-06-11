@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Stinging Nettle
   description: 
-  itemDifficulty: 1
+  itemDifficulty: 0
   location: 0
   isPoisonous: 0
-  season: 
+  season: Spring
   silhouetteImage: {fileID: 21300000, guid: 7e36ad237e7af8841b2252ec0a161da7, type: 3}
   silhouetteImageOccluded: {fileID: 0}
   modelPrefab: {fileID: 8561632287459613331, guid: 275f364c24a76ef4cb2d91eb163f150a, type: 3}
