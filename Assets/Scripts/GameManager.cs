@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int maxDays = 7;
 
     [SerializeField] public ItemDatabase itemDatabase;
-    internal Recipe currentRecipe; // used by UI
+    public Recipe currentRecipe; // used by UI
     //internal String[] discoveredItems; // maybe better hashmap? 
     //private HashSet<ForageableData> discoveredItems = new HashSet<ForageableData>(); // hashset to prevent duplicate, also why internal before?
 
@@ -38,18 +38,18 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        TimeManager.OnDayEnded += UpdateTimeProgress;
+        // TimeManager.OnDayEnded += UpdateTimeProgress;
         LevelManager.LevelLoaded += LoadLevel;
-        InitDay(1, LevelManager.Instance.levelList[0].recipe);
+        //InitDay(1, LevelManager.Instance.levelList[0].recipe);
     }
 
     private void OnDisable()
     {
-        TimeManager.OnDayEnded -= UpdateTimeProgress;
+        // TimeManager.OnDayEnded -= UpdateTimeProgress;
         LevelManager.LevelLoaded -= LoadLevel;
     }
 
-    private void UpdateTimeProgress() {
+    public void UpdateTimeProgress() {
         FinishDay();
         //currentDay++;
 

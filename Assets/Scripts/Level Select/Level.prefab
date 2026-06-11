@@ -470,6 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6442754491690634061}
   - component: {fileID: -1348267327364182445}
+  - component: {fileID: 2092463919220628104}
   m_Layer: 5
   m_Name: Level
   m_TagString: Untagged
@@ -514,6 +515,14 @@ MonoBehaviour:
   levelData: {fileID: 0}
   levelText: {fileID: 2684570734416272907}
   button: {fileID: 9208063492156528177}
+--- !u!222 &2092463919220628104
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810710327125105989}
+  m_CullTransparentMesh: 1
 --- !u!1 &5672260430951828516
 GameObject:
   m_ObjectHideFlags: 0

@@ -62,6 +62,7 @@ public class TimeManager : MonoBehaviour
     {
         Days = GameManager.Instance.currentDay;
         Hours = startHour;
+        OnHoursChange(hours);
     }
 
     private void Update()
@@ -122,7 +123,9 @@ public class TimeManager : MonoBehaviour
             StartCoroutine(LerpLight(nightToSunriseGradient, nightToSunriseDuration * 60 * minuteDuration));
             //DayPeriodChange.Invoke(nightToSunriseGradient, nightToSunriseDuration * 60 * minuteDuration);
 
-            OnDayEnded?.Invoke();
+            //OnDayEnded?.Invoke();
+            GameManager.Instance.UpdateTimeProgress();
+            Debug.Log("update time ");
         }
     }
 
