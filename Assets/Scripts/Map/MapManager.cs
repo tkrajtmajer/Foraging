@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using System.Runtime.CompilerServices;
+using TMPro;
 
 public class MapManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class MapManager : MonoBehaviour
     public static MapManager Instance { get; private set; }
     public InputActionMap toggleMapActions;
     public InputActionMap pinActions;
+
+    [SerializeField] private TMP_Text currentDayText;
 
     //public static event UnityAction<MapPinPooler, PinType> pinPlacedEvent;
 
@@ -63,6 +66,8 @@ public class MapManager : MonoBehaviour
             GameObject mapUI = GameObject.Find("MapUI");
             mapContainer = mapUI.transform.GetChild(0).gameObject;
             pinPooler = mapContainer.GetComponentInChildren<MapPinPooler>();
+
+            currentDayText.text = "Current day: " + GameManager.Instance.currentDay.ToString();
         }
     }
 
