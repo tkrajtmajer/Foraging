@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3425928164998586339}
   - component: {fileID: 2032236045845198186}
   m_Layer: 25
-  m_Name: OnionGrass
+  m_Name: StingingNettle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,10 +28,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
+  m_LocalScale: {x: 0.17, y: 0.17, z: 0.17}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 3344354002537576212}
+  - {fileID: 2526614065064125961}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3425928164998586339
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8828e1fcaa7b6d43a994ae65463ca33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forageableData: {fileID: 11400000, guid: b04279f494bfdcc428f35a6955c40074, type: 2}
+  forageableData: {fileID: 11400000, guid: 7be018c3192af1f428ac518544b41886, type: 2}
 --- !u!65 &2032236045845198186
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66,9 +66,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 13.7, y: 30.8, z: 9.76}
-  m_Center: {x: 0, y: 15.28, z: 0.49}
---- !u!1001 &3018310336866750719
+  m_Size: {x: 3.91, y: 6.22, z: 3.94}
+  m_Center: {x: 0, y: 3.08, z: 0}
+--- !u!1001 &2637683755125981666
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -76,57 +76,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8119879813283254819}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 122b47af2e09c3346b4cef0ac0ae0290, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 219d85e5faeebd047a81261d5a941137, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6782238
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 122b47af2e09c3346b4cef0ac0ae0290, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 219d85e5faeebd047a81261d5a941137, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 122b47af2e09c3346b4cef0ac0ae0290, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 219d85e5faeebd047a81261d5a941137, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.29657155
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 122b47af2e09c3346b4cef0ac0ae0290, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 219d85e5faeebd047a81261d5a941137, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.62546605
+      value: 0.7071067
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 122b47af2e09c3346b4cef0ac0ae0290, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 219d85e5faeebd047a81261d5a941137, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.07638718
+      value: -0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 122b47af2e09c3346b4cef0ac0ae0290, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 219d85e5faeebd047a81261d5a941137, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7764987
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 122b47af2e09c3346b4cef0ac0ae0290, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 219d85e5faeebd047a81261d5a941137, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0026638915
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 122b47af2e09c3346b4cef0ac0ae0290, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 219d85e5faeebd047a81261d5a941137, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 122b47af2e09c3346b4cef0ac0ae0290, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 219d85e5faeebd047a81261d5a941137, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 122b47af2e09c3346b4cef0ac0ae0290, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 219d85e5faeebd047a81261d5a941137, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 122b47af2e09c3346b4cef0ac0ae0290, type: 3}
+    - target: {fileID: 919132149155446097, guid: 219d85e5faeebd047a81261d5a941137, type: 3}
       propertyPath: m_Name
-      value: onion grass
+      value: nettle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 122b47af2e09c3346b4cef0ac0ae0290, type: 3}
---- !u!4 &3344354002537576212 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 219d85e5faeebd047a81261d5a941137, type: 3}
+--- !u!4 &2526614065064125961 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 122b47af2e09c3346b4cef0ac0ae0290, type: 3}
-  m_PrefabInstance: {fileID: 3018310336866750719}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 219d85e5faeebd047a81261d5a941137, type: 3}
+  m_PrefabInstance: {fileID: 2637683755125981666}
   m_PrefabAsset: {fileID: 0}
