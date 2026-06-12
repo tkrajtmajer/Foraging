@@ -29,7 +29,7 @@ public class LevelSelectManager : MonoBehaviour
 
     private void SetLevelState(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex == 1)
+        if (scene.buildIndex == GameManager.Instance.menuScene + 1)
         {
             levelsContainer.transform.localPosition = new Vector3((LevelManager.Instance.currentLevel - 1) * -levelMoveAmount, levelsContainer.transform.localPosition.y, 0);
             MoveLevels(0);

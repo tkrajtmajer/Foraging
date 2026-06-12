@@ -118,6 +118,10 @@ public class TimeManager : MonoBehaviour
             StartCoroutine(LerpLight(afternoonToNightGradient, afternoonToNightDuration * 60 * minuteDuration));
             //DayPeriodChange.Invoke(afternoonToNightGradient, afternoonToNightDuration * 60 * minuteDuration);
         }
+        else if (hour == 20)
+        {
+            MusicManager.Instance.EndOfDayMusic((afternoonToNightDuration - 2) * 60 * minuteDuration);
+        }
         else if (hour == 4)
         {
             StartCoroutine(LerpLight(nightToSunriseGradient, nightToSunriseDuration * 60 * minuteDuration));

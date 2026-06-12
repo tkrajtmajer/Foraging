@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
 
     public void InitDay(int day, Recipe recipe)
     {
+        MusicManager.Instance.TransitionMusicStartOfDay();
         currentDay = day;
         if (currentRecipe != recipe) currentRecipe = recipe;
         //currentRecipe =  allRecipes[currentDay-1];
@@ -123,6 +124,7 @@ public class GameManager : MonoBehaviour
     public void GoToScoreScene()
     {
         score = GetRecipeScore();
+        MusicManager.Instance.TransitionMusicEndOfDay();
         ScreenFader.Instance.FadeAndLoadScene(scoreSceneIdx);
     }
 
