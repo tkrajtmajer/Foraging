@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rosemary
   m_EditorClassIdentifier: 
   itemName: Rosemary
-  description: 
+  description: '- evergreen shrub\n- dark green needlelike leaves and a pungent taste'
   itemDifficulty: 0
   location: 2
   isPoisonous: 0

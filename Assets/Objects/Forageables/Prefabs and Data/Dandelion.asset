@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dandelion
   m_EditorClassIdentifier: 
   itemName: Dandelion
-  description: 
+  description: '- entire plant is edible \n-can be sauteed or added as garnish'
   itemDifficulty: 0
   location: 3
   isPoisonous: 0

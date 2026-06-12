@@ -38,10 +38,12 @@ public class FeedbackUI : MonoBehaviour
         currentRecipe = GameManager.Instance.currentRecipe.forageablesInRecipe;
         playerInventory = GameManager.Instance.previousInventory;
 
-        foreach (ForageableData item in playerInventory) {
-            if(currentRecipe.Contains(item)) {
-                goodObjects.Add(item);
+        List<ForageableData> remainingItems = new(currentRecipe);
 
+        foreach (ForageableData item in playerInventory) {
+            if (remainingItems.Contains(item)) {
+                goodObjects.Add(item);
+                remainingItems.Remove(item);
                 SpawnSpriteInArea(goodSpawnArea, item.silhouetteImage);
             }
 

@@ -10,7 +10,9 @@ public class PlayerInteractor : MonoBehaviour
         if(UIManager.Instance.currentUIState == UIState.None) {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                TryInteract();
+                if(!Inventory.Instance.CheckInventoryFull()) {
+                    TryInteract();
+                }
             }
         }
     }

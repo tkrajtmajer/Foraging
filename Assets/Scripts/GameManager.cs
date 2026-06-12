@@ -9,9 +9,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public ItemDatabase itemDatabase;
     public Recipe currentRecipe; // used by UI
-    //internal String[] discoveredItems; // maybe better hashmap? 
-    //private HashSet<ForageableData> discoveredItems = new HashSet<ForageableData>(); // hashset to prevent duplicate, also why internal before?
-
+    
     internal int menuScene = 1;
     internal int finalMainSceneIdx = 3;
     internal int scoreSceneIdx = 4; //"ScoreScene";
@@ -21,6 +19,8 @@ public class GameManager : MonoBehaviour
     internal List<ForageableData> previousInventory;
 
     public static GameManager Instance { get; private set; }
+
+    public static event Action<int> LoadObjects;
 
     private void Awake()
     {
@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     private void LoadLevel(LevelData levelData)
     {
         InitDay(levelData.levelNumber, levelData.recipe);
+        //LoadObjects?.Invoke(levelData.levelNumber);
     }
 
     public void SpawnRandomItem(Vector3 spawnPosition)
@@ -184,6 +185,4 @@ public class GameManager : MonoBehaviour
 
         return score;
     }
-
-
 }

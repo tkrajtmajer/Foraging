@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: LambsLettuce
   m_EditorClassIdentifier: 
   itemName: Lambs Lettuce
-  description: 
+  description: -small rosette shape \n- spoon-shaped leaves \n-eaten as a salad green
+    and as an herb with a nutty tangy flavour
   itemDifficulty: 1
   location: 3
   isPoisonous: 0

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: StingingNettle
   m_EditorClassIdentifier: 
   itemName: Stinging Nettle
-  description: 
+  description: -must be cooked (blanching removes sting)\n- used in soups, tea, substituted
+    for spinach \n-wear gloves when picking!!
   itemDifficulty: 0
   location: 0
   isPoisonous: 0

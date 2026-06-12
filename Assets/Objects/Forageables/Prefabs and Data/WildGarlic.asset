@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: WildGarlic
   m_EditorClassIdentifier: 
   itemName: Wild Garlic
-  description: 
+  description: '- leaves can be eaten raw in salads, or blanched and used in place
+    of spinach \n- pick leaves that are bright in color \n- easy to confuse with
+    similar poisonous plants'
   itemDifficulty: 0
   location: 4
   isPoisonous: 0
