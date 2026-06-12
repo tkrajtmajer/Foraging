@@ -65,6 +65,16 @@ public class FeedbackUI : MonoBehaviour
     }
 
     public void ShowGoodItems() {
+        List<ForageableData> uniqueGood = new List<ForageableData>();
+
+        foreach (ForageableData item in goodObjects) {
+            if (!uniqueGood.Contains(item)) {
+                uniqueGood.Add(item);
+            }
+        }
+
+        goodObjects = uniqueGood;
+
         fakeAlmanac.SetActive(true);
         nextButton.SetActive(false);
 

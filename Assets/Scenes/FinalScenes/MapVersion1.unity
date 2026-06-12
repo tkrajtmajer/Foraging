@@ -6152,6 +6152,7 @@ MonoBehaviour:
   itemPoisonousUI: {fileID: 281590218}
   itemSpriteUI: {fileID: 24539385}
   itemDescriptionUI: {fileID: 1384529027}
+  itemRenderUI: {fileID: 2076927946}
   dragUI: {fileID: 2076927951}
 --- !u!1 &836794528
 GameObject:
