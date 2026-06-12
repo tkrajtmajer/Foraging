@@ -110,7 +110,7 @@ public class Inventory : MonoBehaviour
         return -1;
     }
 
-    public void TryAddObject(ForageableInteractable obj)
+    public bool TryAddObject(ForageableInteractable obj)
     {
         int slot = GetFirstEmptySlot();
         if (slot != -1)
@@ -121,7 +121,10 @@ public class Inventory : MonoBehaviour
             currentSlot = slot;
             SetSlotActive(currentSlot, true);
             UpdateUISlot(slot);
+
+            return true;
         }
+        return false;
     }
 
     public void TryRemoveObject(int slot)
