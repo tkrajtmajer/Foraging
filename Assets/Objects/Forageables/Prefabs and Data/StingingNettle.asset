@@ -20,6 +20,6 @@ MonoBehaviour:
   isPoisonous: 0
   season: Spring
   silhouetteImage: {fileID: 21300000, guid: 7e36ad237e7af8841b2252ec0a161da7, type: 3}
-  silhouetteImageOccluded: {fileID: 0}
+  silhouetteImageOccluded: {fileID: 21300000, guid: f35ce354a3d8ead428d11e539f9b8400, type: 3}
   modelPrefab: {fileID: 8561632287459613331, guid: 275f364c24a76ef4cb2d91eb163f150a, type: 3}
   wasDiscovered: 0

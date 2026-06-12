@@ -66,8 +66,7 @@ public class InspectUI : MonoBehaviour
     public void OnCollectButtonClicked()
     {
         // Inventory logic
-        bool canAdd = Inventory.Instance.TryAddObject(currentForageable);
-        if (!canAdd) return;
+        Inventory.Instance.TryAddObject(currentForageable);
         
         currentForageable.Collect();
         CloseUI();

@@ -24,4 +24,24 @@ public class ForageableInteractable : MonoBehaviour, IInteractable
         Destroy(gameObject);
     }
 
+    public void ChangeMaterial(Material mat, bool add)
+    {
+        MeshRenderer[] rendererList = transform.GetComponentsInChildren<MeshRenderer>();
+        if (rendererList.Length > 0) Debug.Log("found some");
+        foreach (MeshRenderer renderer in rendererList)
+        {
+            int lengthMats = renderer.materials.Length;
+            Debug.Log(lengthMats);
+            if (add)
+            {
+                Debug.Log("Added Material");
+                renderer.materials[lengthMats - 1] = mat;
+                Debug.Log(renderer.materials);
+            }
+            else
+            {
+                renderer.materials[lengthMats - 1] = renderer.materials[lengthMats - 2];
+            }
+        }
+    }
 }

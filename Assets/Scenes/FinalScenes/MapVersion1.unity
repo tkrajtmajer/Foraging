@@ -2050,10 +2050,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952f5351a357d464fb8a12ed1e64e81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outlineMaterial: {fileID: 2100000, guid: f4a02023305378c4ab32a329680da603, type: 2}
   interactionRange: 0.8
   layerInteractable:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 33554432
 --- !u!1001 &289397055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2659,7 +2660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &313946976
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3967,7 +3968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &490213798
 Transform:
   m_ObjectHideFlags: 0
@@ -5076,7 +5077,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &708100482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12839,7 +12840,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1883446750
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14505,6 +14506,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 490213798}
     m_Modifications:
+    - target: {fileID: 1533449023143793439, guid: 0569c679357294148a8964b7e1e4e2b1, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8119879813283254819, guid: 0569c679357294148a8964b7e1e4e2b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 40.32
@@ -14567,6 +14572,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 490213798}
     m_Modifications:
+    - target: {fileID: 1533449023143793439, guid: 0569c679357294148a8964b7e1e4e2b1, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f4a02023305378c4ab32a329680da603, type: 2}
     - target: {fileID: 8119879813283254819, guid: 0569c679357294148a8964b7e1e4e2b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.58
@@ -14812,6 +14821,14 @@ PrefabInstance:
     - target: {fileID: 2245375857325096976, guid: 7371d410a81846feab7467dc6c38e0c3, type: 3}
       propertyPath: m_Name
       value: mushroom-house
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245375857325096976, guid: 7371d410a81846feab7467dc6c38e0c3, type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108059628029262025, guid: 7371d410a81846feab7467dc6c38e0c3, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 29561875527997387, guid: 7371d410a81846feab7467dc6c38e0c3, type: 3}

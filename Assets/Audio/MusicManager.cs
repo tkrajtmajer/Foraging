@@ -64,27 +64,29 @@ public class MusicManager : MonoBehaviour
 
     public void EndOfDayMusic(float duration)
     {
-        StartCoroutine(SlowMusicDown(duration));
+        StartCoroutine(SlowMusicDown(duration, 0.8f));
     }
 
-    private IEnumerator SlowMusicDown(float duration)
+    private IEnumerator SlowMusicDown(float duration, float pitch)
     {
         for (float i  = 0; i < duration; i += Time.deltaTime)
         {
-            source.pitch = 1 * (1 - i / duration) + 0.8f * i / duration;
+            source.pitch = 1 * (1 - i / duration) + pitch * i / duration;
             yield return null;
         }
-        source.pitch = 0.8f;
+        source.pitch = pitch;
     }
 
     public void TransitionMusicEndOfDay()
     {
-        StartCoroutine(FadeMusicOut(fadeDuration, chillMusic));
+        //StartCoroutine(FadeMusicOut(fadeDuration, chillMusic));
+        StartCoroutine(FadeMusicOutPartially(fadeDuration));
     }
 
     public void TransitionMusicStartOfDay()
     {
-        StartCoroutine(FadeMusicOut(fadeDuration, hypeMusic));
+        //StartCoroutine(FadeMusicOut(fadeDuration, hypeMusic));
+        StartCoroutine(FadeMusicInPartially(fadeDuration));
     }
 
     private IEnumerator FadeMusicOut(float fadeDuration, AudioClip music) 
@@ -102,6 +104,27 @@ public class MusicManager : MonoBehaviour
         ChangeMusic();
         source.Play();
         StartCoroutine(FadeMusicIn(fadeDuration));
+    }
+
+    private IEnumerator FadeMusicOutPartially(float fadeDuration)
+    {
+        float initialVolume = PlayerPrefs.GetFloat("musicVolume");
+        for (float i = 0; i < fadeDuration; i += Time.deltaTime)
+        {
+            source.volume = initialVolume * (1 - i / (fadeDuration * 1.2f));
+            yield return null;
+        }
+    }
+
+    private IEnumerator FadeMusicInPartially(float fadeDuration)
+    {
+        float finalVolume = PlayerPrefs.GetFloat("musicVolume");
+        for (float i = 0; i < fadeDuration; i += Time.deltaTime)
+        {
+            source.volume = finalVolume * i / (fadeDuration * 1.2f);
+            yield return null;
+        }
+        source.volume = finalVolume;
     }
 
     private IEnumerator FadeMusicOut(float fadeDuration)

@@ -78,12 +78,14 @@ public class MapManager : MonoBehaviour
             mapOpen = false;
             mapContainer.SetActive(false);
             UIManager.Instance.SetState(UIState.None);
+            Time.timeScale = 1.0f;
         }
         else if (UIManager.Instance.currentUIState == UIState.None)
         {
             mapOpen = true;
             mapContainer.SetActive(true);
             UIManager.Instance.SetState(UIState.Map);
+            Time.timeScale = 0.0f;
         }
     }
 
