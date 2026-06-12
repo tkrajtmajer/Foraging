@@ -3144,7 +3144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventorySize: 5
   inventory: []
-  displacement: {x: 0, y: 3, z: 0}
+  displacement: {x: 0, y: 0, z: 0}
   inventoryContainer: {fileID: 134272200}
   frameActive: {fileID: 21300000, guid: 34a1d97ae3563f48ebee76c0621a2b9a, type: 3}
   frameInactive: {fileID: 21300000, guid: 7f23d9ed873cb578788db76159e198c3, type: 3}
@@ -14573,9 +14573,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 490213798}
     m_Modifications:
     - target: {fileID: 1533449023143793439, guid: 0569c679357294148a8964b7e1e4e2b1, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533449023143793439, guid: 0569c679357294148a8964b7e1e4e2b1, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: f4a02023305378c4ab32a329680da603, type: 2}
+      objectReference: {fileID: 2100000, guid: 3bcc2c19effdeb848bf6538424f4b8a3, type: 2}
     - target: {fileID: 8119879813283254819, guid: 0569c679357294148a8964b7e1e4e2b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.58

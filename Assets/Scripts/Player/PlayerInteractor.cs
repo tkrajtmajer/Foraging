@@ -59,14 +59,14 @@ public class PlayerInteractor : MonoBehaviour
                 if (canInteract != interactable)
                 {
                     canInteract = interactable;
-                    canInteract.ChangeMaterial(outlineMaterial, true);
+                    //canInteract.ChangeMaterial(outlineMaterial, true);
                 }
                 return; // avoid interaction with multiple interactables
             }
         }
         if (canInteract != null)
         {
-            canInteract.ChangeMaterial(outlineMaterial, false);
+            //canInteract.ChangeMaterial(outlineMaterial, false);
             canInteract = null;
         }
     }
