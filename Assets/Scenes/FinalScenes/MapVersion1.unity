@@ -11118,7 +11118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27dce14f9b8c2b44b94e5acf1d8504b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minuteDuration: 0.125
+  minuteDuration: 0.1354
   startHour: 5
   sunriseToMorningDuration: 3
   morningToAfternoonDuration: 5

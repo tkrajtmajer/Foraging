@@ -62,21 +62,6 @@ public class MusicManager : MonoBehaviour
         source.Play();
     }
 
-    public void EndOfDayMusic(float duration)
-    {
-        StartCoroutine(SlowMusicDown(duration, 0.8f));
-    }
-
-    private IEnumerator SlowMusicDown(float duration, float pitch)
-    {
-        for (float i  = 0; i < duration; i += Time.deltaTime)
-        {
-            source.pitch = 1 * (1 - i / duration) + pitch * i / duration;
-            yield return null;
-        }
-        source.pitch = pitch;
-    }
-
     public void TransitionMusicEndOfDay()
     {
         //StartCoroutine(FadeMusicOut(fadeDuration, chillMusic));
@@ -89,22 +74,23 @@ public class MusicManager : MonoBehaviour
         StartCoroutine(FadeMusicInPartially(fadeDuration));
     }
 
-    private IEnumerator FadeMusicOut(float fadeDuration, AudioClip music) 
-    {
-        float initialVolume = PlayerPrefs.GetFloat("musicVolume");
-        for (float i = 0; i < fadeDuration; i += Time.deltaTime)
-        {
-            source.volume = initialVolume * (1 - i / fadeDuration);
-            yield return null;
-        }
+    // For a full fade, not currently in use
+    //private IEnumerator FadeMusicOut(float fadeDuration, AudioClip music) 
+    //{
+    //    float initialVolume = PlayerPrefs.GetFloat("musicVolume");
+    //    for (float i = 0; i < fadeDuration; i += Time.deltaTime)
+    //    {
+    //        source.volume = initialVolume * (1 - i / fadeDuration);
+    //        yield return null;
+    //    }
 
-        source.Pause();
+    //    source.Pause();
 
-        currentMusic = music;
-        ChangeMusic();
-        source.Play();
-        StartCoroutine(FadeMusicIn(fadeDuration));
-    }
+    //    currentMusic = music;
+    //    ChangeMusic();
+    //    source.Play();
+    //    StartCoroutine(FadeMusicIn(fadeDuration));
+    //}
 
     private IEnumerator FadeMusicOutPartially(float fadeDuration)
     {
@@ -127,35 +113,23 @@ public class MusicManager : MonoBehaviour
         source.volume = finalVolume;
     }
 
-    private IEnumerator FadeMusicOut(float fadeDuration)
-    {
-        float initialVolume = PlayerPrefs.GetFloat("musicVolume");
-        for (float i = 0; i < fadeDuration; i += Time.deltaTime)
-        {
-            source.volume = initialVolume * (1 - i / fadeDuration);
-            yield return null;
-        }
-    }
+    //private IEnumerator FadeMusicOut(float fadeDuration)
+    //{
+    //    float initialVolume = PlayerPrefs.GetFloat("musicVolume");
+    //    for (float i = 0; i < fadeDuration; i += Time.deltaTime)
+    //    {
+    //        source.volume = initialVolume * (1 - i / fadeDuration);
+    //        yield return null;
+    //    }
+    //}
 
-    private IEnumerator FadeMusicIn(float fadeDuration)
-    {
-        float finalVolume = PlayerPrefs.GetFloat("musicVolume");
-        for (float i = 0; i < fadeDuration; i += Time.deltaTime)
-        {
-            source.volume = finalVolume * i / fadeDuration;
-            yield return null;
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            StartCoroutine(FadeMusicIn(fadeDuration));
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            StartCoroutine(FadeMusicOut(fadeDuration));
-        }
-    }
+    //private IEnumerator FadeMusicIn(float fadeDuration)
+    //{
+    //    float finalVolume = PlayerPrefs.GetFloat("musicVolume");
+    //    for (float i = 0; i < fadeDuration; i += Time.deltaTime)
+    //    {
+    //        source.volume = finalVolume * i / fadeDuration;
+    //        yield return null;
+    //    }
+    //}
 }
