@@ -43,7 +43,7 @@ public class MusicManager : MonoBehaviour
 
     private void SetSceneMusic(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex == GameManager.Instance.finalMainSceneIdx && currentMusic == chillMusic)
+        if (scene.buildIndex == GameManager.Instance.finalMainSceneIdx && currentMusic != hypeMusic)
         {
             currentMusic = hypeMusic;
             ChangeMusic();
@@ -57,40 +57,20 @@ public class MusicManager : MonoBehaviour
 
     private void ChangeMusic()
     {
+        source.Pause();
         source.resource = (UnityEngine.Audio.AudioResource)currentMusic;
-        source.pitch = 1;
         source.Play();
     }
 
     public void TransitionMusicEndOfDay()
     {
-        //StartCoroutine(FadeMusicOut(fadeDuration, chillMusic));
         StartCoroutine(FadeMusicOutPartially(fadeDuration));
     }
 
     public void TransitionMusicStartOfDay()
     {
-        //StartCoroutine(FadeMusicOut(fadeDuration, hypeMusic));
         StartCoroutine(FadeMusicInPartially(fadeDuration));
     }
-
-    // For a full fade, not currently in use
-    //private IEnumerator FadeMusicOut(float fadeDuration, AudioClip music) 
-    //{
-    //    float initialVolume = PlayerPrefs.GetFloat("musicVolume");
-    //    for (float i = 0; i < fadeDuration; i += Time.deltaTime)
-    //    {
-    //        source.volume = initialVolume * (1 - i / fadeDuration);
-    //        yield return null;
-    //    }
-
-    //    source.Pause();
-
-    //    currentMusic = music;
-    //    ChangeMusic();
-    //    source.Play();
-    //    StartCoroutine(FadeMusicIn(fadeDuration));
-    //}
 
     private IEnumerator FadeMusicOutPartially(float fadeDuration)
     {
@@ -112,24 +92,4 @@ public class MusicManager : MonoBehaviour
         }
         source.volume = finalVolume;
     }
-
-    //private IEnumerator FadeMusicOut(float fadeDuration)
-    //{
-    //    float initialVolume = PlayerPrefs.GetFloat("musicVolume");
-    //    for (float i = 0; i < fadeDuration; i += Time.deltaTime)
-    //    {
-    //        source.volume = initialVolume * (1 - i / fadeDuration);
-    //        yield return null;
-    //    }
-    //}
-
-    //private IEnumerator FadeMusicIn(float fadeDuration)
-    //{
-    //    float finalVolume = PlayerPrefs.GetFloat("musicVolume");
-    //    for (float i = 0; i < fadeDuration; i += Time.deltaTime)
-    //    {
-    //        source.volume = finalVolume * i / fadeDuration;
-    //        yield return null;
-    //    }
-    //}
 }

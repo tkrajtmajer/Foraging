@@ -1585,7 +1585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chillMusic: {fileID: 8300000, guid: ee73d570f491fe24b9f0990a11450f96, type: 3}
-  hypeMusic: {fileID: 8300000, guid: 617b7eb8b72574842a6cd3de2095e8eb, type: 3}
+  hypeMusic: {fileID: 8300000, guid: 9514c41962aaa034b9c901efee8c94e9, type: 3}
   currentMusic: {fileID: 0}
   fadeDuration: 0.5
 --- !u!1 &1053466304
