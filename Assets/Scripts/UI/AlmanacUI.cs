@@ -219,6 +219,7 @@ public class AlmanacUI : MonoBehaviour
 
     private void ShowAlmanac()
     {
+        UIManager.Instance.currentUIState = UIState.Almanac;
         bookOpen = true;
         almanacUIContainer.SetActive(true);
     }
@@ -231,8 +232,16 @@ public class AlmanacUI : MonoBehaviour
     
     public void TryHideAlmanac()
     {
-        if (viewFromInspect) ToggleItemDetails();
+        if (UIManager.Instance.currentUIState != UIState.Almanac) return;
 
+        if (viewFromInspect) 
+        { 
+            ToggleItemDetails();
+            Debug.Log("Closed");
+            return; 
+        }
+        
+        
         HideAlmanac();
         Time.timeScale = 1f;
         UIManager.Instance.SetState(UIState.None);

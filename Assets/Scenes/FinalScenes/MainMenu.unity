@@ -2819,7 +2819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf5c3bed9e7d7bd4bce854171106425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 1002430914}
+  volumeSlider: {fileID: 611101511}
 --- !u!1 &2032091687
 GameObject:
   m_ObjectHideFlags: 0

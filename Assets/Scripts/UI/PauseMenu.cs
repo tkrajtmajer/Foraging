@@ -7,12 +7,14 @@ public class PauseMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        UIManager.ClosedUI += ResumeGame;
+        UIManager.ClosedUI += TryResumeGame;
+        UIManager.PauseGame += PauseGame;
     }
 
     private void OnDisable()
     {
-        UIManager.ClosedUI -= ResumeGame;
+        UIManager.ClosedUI -= TryResumeGame;
+        UIManager.PauseGame -= PauseGame;
     }
 
     void Start() {
@@ -48,5 +50,11 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("quit");
         Time.timeScale = 1f;
         SceneManager.LoadScene(GameManager.Instance.menuScene);
+    }
+
+    public void TryResumeGame()
+    {
+        if (UIManager.Instance.currentUIState != UIState.Pause) return;
+        ResumeGame();
     }
 }

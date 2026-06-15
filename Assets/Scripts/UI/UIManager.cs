@@ -13,6 +13,7 @@ public enum UIState
 public class UIManager : MonoBehaviour
 {
     public static event Action ClosedUI;
+    public static event Action PauseGame;
     public static UIManager Instance;
 
     InputSystem_Actions controls;
@@ -21,13 +22,13 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else {
+        //if (Instance != null && Instance != this)
+        //{
+        //    Destroy(this);
+        //}
+        //else {
             Instance = this;
-        }
+        //}
 
         controls = new InputSystem_Actions();
 
@@ -52,7 +53,12 @@ public class UIManager : MonoBehaviour
 
     public void CloseUI()
     {
-        SetState(UIState.None);
+        if (currentUIState == UIState.None)
+        {
+            PauseGame?.Invoke();
+            return;
+        }
+        //SetState(UIState.None);
         ClosedUI?.Invoke();
     }
 }

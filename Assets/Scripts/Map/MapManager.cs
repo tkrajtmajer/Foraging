@@ -48,7 +48,7 @@ public class MapManager : MonoBehaviour
         toggleMapActions.Enable();
         pinActions.Enable();
 
-        UIManager.ClosedUI += CloseMap;
+        UIManager.ClosedUI += TryCloseMap;
     }
 
     private void OnDisable()
@@ -56,7 +56,7 @@ public class MapManager : MonoBehaviour
         toggleMapActions.Disable();
         pinActions.Disable();
 
-        UIManager.ClosedUI -= CloseMap;
+        UIManager.ClosedUI -= TryCloseMap;
     }
 
     private void ToggleMap(InputAction.CallbackContext context) 
@@ -135,5 +135,11 @@ public class MapManager : MonoBehaviour
     public void SelectPinType(int idx)
     {
         selectedPinType = (MapManager.PinType)idx;
+    }
+
+    private void TryCloseMap()
+    {
+        if (UIManager.Instance.currentUIState != UIState.Map) return;
+        CloseMap();
     }
 }
