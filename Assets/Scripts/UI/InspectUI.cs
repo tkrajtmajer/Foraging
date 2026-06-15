@@ -28,10 +28,12 @@ public class InspectUI : MonoBehaviour
 
     void OnEnable() {
         AlmanacUI.CloseAlmanac += ShowInspect;
+        UIManager.ClosedUI += CloseUI;
     }
 
     void OnDisable() {
         AlmanacUI.CloseAlmanac -= ShowInspect;
+        UIManager.ClosedUI -= CloseUI;
     }
 
     private void OnDestroy()

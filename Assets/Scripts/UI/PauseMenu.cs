@@ -5,6 +5,16 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUI;
 
+    private void OnEnable()
+    {
+        UIManager.ClosedUI += ResumeGame;
+    }
+
+    private void OnDisable()
+    {
+        UIManager.ClosedUI -= ResumeGame;
+    }
+
     void Start() {
         pauseMenuUI.SetActive(false);
     }

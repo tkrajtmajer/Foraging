@@ -50,10 +50,12 @@ public class AlmanacUI : MonoBehaviour
 
     void OnEnable() {
         InspectUI.OpenAlmanac += ShowFromInspect;
+        UIManager.ClosedUI += TryHideAlmanac;
     }
 
     void OnDisable() {
         InspectUI.OpenAlmanac -= ShowFromInspect;
+        UIManager.ClosedUI -= TryHideAlmanac;
     }
 
     void Update() {
@@ -227,4 +229,12 @@ public class AlmanacUI : MonoBehaviour
         almanacUIContainer.SetActive(false);
     }
     
+    public void TryHideAlmanac()
+    {
+        if (viewFromInspect) ToggleItemDetails();
+
+        HideAlmanac();
+        Time.timeScale = 1f;
+        UIManager.Instance.SetState(UIState.None);
+    }
 }

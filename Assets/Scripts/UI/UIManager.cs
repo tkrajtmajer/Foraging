@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public enum UIState
@@ -11,7 +12,10 @@ public enum UIState
 
 public class UIManager : MonoBehaviour
 {
+    public static event Action ClosedUI;
     public static UIManager Instance;
+
+    InputSystem_Actions controls;
 
     internal UIState currentUIState = UIState.None;
 
@@ -24,11 +28,32 @@ public class UIManager : MonoBehaviour
         else {
             Instance = this;
         }
+
+        controls = new InputSystem_Actions();
+
+        controls.UI.CloseUI.performed += ctx => CloseUI();
+
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 
     public void SetState(UIState state)
     {
         currentUIState = state;
+    }
+
+    public void CloseUI()
+    {
+        SetState(UIState.None);
+        ClosedUI?.Invoke();
     }
 }
 
