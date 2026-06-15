@@ -18,4 +18,6 @@ public class HouseInteractable : MonoBehaviour, IInteractable
     }
 
     public void ChangeMaterial(Material mat, bool add) { ; }
+
+    public bool isHouse() { return true; }
 }

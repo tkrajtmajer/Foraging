@@ -6,15 +6,21 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private Material outlineMaterial;
     [SerializeField] private float interactionRange = 1.5f;
     [SerializeField] private LayerMask layerInteractable;
-    [SerializeField] private IInteractable canInteract = null;
+    private IInteractable canInteract;
 
     void Update()
     {
-        if(UIManager.Instance.currentUIState == UIState.None) {
+        if (UIManager.Instance.currentUIState == UIState.None) {
             CheckInteractables();
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if(!Inventory.Instance.CheckInventoryFull()) {
+                if (!IsNotNull(canInteract)) return;
+
+                if (canInteract.isHouse())
+                {
+                    canInteract.Interact();
+                }
+                else if(!Inventory.Instance.CheckInventoryFull()) {
                     //TryInteract();
                     canInteract.Interact();
                     canInteract = null;
@@ -55,20 +61,29 @@ public class PlayerInteractor : MonoBehaviour
         {
             IInteractable interactable = hit.GetComponent<IInteractable>();
             if (interactable != null)
-            {
+            {   
                 if (canInteract != interactable)
                 {
+                    if (IsNotNull(canInteract) && canInteract.isHouse()) return;
+
+                    if (IsNotNull(canInteract)) canInteract.ChangeMaterial(outlineMaterial, false);
                     canInteract = interactable;
-                    //canInteract.ChangeMaterial(outlineMaterial, true);
+                    canInteract.ChangeMaterial(outlineMaterial, true);
                 }
                 return; // avoid interaction with multiple interactables
             }
         }
-        if (canInteract != null)
+
+        // Nothing to interact with -> remove reference to object if not null on previous frame
+        if (IsNotNull(canInteract))
         {
-            //canInteract.ChangeMaterial(outlineMaterial, false);
+            if (!canInteract.isHouse()) canInteract.ChangeMaterial(outlineMaterial, false);
             canInteract = null;
         }
     }
 
+    private bool IsNotNull(IInteractable interactable)
+    {
+        return (interactable != null) && !interactable.Equals(null);
+    }
 }

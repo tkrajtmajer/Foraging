@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.SpeedTree.Importer;
 using UnityEngine;
 
 public class ForageableInteractable : MonoBehaviour, IInteractable
@@ -27,21 +28,21 @@ public class ForageableInteractable : MonoBehaviour, IInteractable
     public void ChangeMaterial(Material mat, bool add)
     {
         MeshRenderer[] rendererList = transform.GetComponentsInChildren<MeshRenderer>();
-        if (rendererList.Length > 0) Debug.Log("found some");
         foreach (MeshRenderer renderer in rendererList)
         {
             int lengthMats = renderer.materials.Length;
-            Debug.Log(lengthMats);
+            Material[] materials = renderer.materials;
             if (add)
             {
-                Debug.Log("Added Material");
-                renderer.materials[lengthMats - 1] = mat;
-                Debug.Log(renderer.materials);
+                materials[lengthMats - 1] = mat;
             }
             else
             {
-                renderer.materials[lengthMats - 1] = renderer.materials[lengthMats - 2];
+                materials[lengthMats - 1] = materials[lengthMats - 2];
             }
+            renderer.materials = materials;
         }
     }
+
+    public bool isHouse() { return false; }
 }
