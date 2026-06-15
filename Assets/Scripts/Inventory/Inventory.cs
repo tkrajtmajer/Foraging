@@ -160,4 +160,8 @@ public class Inventory : MonoBehaviour
 
         borderImage.sprite = isActive ? frameActive : frameInactive;
     }
+
+    public bool CheckInventoryFull() {
+        return GetFirstEmptySlot() == -1;
+    }
 }

@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.SpeedTree.Importer;
 using UnityEngine;
 
 public class ForageableInteractable : MonoBehaviour, IInteractable
@@ -24,4 +25,24 @@ public class ForageableInteractable : MonoBehaviour, IInteractable
         Destroy(gameObject);
     }
 
+    public void ChangeMaterial(Material mat, bool add)
+    {
+        MeshRenderer[] rendererList = transform.GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer renderer in rendererList)
+        {
+            int lengthMats = renderer.materials.Length;
+            Material[] materials = renderer.materials;
+            if (add)
+            {
+                materials[lengthMats - 1] = mat;
+            }
+            else
+            {
+                materials[lengthMats - 1] = materials[lengthMats - 2];
+            }
+            renderer.materials = materials;
+        }
+    }
+
+    public bool isHouse() { return false; }
 }

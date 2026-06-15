@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e7f31c8fe428fc9885fc953872e501e, type: 3}
-  m_Name: Recipe 3
+  m_Name: Recipe 2 - Medium
   m_EditorClassIdentifier: 
   forageablesInRecipe:
-  - {fileID: 11400000, guid: 6309c34091c1cdb49b2f9c115554344b, type: 2}
-  - {fileID: 11400000, guid: 6309c34091c1cdb49b2f9c115554344b, type: 2}
-  - {fileID: 11400000, guid: 6309c34091c1cdb49b2f9c115554344b, type: 2}
+  - {fileID: 11400000, guid: 6a89407c45cb9e84b8b9f21b8999575c, type: 2}
+  - {fileID: 11400000, guid: 3d326fcf3b6d2fd4eb1a3feffc3c5848, type: 2}
+  - {fileID: 11400000, guid: 4abf5e7d44bceae449cd8c504b6fd333, type: 2}
+  - {fileID: 11400000, guid: f3665c7acc19ee845a828069e6d7e5c1, type: 2}

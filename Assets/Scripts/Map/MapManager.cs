@@ -48,7 +48,7 @@ public class MapManager : MonoBehaviour
         toggleMapActions.Enable();
         pinActions.Enable();
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
@@ -56,20 +56,20 @@ public class MapManager : MonoBehaviour
         toggleMapActions.Disable();
         pinActions.Disable();
 
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        //SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.buildIndex == GameManager.Instance.finalMainSceneIdx)
-        {
-            GameObject mapUI = GameObject.Find("MapUI");
-            mapContainer = mapUI.transform.GetChild(0).gameObject;
-            pinPooler = mapContainer.GetComponentInChildren<MapPinPooler>();
+    //void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    if (scene.buildIndex == GameManager.Instance.finalMainSceneIdx)
+    //    {
+    //        GameObject mapUI = GameObject.Find("MapUI");
+    //        mapContainer = mapUI.transform.GetChild(0).gameObject;
+    //        pinPooler = mapContainer.GetComponentInChildren<MapPinPooler>();
 
-            currentDayText.text = "Current day: " + GameManager.Instance.currentDay.ToString();
-        }
-    }
+    //        currentDayText.text = "Current day: " + GameManager.Instance.currentDay.ToString();
+    //    }
+    //}
 
     private void ToggleMap(InputAction.CallbackContext context) 
     {
@@ -78,12 +78,14 @@ public class MapManager : MonoBehaviour
             mapOpen = false;
             mapContainer.SetActive(false);
             UIManager.Instance.SetState(UIState.None);
+            Time.timeScale = 1.0f;
         }
         else if (UIManager.Instance.currentUIState == UIState.None)
         {
             mapOpen = true;
             mapContainer.SetActive(true);
             UIManager.Instance.SetState(UIState.Map);
+            Time.timeScale = 0.0f;
         }
     }
 

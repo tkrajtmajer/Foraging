@@ -27,6 +27,7 @@ public class AlmanacUI : MonoBehaviour
     [SerializeField] private TMP_Text itemPoisonousUI;
     [SerializeField] private Image itemSpriteUI;
     [SerializeField] private TMP_Text itemDescriptionUI;
+    [SerializeField] private GameObject itemRenderUI;
 
     private int currentPage = 1;
     private int nrOfPages;
@@ -177,8 +178,14 @@ public class AlmanacUI : MonoBehaviour
         itemPoisonousUI.text = selectedItem.isPoisonous? "Poisonous" : "Not poisonous";
         itemLocationUI.text = selectedItem.location.ToString() + ", " + selectedItem.season;
         itemSpriteUI.sprite = selectedItem.wasDiscovered? selectedItem.silhouetteImage : selectedItem.silhouetteImageOccluded;
-
-        dragUI.SetupDragRender(selectedItem);
+        
+        if(selectedItem.wasDiscovered) {
+            dragUI.SetupDragRender(selectedItem);
+            itemRenderUI.SetActive(true);
+        }
+        else {
+            itemRenderUI.SetActive(false);
+        }
     }
 
     private void HandleButtonSelect(AlmanacItemUI uiItem) {

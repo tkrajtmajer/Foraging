@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Level 2 Data
   m_EditorClassIdentifier: 
   levelNumber: 2
-  recipe: {fileID: 11400000, guid: a8f643e0c1b0f31478dfc594553c3fdb, type: 2}
+  recipe: {fileID: 11400000, guid: c22600a23b573e44aa5fc65ea8bc369a, type: 2}
   unlocked: 0

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
+  m_Name: WildGarlic
+  m_EditorClassIdentifier: 
+  itemName: Wild Garlic
+  description: '- leaves can be eaten raw in salads, or blanched and used in place
+    of spinach \n- pick leaves that are bright in color \n- easy to confuse with
+    similar poisonous plants'
+  itemDifficulty: 0
+  location: 4
+  isPoisonous: 0
+  season: Spring
+  silhouetteImage: {fileID: 21300000, guid: c09762448952fde41875dd733bbb0677, type: 3}
+  silhouetteImageOccluded: {fileID: 21300000, guid: 7f1b8cbe29ed1a34d99caf966f78903b, type: 3}
+  modelPrefab: {fileID: 8561632287459613331, guid: 253a16731300e624d95c5f77546ecb0b, type: 3}
+  wasDiscovered: 0

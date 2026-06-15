@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
+  m_Name: OnionGrass
+  m_EditorClassIdentifier: 
+  itemName: Onion Grass
+  description: 
+  itemDifficulty: 1
+  location: 3
+  isPoisonous: 0
+  season: Spring
+  silhouetteImage: {fileID: -183939406271800499, guid: 6488fcaa61661ca489406b7cd2b1f0ce, type: 3}
+  silhouetteImageOccluded: {fileID: 0}
+  modelPrefab: {fileID: 8561632287459613331, guid: db5befb130c17034bb908c16817e09af, type: 3}
+  wasDiscovered: 0

@@ -16,4 +16,8 @@ public class HouseInteractable : MonoBehaviour, IInteractable
         //OnHouseInteracted?.Invoke(GameManager.GetRecipeScore(debugInventory));
         //Debug.Log($"Score: {GameManager.GetRecipeScore(debugInventory)}!");
     }
+
+    public void ChangeMaterial(Material mat, bool add) { ; }
+
+    public bool isHouse() { return true; }
 }
