@@ -57,7 +57,7 @@ public class MusicManager : MonoBehaviour
 
     private void ChangeMusic()
     {
-        source.Pause();
+        source.Stop();
         source.resource = (UnityEngine.Audio.AudioResource)currentMusic;
         source.Play();
     }
@@ -69,7 +69,8 @@ public class MusicManager : MonoBehaviour
 
     public void TransitionMusicStartOfDay()
     {
-        StartCoroutine(FadeMusicInPartially(fadeDuration));
+        ChangeMusic();
+        StartCoroutine(FadeMusicInPartially(fadeDuration * 5));
     }
 
     private IEnumerator FadeMusicOutPartially(float fadeDuration)
