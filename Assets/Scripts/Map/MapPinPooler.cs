@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class MapPinPooler : MonoBehaviour
@@ -47,5 +48,24 @@ public class MapPinPooler : MonoBehaviour
         MapPin mapPin = pinObject.GetComponent<MapPin>();
         pool.Add(mapPin.gameObject);
         return mapPin;
+    }
+
+    public MapPin HasPinAt(Vector2 pos)
+    {
+        Vector3 pos3 = new Vector3(pos.x, pos.y);
+        for (int i = 0; i < PinPools.Count; i++)
+        {
+            List<GameObject> PinPool = PinPools[i];
+
+            for (int j = 0; j < PinPool.Count; j++)
+            {
+                GameObject pin = PinPool[j];
+                if (pin.GetComponent<RectTransform>().position == pos3)
+                {
+                    return pin.GetComponent<MapPin>();
+                }
+            }
+        }
+       return null;
     }
 }

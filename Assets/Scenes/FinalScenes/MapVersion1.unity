@@ -3722,7 +3722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f2e0f57b09aea49b1a00edaea97ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrespawnPinAmount: 0
+  PrespawnPinAmount: 2
 --- !u!1001 &435191435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8373,6 +8373,14 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
+    - m_Name: Remove Pin
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: aea86971-288a-44e5-9ddc-09c1d301e90f
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
     m_Bindings:
     - m_Name: 
       m_Id: 7b226d6f-b97f-4aa0-8bcd-99d1c8b45c88
@@ -8390,29 +8398,24 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Switch Pin Type
       m_Flags: 0
+    - m_Name: 
+      m_Id: 9be080fa-24bc-43be-8c76-a649924d1132
+      m_Path: <Mouse>/rightButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Remove Pin
+      m_Flags: 0
   currentDayText: {fileID: 2089552038}
   PinList:
   - type: 0
     sprite: {fileID: 21300000, guid: 1f1acded1f055fc45bea2cbde5482e7e, type: 3}
     prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
+    poisonous: 0
   - type: 1
     sprite: {fileID: 21300000, guid: 94613b56e5e37ca439d327929822234f, type: 3}
     prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
-  - type: 2
-    sprite: {fileID: 21300000, guid: 35bb76258ba737d4091a34129e1d3b59, type: 3}
-    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
-  - type: 3
-    sprite: {fileID: 21300000, guid: ba0d73a80ff955c44ab74d0cf4d0f4f1, type: 3}
-    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
-  - type: 4
-    sprite: {fileID: 21300000, guid: 261c93ee38dc2f3459a36102ad21a2a0, type: 3}
-    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
-  - type: 5
-    sprite: {fileID: 21300000, guid: 7e36ad237e7af8841b2252ec0a161da7, type: 3}
-    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
-  - type: 6
-    sprite: {fileID: 21300000, guid: c09762448952fde41875dd733bbb0677, type: 3}
-    prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
+    poisonous: 0
 --- !u!4 &1073564541
 Transform:
   m_ObjectHideFlags: 0

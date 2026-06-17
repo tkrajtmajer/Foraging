@@ -8,6 +8,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using System.Runtime.CompilerServices;
 using TMPro;
+using System.Net;
 
 public class MapManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] RectTransform mapRect;
     public bool mapOpen = false;
 
-    public PinType selectedPinType = PinType.WildStrawberry;
+    public PinType selectedPinType = PinType.NonPoisonous;
     [SerializeField] MapPinPooler pinPooler;
 
     public static MapManager Instance { get; private set; }
@@ -40,6 +41,7 @@ public class MapManager : MonoBehaviour
 
         toggleMapActions["Toggle Map"].performed += ToggleMap;
         pinActions["Place Pin"].performed += PlacePin;
+        pinActions["Remove Pin"].performed += RemovePin;
         //pinActions["Switch Pin Type"].performed += SwitchPinType;
     }
 
@@ -87,15 +89,21 @@ public class MapManager : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+    //public enum PinType
+    //{
+    //    WildStrawberry,
+    //    MockStrawberry,
+    //    Rosemary,
+    //    Dandelion,
+    //    AloeVera,
+    //    StingingNettle,
+    //    WildGarlic,
+    //}
+
     public enum PinType
     {
-        WildStrawberry,
-        MockStrawberry,
-        Rosemary,
-        Dandelion,
-        AloeVera,
-        StingingNettle,
-        WildGarlic,
+        NonPoisonous,
+        Poisonous,
     }
 
     [Serializable]
@@ -104,6 +112,7 @@ public class MapManager : MonoBehaviour
         public PinType type;
         public Sprite sprite;
         public GameObject prefab;
+        public bool poisonous;
     }
 
     public List<PinData> PinList = new();
@@ -120,6 +129,22 @@ public class MapManager : MonoBehaviour
         if (!MapContainsMouse(mousePos)) return;
         MapPin newPin = pinPooler.GetMapPin(selectedPinType);
         newPin.Spawn(mousePos);
+        PlacedPinsData.Instance.AddPlacedPin(mousePos, (byte)selectedPinType);
+    }
+
+    public void RemovePin(InputAction.CallbackContext context)
+    {
+        if (!mapOpen) return;
+        Vector2 mousePos = Input.mousePosition;
+        if (!MapContainsMouse(mousePos)) return;
+        Debug.Log(mousePos);
+        MapPin pin = pinPooler.HasPinAt(mousePos);
+        Debug.Log(pin);
+        if (pin != null && !pin.Equals(null))
+        {
+            PlacedPinsData.Instance.RemovePlacedPin(mousePos);
+            pin.Remove();
+        }
     }
 
     private bool MapContainsMouse(Vector2 mousePos)
