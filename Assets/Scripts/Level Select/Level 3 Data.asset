@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 3
   recipe: {fileID: 11400000, guid: 0c3a1b9bd52b04e468408e109c7b5b6f, type: 2}
-  unlocked: 0
+  itemsCollected: 0
+  totalItems: 3

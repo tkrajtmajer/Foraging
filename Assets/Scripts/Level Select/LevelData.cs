@@ -5,5 +5,7 @@ public class LevelData : ScriptableObject
 {
     public int levelNumber;
     public Recipe recipe;
-    public bool unlocked;
+
+    public int itemsCollected;
+    public int totalItems;
 }
