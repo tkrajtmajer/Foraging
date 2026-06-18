@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 259d302ab0d567d409c70efe59847c48, type: 3}
-  m_Name: Level 1 Data
+  m_Name: Level 6 Data
   m_EditorClassIdentifier: 
-  levelNumber: 1
-  recipe: {fileID: 11400000, guid: c4012873d29183e4f86d817a831ed068, type: 2}
+  levelNumber: 6
+  recipe: {fileID: 11400000, guid: 0c3a1b9bd52b04e468408e109c7b5b6f, type: 2}
+  levelState: 0000000000
   itemsCollected: 0
-  totalItems: 3
+  totalItems: 5

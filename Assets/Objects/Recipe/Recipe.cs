@@ -5,4 +5,5 @@ using UnityEngine;
 public class Recipe : ScriptableObject
 {
     public List<ForageableData> forageablesInRecipe = new List<ForageableData>();
+    public string recipeName;
 }
