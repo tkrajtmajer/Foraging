@@ -15,5 +15,5 @@ MonoBehaviour:
   levelNumber: 1
   recipe: {fileID: 11400000, guid: c4012873d29183e4f86d817a831ed068, type: 2}
   levelState: 000000
-  itemsCollected: 0
+  score: 0
   totalItems: 3
