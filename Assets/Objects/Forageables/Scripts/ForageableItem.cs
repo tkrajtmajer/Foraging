@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 public enum ItemLocation
 {
@@ -14,7 +15,8 @@ public class ForageableData : ScriptableObject
 {
     [Header("Item Info")]
     public string itemName;
-    public string description;
+    public List<string> description;
+    public List<string> extraInfo;
 
     [Header("Stats")]
     public int itemDifficulty;

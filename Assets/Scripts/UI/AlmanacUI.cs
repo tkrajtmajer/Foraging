@@ -176,9 +176,22 @@ public class AlmanacUI : MonoBehaviour
 
     private void Select(ForageableData selectedItem) {
         itemNameUI.text = selectedItem.itemName;
-        itemDescriptionUI.text = selectedItem.description;
+
+        itemDescriptionUI.text = "";
+        foreach (string desc in selectedItem.description) {
+            itemDescriptionUI.text += "- " + desc + "\n";
+        }
+        if(selectedItem.wasDiscovered) {
+            foreach (string extra in selectedItem.extraInfo) {
+                itemDescriptionUI.text += "- " + extra + "\n";
+            }
+        }
+
         itemPoisonousUI.text = selectedItem.isPoisonous? "Poisonous" : "Not poisonous";
-        itemLocationUI.text = selectedItem.location.ToString() + ", " + selectedItem.season;
+
+        itemLocationUI.text = "Found in " + selectedItem.season;
+        if(selectedItem.wasDiscovered) itemLocationUI.text += ", in " + selectedItem.location.ToString();
+
         itemSpriteUI.sprite = selectedItem.wasDiscovered? selectedItem.silhouetteImage : selectedItem.silhouetteImageOccluded;
         
         if(selectedItem.wasDiscovered) {
@@ -196,11 +209,13 @@ public class AlmanacUI : MonoBehaviour
     }
 
     private void ShowFromInspect(ForageableData selectedItem) {
-        Select(selectedItem);
+        // Select(selectedItem);
 
-        viewFromInspect = true;
+        // viewFromInspect = true;
         ShowAlmanac();
-        ShowIndividualView();
+        ShowItemizedView();
+        DrawItemsUI();
+        ChangeSelected(0);
     }
 
     private void ShowItemizedView()

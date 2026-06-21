@@ -90,9 +90,19 @@ public class FeedbackUI : MonoBehaviour
         ForageableData currentObj = goodObjects[currentItemToShow];
 
         itemNameUI.text = currentObj.itemName;
-        itemDescriptionUI.text = currentObj.description;
+        // itemDescriptionUI.text = currentObj.description;
+        itemDescriptionUI.text = "";
+        foreach (string desc in currentObj.description) {
+            itemDescriptionUI.text += "- " + desc + "\n";
+        }
+        foreach (string extra in currentObj.extraInfo) {
+            itemDescriptionUI.text += "- " + extra + "\n";
+        }
+
         itemPoisonousUI.text = "Not poisonous";
-        itemLocationUI.text = currentObj.location.ToString() + ", " + currentObj.season;
+
+        itemLocationUI.text = "Found in " + currentObj.season + ", in " + currentObj.location.ToString();
+
         itemSpriteUI.sprite = currentObj.silhouetteImage;
 
         dragUI.SetupDragRender(currentObj);
