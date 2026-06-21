@@ -1,10 +1,14 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using System;
 
 public class MapPinPooler : MonoBehaviour
 {
     List<List<GameObject>> PinPools;
     [SerializeField] int PrespawnPinAmount;
+
+    public static event Action LoadPins;
 
     private void Start()
     {
@@ -26,6 +30,8 @@ public class MapPinPooler : MonoBehaviour
 
             PinPools.Add(PinPool);
         }
+
+        LoadPins?.Invoke();
     }
 
     public MapPin GetMapPin(MapManager.PinType type)
@@ -47,5 +53,25 @@ public class MapPinPooler : MonoBehaviour
         MapPin mapPin = pinObject.GetComponent<MapPin>();
         pool.Add(mapPin.gameObject);
         return mapPin;
+    }
+
+    public MapPin HasPinAt(Vector2 pos)
+    {
+        //Vector3 pos3 = new Vector3(pos.x, pos.y);
+        for (int i = 0; i < PinPools.Count; i++)
+        {
+            List<GameObject> PinPool = PinPools[i];
+
+            for (int j = 0; j < PinPool.Count; j++)
+            {
+                GameObject pin = PinPool[j];
+                if (!pin.gameObject.activeInHierarchy) continue;
+                if (RectTransformUtility.RectangleContainsScreenPoint(pin.GetComponent<RectTransform>(), pos))
+                {
+                    return pin.GetComponent<MapPin>();
+                }
+            }
+        }
+        return null;
     }
 }

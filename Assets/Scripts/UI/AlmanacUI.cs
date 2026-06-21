@@ -50,10 +50,12 @@ public class AlmanacUI : MonoBehaviour
 
     void OnEnable() {
         InspectUI.OpenAlmanac += ShowFromInspect;
+        UIManager.ClosedUI += TryHideAlmanac;
     }
 
     void OnDisable() {
         InspectUI.OpenAlmanac -= ShowFromInspect;
+        UIManager.ClosedUI -= TryHideAlmanac;
     }
 
     void Update() {
@@ -217,6 +219,7 @@ public class AlmanacUI : MonoBehaviour
 
     private void ShowAlmanac()
     {
+        UIManager.Instance.currentUIState = UIState.Almanac;
         bookOpen = true;
         almanacUIContainer.SetActive(true);
     }
@@ -227,4 +230,20 @@ public class AlmanacUI : MonoBehaviour
         almanacUIContainer.SetActive(false);
     }
     
+    public void TryHideAlmanac()
+    {
+        if (UIManager.Instance.currentUIState != UIState.Almanac) return;
+
+        if (viewFromInspect) 
+        { 
+            ToggleItemDetails();
+            Debug.Log("Closed");
+            return; 
+        }
+        
+        
+        HideAlmanac();
+        Time.timeScale = 1f;
+        UIManager.Instance.SetState(UIState.None);
+    }
 }

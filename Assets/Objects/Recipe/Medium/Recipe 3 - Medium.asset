@@ -17,3 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3d326fcf3b6d2fd4eb1a3feffc3c5848, type: 2}
   - {fileID: 11400000, guid: 3d326fcf3b6d2fd4eb1a3feffc3c5848, type: 2}
   - {fileID: 11400000, guid: 0eb7332a706c67e469eefff55623c71f, type: 2}
+  recipeName: Name

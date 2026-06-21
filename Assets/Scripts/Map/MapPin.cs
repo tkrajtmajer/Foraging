@@ -14,4 +14,9 @@ public class MapPin : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public virtual bool RectContainsPoint(Vector2 point)
+    {
+        return RectTransformUtility.RectangleContainsScreenPoint(gameObject.GetComponent<RectTransform>(), point);
+    }
 }

@@ -28,10 +28,12 @@ public class InspectUI : MonoBehaviour
 
     void OnEnable() {
         AlmanacUI.CloseAlmanac += ShowInspect;
+        UIManager.ClosedUI += TryCloseUI;
     }
 
     void OnDisable() {
         AlmanacUI.CloseAlmanac -= ShowInspect;
+        UIManager.ClosedUI -= TryCloseUI;
     }
 
     private void OnDestroy()
@@ -89,7 +91,14 @@ public class InspectUI : MonoBehaviour
 
     private void ShowInspect() {
         Debug.Log("show inspect again");
+        UIManager.Instance.currentUIState = UIState.Inspect;
         inspectPanel.SetActive(true);
+    }
+
+    private void TryCloseUI()
+    {
+        if (UIManager.Instance.currentUIState != UIState.Inspect) return;
+        CloseUI();
     }
 
 

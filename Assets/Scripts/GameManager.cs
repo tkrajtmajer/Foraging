@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] public int currentDay = 1;
-    [SerializeField] private int maxDays = 7;
+    [SerializeField] public int maxDays = 7;
 
     [SerializeField] public ItemDatabase itemDatabase;
     public Recipe currentRecipe; // used by UI
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else {
             Instance = this;
@@ -86,7 +86,6 @@ public class GameManager : MonoBehaviour
         MusicManager.Instance.TransitionMusicStartOfDay();
         currentDay = day;
         if (currentRecipe != recipe) currentRecipe = recipe;
-        //currentRecipe =  allRecipes[currentDay-1];
     }
 
     public void NextDay()
@@ -100,7 +99,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         LevelManager.Instance.currentLevel = currentDay;
-        InitDay(currentDay, LevelManager.Instance.levelList[currentDay - 1].recipe);
+        InitDay(currentDay, LevelManager.Instance.levelDatabase.levelList[currentDay - 1].recipe);
         GoToMainScene();
     }
 
@@ -168,8 +167,16 @@ public class GameManager : MonoBehaviour
 
         previousInventory = new List<ForageableData>(playerForageables);
 
-        foreach (ForageableData neededItem in Instance.currentRecipe.forageablesInRecipe)
+        // Added for level select functionality
+        // Register state of level
+        LevelData currentLevelData = LevelManager.Instance.levelDatabase.levelList[currentDay - 1];
+
+
+        // Changed from foreach to for loop to get indexes
+        for (int itemIdx = 0; itemIdx < Instance.currentRecipe.forageablesInRecipe.Count; ++itemIdx)
         {
+            ForageableData neededItem = Instance.currentRecipe.forageablesInRecipe[itemIdx];
+            bool found = false;
             for (int i = 0; i < playerForageables.Count; i++)
             {
                 ForageableData playerItem = playerForageables[i];
@@ -180,10 +187,18 @@ public class GameManager : MonoBehaviour
                     playerItem.wasDiscovered = true;
                     score++;
                     playerForageables.RemoveAt(i); // we remove to prevent double matching
+
+                    // Change value of false for level state
+                    found = true;
                     break;
                 }
             }
+
+            currentLevelData.levelState[itemIdx] = found;
         }
+
+        // Assign new level score to Level Data
+        currentLevelData.score = score;
 
         return score;
     }
