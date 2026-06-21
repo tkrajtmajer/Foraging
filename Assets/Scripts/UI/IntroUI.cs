@@ -8,7 +8,10 @@ public class IntroUI : MonoBehaviour
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private GameObject nextButton;
     [SerializeField] private DialogueData introDialogue;
+    [SerializeField] private DialogueData dialogueWife;
     public static event Action<DialogueData> StartIntroDialogue;
+
+    int currentDialogue;
 
     IEnumerator Start()
     {
@@ -20,20 +23,29 @@ public class IntroUI : MonoBehaviour
         dialogueBox.SetActive(true);
         nextButton.SetActive(true);
 
+        currentDialogue = 0;
+
         StartIntroDialogue?.Invoke(introDialogue);        
     }
 
     void OnEnable() {
-        DialogueManager.DialogueEnded += TransitionScene;
+        DialogueManager.DialogueEnded += TransitionDialogue;
     }
     void OnDisable() {
-        DialogueManager.DialogueEnded -= TransitionScene;
+        DialogueManager.DialogueEnded -= TransitionDialogue;
     }
 
     IEnumerator WaitForIntro() {
         // do sth else?
 
         yield return new WaitForSeconds(2f);
+    }
+
+    void TransitionDialogue() {
+        currentDialogue++;
+
+        if (currentDialogue == 1) StartIntroDialogue?.Invoke(dialogueWife);
+        else TransitionScene();
     }
 
     void TransitionScene() {
