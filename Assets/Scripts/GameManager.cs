@@ -86,7 +86,6 @@ public class GameManager : MonoBehaviour
         MusicManager.Instance.TransitionMusicStartOfDay();
         currentDay = day;
         if (currentRecipe != recipe) currentRecipe = recipe;
-        //currentRecipe =  allRecipes[currentDay-1];
     }
 
     public void NextDay()

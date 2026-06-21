@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 using System.Runtime.CompilerServices;
 using TMPro;
 using System.Net;
@@ -112,7 +110,6 @@ public class MapManager : MonoBehaviour
         public PinType type;
         public Sprite sprite;
         public GameObject prefab;
-        public bool poisonous;
     }
 
     public List<PinData> PinList = new();
@@ -126,10 +123,10 @@ public class MapManager : MonoBehaviour
         if (!mapOpen) return;
         Vector2 mousePos = Input.mousePosition;
         //Debug.Log(mousePos);
-        if (!MapContainsMouse(mousePos)) return;
+        if (!MapContainsMouse(mousePos) || pinPooler.HasPinAt(mousePos) != null) return;
         MapPin newPin = pinPooler.GetMapPin(selectedPinType);
         newPin.Spawn(mousePos);
-        PlacedPinsData.Instance.AddPlacedPin(mousePos, (byte)selectedPinType);
+        PlacedPinsData.Instance.AddPlacedPin(mousePos, selectedPinType);
     }
 
     public void RemovePin(InputAction.CallbackContext context)
@@ -137,12 +134,10 @@ public class MapManager : MonoBehaviour
         if (!mapOpen) return;
         Vector2 mousePos = Input.mousePosition;
         if (!MapContainsMouse(mousePos)) return;
-        Debug.Log(mousePos);
         MapPin pin = pinPooler.HasPinAt(mousePos);
-        Debug.Log(pin);
         if (pin != null && !pin.Equals(null))
         {
-            PlacedPinsData.Instance.RemovePlacedPin(mousePos);
+            PlacedPinsData.Instance.RemovePlacedPin(pin);
             pin.Remove();
         }
     }
@@ -160,6 +155,15 @@ public class MapManager : MonoBehaviour
     public void SelectPinType(int idx)
     {
         selectedPinType = (MapManager.PinType)idx;
+    }
+
+    public void PlacePinsOnReload(List<PlacedPinsData.PlacedData> placedDataList)
+    {
+        foreach (PlacedPinsData.PlacedData data in placedDataList)
+        {
+            MapPin newPin = pinPooler.GetMapPin((PinType)data.type);
+            newPin.Spawn(data.pos);
+        }
     }
 
     private void TryCloseMap()
