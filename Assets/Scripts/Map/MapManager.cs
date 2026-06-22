@@ -82,7 +82,7 @@ public class MapManager : MonoBehaviour
         mapContainer.SetActive(true);
         UIManager.Instance.SetState(UIState.Map);
         Time.timeScale = 0.0f;
-        currentDayText.text = GameManager.Instance.currentDay.ToString();
+        currentDayText.text = "Current day: " + GameManager.Instance.currentDay.ToString();
     }
 
     private void CloseMap()
