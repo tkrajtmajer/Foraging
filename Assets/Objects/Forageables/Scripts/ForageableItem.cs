@@ -24,7 +24,7 @@ public class ForageableData : ScriptableObject
 
     [Header("Stats")]
     //public int itemDifficulty;
-    public ItemLocation location;
+    public List<ItemLocation> locations;
     public bool isPoisonous;
     public ItemSeason season;
 

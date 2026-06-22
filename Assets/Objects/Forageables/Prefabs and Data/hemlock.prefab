@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5515711446302234306}
-  m_Layer: 0
+  - component: {fileID: 5607046245859630935}
+  - component: {fileID: 119608643224410880}
+  m_Layer: 25
   m_Name: hemlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,6 +35,40 @@ Transform:
   - {fileID: 4919901430053205165}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5607046245859630935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47386435170225586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8828e1fcaa7b6d43a994ae65463ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forageableData: {fileID: 11400000, guid: e80b939427040a7c597539d467af15aa, type: 2}
+--- !u!65 &119608643224410880
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47386435170225586}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5596511, y: 4.6155667, z: 2.2628021}
+  m_Center: {x: -0.053171348, y: 2.32176, z: 0.1528659}
 --- !u!1 &198460273685941414
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +133,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: b288016a6dc5f7f4b8120fc652697cf7, type: 2}
   - {fileID: 2100000, guid: b288016a6dc5f7f4b8120fc652697cf7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -223,6 +260,7 @@ MeshRenderer:
   - {fileID: 4070341571150436152, guid: b507f1ec50a10e8428d804b0c8a96a88, type: 3}
   - {fileID: -2205024413291821796, guid: b507f1ec50a10e8428d804b0c8a96a88, type: 3}
   - {fileID: -7031392119955948750, guid: b507f1ec50a10e8428d804b0c8a96a88, type: 3}
+  - {fileID: -2222671766445412695, guid: b507f1ec50a10e8428d804b0c8a96a88, type: 3}
   - {fileID: -2222671766445412695, guid: b507f1ec50a10e8428d804b0c8a96a88, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0

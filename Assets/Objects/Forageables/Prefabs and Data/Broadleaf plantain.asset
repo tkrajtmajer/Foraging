@@ -20,7 +20,7 @@ MonoBehaviour:
   extraInfo:
   - 'Has a variety of medical effects '
   - Rub on nettle stings to ease itching
-  location: 0
+  locations: 0300000001000000
   isPoisonous: 0
   season: 0
   silhouetteImage: {fileID: 21300000, guid: 3f75ee8589ed3fa40a0a06e94566c1ff, type: 3}

@@ -21,7 +21,7 @@ MonoBehaviour:
   - 'Leaves are slightly fuzzy '
   - Use for tea, use for lamb, rice, salads or cooked vegetables
   - Can help with upset stomach
-  location: 1
+  locations: 01000000
   isPoisonous: 0
   season: 0
   silhouetteImage: {fileID: 21300000, guid: 1cfb63e7ee3b1ef4c9e48e172f2488de, type: 3}

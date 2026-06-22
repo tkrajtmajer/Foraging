@@ -23,7 +23,7 @@ MonoBehaviour:
   - 'Stem later becomes hollow '
   - 'Crushed leaves have a foul smell (do not try without gloves and do not inhale
     deeply!) '
-  location: 1
+  locations: 0100000003000000
   isPoisonous: 1
   season: 0
   silhouetteImage: {fileID: 21300000, guid: dc7308a2e279dd041b44f6d3ad166b92, type: 3}

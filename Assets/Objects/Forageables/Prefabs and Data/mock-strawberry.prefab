@@ -73,6 +73,7 @@ MeshRenderer:
   - {fileID: 3780671244086486322, guid: 68d468f72be73e14db40f0d79badf25c, type: 3}
   - {fileID: 3016479151454471876, guid: 68d468f72be73e14db40f0d79badf25c, type: 3}
   - {fileID: -4246479402191905792, guid: 68d468f72be73e14db40f0d79badf25c, type: 3}
+  - {fileID: -4246479402191905792, guid: 68d468f72be73e14db40f0d79badf25c, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,7 +104,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1326216402397097035}
-  m_Layer: 0
+  - component: {fileID: 8583585477457138047}
+  - component: {fileID: 261482807689641845}
+  m_Layer: 25
   m_Name: mock-strawberry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,6 +132,40 @@ Transform:
   - {fileID: 2937169947956847423}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &8583585477457138047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473785480913992122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8828e1fcaa7b6d43a994ae65463ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forageableData: {fileID: 11400000, guid: cc11cbd2e778ac3e38a0bd09fe4fff9c, type: 2}
+--- !u!65 &261482807689641845
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473785480913992122}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.7369308, y: 2.975871, z: 1.2848663}
+  m_Center: {x: -0.05973816, y: 1.4198687, z: 0.05054474}
 --- !u!1 &2236556794933827751
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +231,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 46662d528852de845ab71e9051a0de3b, type: 2}
+  - {fileID: -8274133419916619345, guid: 68d468f72be73e14db40f0d79badf25c, type: 3}
   - {fileID: -8274133419916619345, guid: 68d468f72be73e14db40f0d79badf25c, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -282,6 +320,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 46662d528852de845ab71e9051a0de3b, type: 2}
   - {fileID: -5605289326131794027, guid: 68d468f72be73e14db40f0d79badf25c, type: 3}
+  - {fileID: -5605289326131794027, guid: 68d468f72be73e14db40f0d79badf25c, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -368,6 +407,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 46662d528852de845ab71e9051a0de3b, type: 2}
+  - {fileID: 637949407474519127, guid: 68d468f72be73e14db40f0d79badf25c, type: 3}
   - {fileID: 637949407474519127, guid: 68d468f72be73e14db40f0d79badf25c, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0

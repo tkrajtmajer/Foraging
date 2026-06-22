@@ -20,12 +20,10 @@ MonoBehaviour:
   extraInfo:
   - 'When bruised, leaves give of garlic like scent (Carefull: trick can only be
     used once as scent will linger on hands, thus affecting future tests)'
-  - Leaves can be eaten raw in salads, or blanched and used in place of spinach,
-    or made into soup or pesto
   - Can be easy to confuse with poisonous plants
-  location: 4
+  locations: 04000000
   isPoisonous: 0
   season: 0
   silhouetteImage: {fileID: 21300000, guid: 30f159715cf41e446a714aeca04b1a2c, type: 3}
   modelPrefab: {fileID: 8561632287459613331, guid: 253a16731300e624d95c5f77546ecb0b, type: 3}
-  wasDiscovered: 0
+  wasDiscovered: 1

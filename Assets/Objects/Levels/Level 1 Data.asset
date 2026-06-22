@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level 1 Data
   m_EditorClassIdentifier: 
   levelNumber: 1
-  recipe: {fileID: 11400000, guid: c4012873d29183e4f86d817a831ed068, type: 2}
+  recipe: {fileID: 11400000, guid: 809093c4e38b944e8bd001a98054c83b, type: 2}
   levelState: 000000
   score: 0
   totalItems: 3

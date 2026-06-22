@@ -19,11 +19,11 @@ MonoBehaviour:
   - 'Leaves and stem are hairy '
   extraInfo:
   - 'Touching leaves and stem causes irritation to the skin '
-  - Must be cooked (blanching removes sting)
+  - Must be cooked (removes sting)
   - Can be used in soups, tea, substituted for spinach
-  location: 0
+  locations: 0000000001000000
   isPoisonous: 0
   season: 0
   silhouetteImage: {fileID: 21300000, guid: c171511ed57aeb34b96ae9dfd164ef74, type: 3}
   modelPrefab: {fileID: 8561632287459613331, guid: 275f364c24a76ef4cb2d91eb163f150a, type: 3}
-  wasDiscovered: 0
+  wasDiscovered: 1

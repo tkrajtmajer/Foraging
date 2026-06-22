@@ -41,7 +41,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5933059596407581038}
-  m_Layer: 0
+  - component: {fileID: 7016611839279270936}
+  - component: {fileID: 7528431948382039665}
+  m_Layer: 25
   m_Name: coltsfoot-external
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,6 +66,40 @@ Transform:
   - {fileID: 6564304868648192427}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7016611839279270936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4577468162451283780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8828e1fcaa7b6d43a994ae65463ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forageableData: {fileID: 11400000, guid: 6c0b75d7f2a8b562b915c4202f0ae6f7, type: 2}
+--- !u!65 &7528431948382039665
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4577468162451283780}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.03922718, y: 0.039904803, z: 0.03081894}
+  m_Center: {x: -0.0032488555, y: -0.019418176, z: -0.00019105773}
 --- !u!1 &4743312447140073795
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +164,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 303022cde3c171b42a10d36bdbb337a5, type: 2}
   - {fileID: 2100000, guid: 303022cde3c171b42a10d36bdbb337a5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 1641071097828629763}
   - component: {fileID: 4282819928628265169}
   - component: {fileID: 482764787038073236}
-  m_Layer: 0
+  - component: {fileID: 2609614564876226128}
+  - component: {fileID: 4404705542176109162}
+  m_Layer: 25
   m_Name: broadleaf-plantain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,6 +70,7 @@ MeshRenderer:
   - {fileID: 2100000, guid: 0365d8996c185bd45beeb8cb6424df61, type: 2}
   - {fileID: 2100000, guid: 233e4e44c2435ac4fb80ee11192827d6, type: 2}
   - {fileID: 2100000, guid: db34414755d71e5459e1e3c8d126862d, type: 2}
+  - {fileID: 2100000, guid: db34414755d71e5459e1e3c8d126862d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,3 +92,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2609614564876226128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980385203853812029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8828e1fcaa7b6d43a994ae65463ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forageableData: {fileID: 11400000, guid: 5425ce40787448c2d991148ecd1e4835, type: 2}
+--- !u!65 &4404705542176109162
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980385203853812029}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.071617045, y: 0.057765424, z: 0.040465873}
+  m_Center: {x: -0.0009941682, y: 0.0013251099, z: 0.020326203}

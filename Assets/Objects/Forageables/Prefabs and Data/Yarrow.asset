@@ -20,7 +20,7 @@ MonoBehaviour:
   extraInfo:
   - Pick flowering tops and leaves
   - Traditional wound herb; anti-inflammatory uses
-  location: 3
+  locations: 03000000
   isPoisonous: 0
   season: 0
   silhouetteImage: {fileID: 21300000, guid: 88209544902a86846aa974d0bb2ecf90, type: 3}

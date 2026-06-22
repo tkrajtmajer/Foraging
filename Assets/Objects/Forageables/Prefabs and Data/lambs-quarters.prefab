@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 1701982376596550362}
   - component: {fileID: 6548454630119370032}
   - component: {fileID: 1929023620654444707}
-  m_Layer: 0
+  - component: {fileID: 1636212551328932428}
+  - component: {fileID: 146344075797914106}
+  m_Layer: 25
   m_Name: lambs-quarters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,6 +82,7 @@ MeshRenderer:
   - {fileID: -541708846208547136, guid: 72a07502bb30be8499c3e0843ec04a6e, type: 3}
   - {fileID: 7498461928983958705, guid: 72a07502bb30be8499c3e0843ec04a6e, type: 3}
   - {fileID: -3846018093981099296, guid: 72a07502bb30be8499c3e0843ec04a6e, type: 3}
+  - {fileID: -3846018093981099296, guid: 72a07502bb30be8499c3e0843ec04a6e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,3 +104,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1636212551328932428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3583184217059002956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8828e1fcaa7b6d43a994ae65463ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forageableData: {fileID: 11400000, guid: 435853514bf3111f3bd5086fc366debe, type: 2}
+--- !u!65 &146344075797914106
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3583184217059002956}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.07086954, y: 0.066040605, z: 0.09194017}
+  m_Center: {x: 0.0010057334, y: -0.0006743402, z: 0.045834914}

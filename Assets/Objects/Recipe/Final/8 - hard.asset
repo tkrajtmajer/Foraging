@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e7f31c8fe428fc9885fc953872e501e, type: 3}
-  m_Name: Recipe 4- Easy
+  m_Name: 8 - hard
   m_EditorClassIdentifier: 
   forageablesInRecipe:
-  - {fileID: 11400000, guid: 6a89407c45cb9e84b8b9f21b8999575c, type: 2}
   - {fileID: 11400000, guid: 7be018c3192af1f428ac518544b41886, type: 2}
-  - {fileID: 11400000, guid: 3d326fcf3b6d2fd4eb1a3feffc3c5848, type: 2}
-  - {fileID: 11400000, guid: 3d326fcf3b6d2fd4eb1a3feffc3c5848, type: 2}
-  recipeName: Name
+  - {fileID: 11400000, guid: 5425ce40787448c2d991148ecd1e4835, type: 2}
+  - {fileID: 11400000, guid: 19fa44781d9b3aa5e90ead669ecbb3f6, type: 2}
+  - {fileID: 11400000, guid: c369b181a48a0bc6a8ad0693fe944e4d, type: 2}
+  - {fileID: 11400000, guid: 98b13772fce724277b6221a86f087948, type: 2}
+  recipeName: Forager's lunch

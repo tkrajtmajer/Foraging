@@ -19,7 +19,7 @@ MonoBehaviour:
   extraInfo:
   - Risk of liver fluke if near livestock; wash thoroughly
   - Rich in vitamin C
-  location: 1
+  locations: 01000000
   isPoisonous: 0
   season: 0
   silhouetteImage: {fileID: 21300000, guid: d13ae968a44d4f149bd1f4dfb1524d9c, type: 3}

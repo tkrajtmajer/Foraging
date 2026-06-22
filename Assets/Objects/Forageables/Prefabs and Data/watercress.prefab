@@ -73,7 +73,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8884323039432670829}
-  m_Layer: 0
+  - component: {fileID: 2142523903299079496}
+  - component: {fileID: 7859469500402529844}
+  m_Layer: 25
   m_Name: watercress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +100,40 @@ Transform:
   - {fileID: 197872457791604232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2142523903299079496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591593557701450705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8828e1fcaa7b6d43a994ae65463ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forageableData: {fileID: 11400000, guid: c369b181a48a0bc6a8ad0693fe944e4d, type: 2}
+--- !u!65 &7859469500402529844
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591593557701450705}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1977005, y: 0.7155034, z: 1.279673}
+  m_Center: {x: 0.1326016, y: 0.39781317, z: 0.081975125}
 --- !u!1 &1607513327304613649
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +230,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 109cb607afed7e54884019ee34759d19, type: 2}
   - {fileID: 2100000, guid: 109cb607afed7e54884019ee34759d19, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -439,6 +476,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 109cb607afed7e54884019ee34759d19, type: 2}
   - {fileID: 2100000, guid: 109cb607afed7e54884019ee34759d19, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

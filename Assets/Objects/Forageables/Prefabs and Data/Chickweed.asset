@@ -19,7 +19,7 @@ MonoBehaviour:
   extraInfo:
   - Can be eaten raw or cooked as a vegetable
   - Often added to salads
-  location: 4
+  locations: 0300000004000000
   isPoisonous: 0
   season: 0
   silhouetteImage: {fileID: 21300000, guid: d725371c0c5515040ae916cb54ba2ed0, type: 3}

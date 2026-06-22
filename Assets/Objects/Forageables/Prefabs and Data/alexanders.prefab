@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 8409188215094482208}
   - component: {fileID: 1765463176442062668}
   - component: {fileID: 6341617924831567698}
-  m_Layer: 0
+  - component: {fileID: 6649306753417720179}
+  - component: {fileID: 4135447540175522695}
+  m_Layer: 25
   m_Name: alexanders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,6 +94,7 @@ MeshRenderer:
   - {fileID: -469649698186968152, guid: 5a2e313e65728f046b68b77a8f0f9a63, type: 3}
   - {fileID: -9163163211885300892, guid: 5a2e313e65728f046b68b77a8f0f9a63, type: 3}
   - {fileID: -354735261257320667, guid: 5a2e313e65728f046b68b77a8f0f9a63, type: 3}
+  - {fileID: -354735261257320667, guid: 5a2e313e65728f046b68b77a8f0f9a63, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,3 +116,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6649306753417720179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5376476139477884995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8828e1fcaa7b6d43a994ae65463ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forageableData: {fileID: 11400000, guid: 111ca87b9b03c34b2862903095b29fa0, type: 2}
+--- !u!65 &4135447540175522695
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5376476139477884995}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02589415, y: 0.012883136, z: 0.046025045}
+  m_Center: {x: -0.0010179706, y: -0.00090106914, z: 0.023156982}

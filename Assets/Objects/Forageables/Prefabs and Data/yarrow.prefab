@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 3241285577418076092}
   - component: {fileID: 3599501470311888929}
   - component: {fileID: 6666033641307009636}
-  m_Layer: 0
+  - component: {fileID: 6105662853264607078}
+  - component: {fileID: 5748926490330413610}
+  m_Layer: 25
   m_Name: yarrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +86,7 @@ MeshRenderer:
   - {fileID: -2813467912831258332, guid: 1c2acb9a0f32a3143a0b1cd01bc4c1a3, type: 3}
   - {fileID: -6478536213147159724, guid: 1c2acb9a0f32a3143a0b1cd01bc4c1a3, type: 3}
   - {fileID: -3846018093981099296, guid: 1c2acb9a0f32a3143a0b1cd01bc4c1a3, type: 3}
+  - {fileID: -3846018093981099296, guid: 1c2acb9a0f32a3143a0b1cd01bc4c1a3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,3 +108,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6105662853264607078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2470868751083712093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8828e1fcaa7b6d43a994ae65463ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forageableData: {fileID: 11400000, guid: 19fa44781d9b3aa5e90ead669ecbb3f6, type: 2}
+--- !u!65 &5748926490330413610
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2470868751083712093}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.05744759, y: 0.06273317, z: 0.023510832}
+  m_Center: {x: 0.026676467, y: -0.022922158, z: 0.00029009464}

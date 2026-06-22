@@ -20,7 +20,7 @@ MonoBehaviour:
   extraInfo:
   - "NOT EDIBLE \u2014 all parts poisonous"
   - Weak look alike to wild pansies
-  location: 3
+  locations: 0000000004000000
   isPoisonous: 1
   season: 0
   silhouetteImage: {fileID: 21300000, guid: 8eda0da7f9164574780f10fb89692cfd, type: 3}

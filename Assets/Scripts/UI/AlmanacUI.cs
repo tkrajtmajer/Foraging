@@ -72,7 +72,7 @@ public class AlmanacUI : MonoBehaviour
                     ShowAlmanac();
                     ShowItemizedView();
                     DrawItemsUI();
-                    ChangeSelected(0);
+                    //ChangeSelected(0);
                     Time.timeScale = 0f;
                     UIManager.Instance.SetState(UIState.Almanac);
                 }
@@ -190,7 +190,7 @@ public class AlmanacUI : MonoBehaviour
         itemPoisonousUI.text = selectedItem.isPoisonous? "Poisonous" : "Not poisonous";
 
         itemLocationUI.text = "Found in " + selectedItem.season.ToString();
-        if(selectedItem.wasDiscovered) itemLocationUI.text += ", in " + selectedItem.location.ToString();
+        if(selectedItem.wasDiscovered) itemLocationUI.text += ", in " + string.Join(", ", selectedItem.locations);
 
         itemSpriteUI.sprite = selectedItem.silhouetteImage;
         

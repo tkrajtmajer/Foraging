@@ -19,7 +19,7 @@ MonoBehaviour:
   - 'Fruit is pointed upward  '
   extraInfo:
   - Edible, but flavor isn't nice
-  location: 0
+  locations: 0300000000000000
   isPoisonous: 0
   season: 0
   silhouetteImage: {fileID: 21300000, guid: 0b847ffa7a50c1341a63b89ea4d5cf9d, type: 3}

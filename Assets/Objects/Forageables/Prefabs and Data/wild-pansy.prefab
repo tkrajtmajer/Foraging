@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 6129227784773724737}
   - component: {fileID: 1374944440557028931}
   - component: {fileID: 4272823321380506982}
-  m_Layer: 0
+  - component: {fileID: 2474323640621543502}
+  - component: {fileID: 2824117236829145399}
+  m_Layer: 25
   m_Name: wild-pansy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,6 +84,7 @@ MeshRenderer:
   - {fileID: 637949407474519127, guid: 8f3addf5eb5e5814d91fe06b3493525f, type: 3}
   - {fileID: 99656467281103303, guid: 8f3addf5eb5e5814d91fe06b3493525f, type: 3}
   - {fileID: -5605289326131794027, guid: 8f3addf5eb5e5814d91fe06b3493525f, type: 3}
+  - {fileID: -5605289326131794027, guid: 8f3addf5eb5e5814d91fe06b3493525f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,3 +106,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2474323640621543502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5890440917663920860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8828e1fcaa7b6d43a994ae65463ca33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forageableData: {fileID: 11400000, guid: 3508c19a3fb1d9da7b30eb27a6e08616, type: 2}
+--- !u!65 &2824117236829145399
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5890440917663920860}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02592876, y: 0.011575997, z: 0.028595801}
+  m_Center: {x: -0.0003431877, y: -0.00023025619, z: 0.014291104}

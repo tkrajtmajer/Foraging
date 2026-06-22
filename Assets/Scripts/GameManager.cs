@@ -185,7 +185,7 @@ public class GameManager : MonoBehaviour
                 if (playerItem.itemName == neededItem.itemName)
                 {
                     //Debug.Log(playerItem.itemName);
-                    playerItem.wasDiscovered = true;
+                    //playerItem.wasDiscovered = true;
                     score++;
                     playerForageables.RemoveAt(i); // we remove to prevent double matching
 

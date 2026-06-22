@@ -19,7 +19,7 @@ MonoBehaviour:
   extraInfo:
   - Good source of vitamin A and iron
   - Needs to be cooked
-  location: 3
+  locations: 03000000
   isPoisonous: 0
   season: 0
   silhouetteImage: {fileID: 21300000, guid: 488905881ae882e4588427cfdc114593, type: 3}

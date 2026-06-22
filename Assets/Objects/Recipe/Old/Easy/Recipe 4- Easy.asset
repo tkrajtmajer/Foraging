@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e7f31c8fe428fc9885fc953872e501e, type: 3}
-  m_Name: Recipe 2 - Easy
+  m_Name: Recipe 4- Easy
   m_EditorClassIdentifier: 
   forageablesInRecipe:
-  - {fileID: 11400000, guid: 0eb7332a706c67e469eefff55623c71f, type: 2}
   - {fileID: 11400000, guid: 6a89407c45cb9e84b8b9f21b8999575c, type: 2}
-  - {fileID: 11400000, guid: 6a89407c45cb9e84b8b9f21b8999575c, type: 2}
-  recipeName: Name
+  - {fileID: 11400000, guid: 51e9f29b43a567b40ab74bd29ddaedba, type: 2}
+  - {fileID: 11400000, guid: 111ca87b9b03c34b2862903095b29fa0, type: 2}
+  recipeName: Salad

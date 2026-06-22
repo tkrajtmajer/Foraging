@@ -18,7 +18,7 @@ MonoBehaviour:
   extraInfo:
   - All parts of the plant have a strong garlic odour
   - It can be used exactly like scallions, chives, or leeks in cooking
-  location: 3
+  locations: 03000000
   isPoisonous: 0
   season: 0
   silhouetteImage: {fileID: 21300000, guid: a54205f0db93f854aac43a95325a6972, type: 3}
