@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 709739406988588929}
   - component: {fileID: 7760454987177898104}
   - component: {fileID: 4146796686579836240}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: chickweed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 5328556912042428672}
   - component: {fileID: 3957710229363334964}
   - component: {fileID: 5061538802363139767}
-  m_Layer: 25
+  m_Layer: 0
   m_Name: mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

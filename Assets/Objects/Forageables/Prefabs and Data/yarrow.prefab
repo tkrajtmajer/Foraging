@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3241285577418076092}
   - component: {fileID: 6105662853264607078}
   - component: {fileID: 5748926490330413610}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: yarrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 2949177614344528338}
   - component: {fileID: 8728415879937781377}
   - component: {fileID: 2527471416642912477}
-  m_Layer: 25
+  m_Layer: 0
   m_Name: mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
