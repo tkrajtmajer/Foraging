@@ -29,6 +29,6 @@ Material:
     - _OutlineIson: 1
     - _OutlineWidth: 3.9
     m_Colors:
-    - _OutlineColor: {r: 0.6792453, g: 0.3024638, b: 0, a: 1}
+    - _OutlineColor: {r: 0.9056604, g: 0.89854866, b: 0.89284444, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

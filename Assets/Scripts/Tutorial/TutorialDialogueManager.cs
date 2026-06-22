@@ -4,6 +4,20 @@ using UnityEngine;
 using System.Collections;
 using System;
 
+public enum TutorialDialogueSequence
+{
+    Intro,
+    ItemList,
+    Journal,
+    Interactable,
+    Interact,
+    Empty,
+    Inventory,
+    Map,
+    EmptyAgain,
+    Home,
+}
+
 public class TutorialDialogueManager : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
@@ -17,16 +31,6 @@ public class TutorialDialogueManager : MonoBehaviour
 
     int currentDialogueIdx { get => tutorialManager.currentDialogueIdx; }
 
-    private enum TutorialDialogueSequence
-    {
-        Intro,
-        ItemList,
-        Journal,
-        Map,
-        Interact,
-        Home,
-    }
-
     public void StartDialogue(DialogueData dialogueData)
     {
         sentences.Clear();
@@ -37,6 +41,7 @@ public class TutorialDialogueManager : MonoBehaviour
         }
 
         DisplayNextSentence();
+        
     }
 
     public void DisplayNextSentence()
@@ -86,7 +91,7 @@ public class TutorialDialogueManager : MonoBehaviour
         }
 
         yield return new WaitForSecondsRealtime(1.5f);
-        yield return StartCoroutine(PressSpace());
+        yield return (currentDialogueIdx != (int)TutorialDialogueSequence.Journal) ? StartCoroutine(PressSpace()) : null;
     }
 
     public IEnumerator PressSpace()
@@ -110,14 +115,38 @@ public class TutorialDialogueManager : MonoBehaviour
             case ((int)TutorialDialogueSequence.ItemList):
                 StartCoroutine(ShowListSequence());
                 tutorialManager.arrow.SetActive(true);
-                return;
+                break;
 
             // Journal
             case ((int)TutorialDialogueSequence.Journal):
                 StartCoroutine(ShowJournalSequence());
-                return;
+                break;
+            
+            // Empty
+            case ((int)TutorialDialogueSequence.Empty):
+                tutorialManager.CloseTutorialUI();
+                break;
+            
+            case ((int)TutorialDialogueSequence.EmptyAgain):
+                tutorialManager.CloseTutorialUI();
+                break;
+
+            // Inventory
+            case ((int)TutorialDialogueSequence.Inventory):
+                ShowInventorySequence();
+                break;
+
+            // Map
+            case ((int)TutorialDialogueSequence.Map):
+                ShowMapSequence();
+                break;
+
+            // Home
+            case ((int)TutorialDialogueSequence.Home):
+                ShowHomeSequence();
+                break;
             default:
-                return;
+                break;
         }
     }
 
@@ -134,6 +163,45 @@ public class TutorialDialogueManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(2.0f);
 
         tutorialManager.ShowDialogueInactive();
+        yield return null;
+    }
+
+    public void ShowInteractableSequence()
+    {
+        tutorialManager.ShowDialogueActive();
+    }
+
+    public void ShowInteractSequence()
+    {
+        tutorialManager.ShowDialogueActive();
+    }
+
+    public void ShowInventorySequence()
+    {
+        tutorialManager.tutorialContainer.GetComponent<RectTransform>().localPosition = new Vector3(0, 790, 0);
+        tutorialManager.ShowDialogueActive();
+    }
+
+    public void ShowMapSequence()
+    {
+        tutorialManager.tutorialContainer.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+        tutorialManager.ShowDialogueActive();
+    }
+
+    public void ShowHomeSequence()
+    {
+        tutorialManager.ShowDialogueActive();
+        StartCoroutine(LastDialogue());
+    }
+
+    public IEnumerator LastDialogue()
+    {
+        yield return new WaitForSecondsRealtime(4.0f);
+
+        DisplayNextSentence();
+
+        yield return new WaitForSecondsRealtime(3.0f);
+        tutorialManager.CloseTutorialUI();
         yield return null;
     }
 }

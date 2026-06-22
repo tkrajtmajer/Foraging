@@ -9,7 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 public class TutorialManager : MonoBehaviour
 {
     [SerializeField] LevelData tutorialData;
-    [SerializeField] GameObject tutorialContainer;
+    [SerializeField] public GameObject tutorialContainer;
     [SerializeField] GameObject darkFilter;
 
     [SerializeField] PlayerController player;
@@ -35,6 +35,7 @@ public class TutorialManager : MonoBehaviour
     private void OnDestroy()
     {
         GameManager.Instance.itemDatabase = trueItemsDatabase;
+        GameManager.Instance.hasDoneTutorial = true;
     }
 
     private IEnumerator Start()
@@ -47,16 +48,26 @@ public class TutorialManager : MonoBehaviour
     private void OnEnable()
     {
         TutorialDialogueManager.DialogueEnded += OnDialogueEnded;
+        PlayerInteractor.FirstInteract += DoFirstInteractable;
+        PlayerInteractor.FirstInteracted += DoFirstInteraction;
+
+        MapManager.OpenedMap += DoMapSequence;
+        MapManager.ClosedMap += FinishMapSequence;
     }
 
     private void OnDisable()
     {
         TutorialDialogueManager.DialogueEnded -= OnDialogueEnded;
+        PlayerInteractor.FirstInteract -= DoFirstInteractable;
+        PlayerInteractor.FirstInteracted -= DoFirstInteraction;
+
+        MapManager.OpenedMap -= DoMapSequence;
+        MapManager.ClosedMap -= FinishMapSequence;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && currentDialogueIdx != 3)
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return))
         {
             dialogueManager.DisplayNextSentence();
         }
@@ -64,13 +75,24 @@ public class TutorialManager : MonoBehaviour
         {
             ShowDialogueInactive();
         }
-        if (Input.GetKeyDown(KeyCode.J) && currentDialogueIdx == 3 && tutorialContainer.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.J) && currentDialogueIdx == (int)TutorialDialogueSequence.Journal && tutorialContainer.activeInHierarchy)
         {
             //tutorialContainer.SetActive(false);
             dialogueManager.DisplayNextSentence();
             
             //StartCoroutine();
         }
+    }
+
+    public void CloseTutorialUI()
+    {
+        darkFilter.SetActive(false);
+        player.enabled = true;
+        Time.timeScale = 1.0f;
+
+        arrow.SetActive(false);
+
+        tutorialContainer.SetActive(false);
     }
 
     public void ShowDialogueInactive()
@@ -82,23 +104,43 @@ public class TutorialManager : MonoBehaviour
         player.enabled = false;
         Time.timeScale = 0.0f;
 
-        dialogueManager.StartDialogue(dialogueList[currentDialogueIdx++]);
+        dialogueManager.StartDialogue(dialogueList[currentDialogueIdx]);
     }
 
     public void ShowDialogueActive()
     {
         tutorialContainer.SetActive(true);
-        dialogueManager.StartDialogue(dialogueList[currentDialogueIdx++]);
+        dialogueManager.StartDialogue(dialogueList[currentDialogueIdx]);
     }
 
     public void OnDialogueEnded()
     {
-        darkFilter.SetActive(false);
-        player.enabled = true;
-        Time.timeScale = 1.0f;
+        CloseTutorialUI();
+        ++currentDialogueIdx;
+    }
 
-        arrow.SetActive(false);
+    public void DoFirstInteractable()
+    {
+        dialogueManager.ShowInteractableSequence();
+        PlayerInteractor.FirstInteract -= DoFirstInteractable;
+    }
 
-        tutorialContainer.SetActive(false);
+    public void DoFirstInteraction()
+    {
+        OnDialogueEnded();
+        dialogueManager.ShowInteractSequence();
+        PlayerInteractor.FirstInteract -= DoFirstInteraction;
+    }
+
+    public void DoMapSequence() 
+    {
+        dialogueManager.DisplayNextSentence();
+        MapManager.OpenedMap -= DoMapSequence;
+    }
+    
+    public void FinishMapSequence()
+    {
+        dialogueManager.EndDialogue();
+        MapManager.OpenedMap -= FinishMapSequence;
     }
 }

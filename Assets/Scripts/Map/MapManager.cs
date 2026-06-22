@@ -22,6 +22,9 @@ public class MapManager : MonoBehaviour
     public InputActionMap toggleMapActions;
     public InputActionMap pinActions;
 
+    public static event Action OpenedMap;
+    public static event Action ClosedMap;
+
     [SerializeField] private TMP_Text currentDayText;
 
     //public static event UnityAction<MapPinPooler, PinType> pinPlacedEvent;
@@ -64,10 +67,12 @@ public class MapManager : MonoBehaviour
         if (mapOpen)
         {
             CloseMap();
+            ClosedMap?.Invoke();
         }
         else if (UIManager.Instance.currentUIState == UIState.None)
         {
             OpenMap();
+            OpenedMap?.Invoke();
         }
     }
 

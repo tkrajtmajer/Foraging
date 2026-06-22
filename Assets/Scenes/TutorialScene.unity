@@ -2172,6 +2172,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 458452462}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: CloseTutorialUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &294603161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3198,7 +3210,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 697edc0e8642aa449952daf0e756a1d0, type: 2}
   - {fileID: 11400000, guid: 0349282843f08ac438d4b83cfb3d4400, type: 2}
   - {fileID: 11400000, guid: f99dfaecc25c13e4cb8d6fc733bbe7a3, type: 2}
-  - {fileID: 11400000, guid: 697edc0e8642aa449952daf0e756a1d0, type: 2}
+  - {fileID: 11400000, guid: 206512015ea647f469d8e759c682dd72, type: 2}
+  - {fileID: 11400000, guid: 47aa8a460f4dc3a4daba9867ffdda403, type: 2}
+  - {fileID: 11400000, guid: be4e43dd0bb408d4cbc5b257a5f614cd, type: 2}
+  - {fileID: 11400000, guid: 03395ac9757586c4cb22ad62156d5b7f, type: 2}
+  - {fileID: 11400000, guid: 0ae717f42c04316409ffd4d9af48b352, type: 2}
+  - {fileID: 11400000, guid: be4e43dd0bb408d4cbc5b257a5f614cd, type: 2}
+  - {fileID: 11400000, guid: ec84199d33e16c64cb10694792ac52cf, type: 2}
   tutorialItemsDatabase: {fileID: 11400000, guid: ee3b746cf989ba34e8b7dd42a212f128, type: 2}
   trueItemsDatabase: {fileID: 11400000, guid: 59080c4679214f1c097788def6a27059, type: 2}
   arrow: {fileID: 902905284}
@@ -6406,6 +6424,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798928293}
   m_CullTransparentMesh: 1
+--- !u!1 &801869951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 801869952}
+  - component: {fileID: 801869954}
+  - component: {fileID: 801869953}
+  m_Layer: 5
+  m_Name: ArrowMap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &801869952
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801869951}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.71, y: 2.71, z: 2.71}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1653219511}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 453, y: 137}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &801869953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801869951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 8ccdad7d3a665c3468dfcca2ed969c09, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &801869954
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801869951}
+  m_CullTransparentMesh: 1
 --- !u!1001 &806026015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7042,7 +7135,7 @@ GameObject:
   - component: {fileID: 902905287}
   - component: {fileID: 902905286}
   m_Layer: 5
-  m_Name: Arrow
+  m_Name: ArrowList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8622,7 +8715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8119879813283254819, guid: 0569c679357294148a8964b7e1e4e2b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 44.88
+      value: 50.47
       objectReference: {fileID: 0}
     - target: {fileID: 8119879813283254819, guid: 0569c679357294148a8964b7e1e4e2b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9951,7 +10044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1419926374
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11559,6 +11652,7 @@ RectTransform:
   - {fileID: 1726776033}
   - {fileID: 2017164032}
   - {fileID: 902905285}
+  - {fileID: 801869952}
   m_Father: {fileID: 1291636068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -12360,7 +12454,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 11400000, guid: 91b920fb7b199774f803f9a53db3a763, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: 09d12d3083ca0d747b4060c9bef1b74a, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -13153,6 +13247,7 @@ GameObject:
   - component: {fileID: 1836660134}
   - component: {fileID: 1836660133}
   - component: {fileID: 1836660132}
+  - component: {fileID: 1836660135}
   m_Layer: 0
   m_Name: exit button
   m_TagString: Untagged
@@ -13235,6 +13330,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 458452464}
+        m_TargetAssemblyTypeName: TutorialDialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TutorialAlmanacButton, Assembly-CSharp
+        m_MethodName: OnExitButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1836660133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13273,6 +13392,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836660130}
   m_CullTransparentMesh: 1
+--- !u!114 &1836660135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836660130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346f694179db6f0489bd4b629d6aa310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: {fileID: 92819184}
+  tutorial: {fileID: 458452464}
+  tutorialManager: {fileID: 0}
+  exitButton: {fileID: 1836660132}
+  collectButton: {fileID: 1928901862}
+  leaveButton: {fileID: 294603160}
 --- !u!1 &1842078724
 GameObject:
   m_ObjectHideFlags: 0
@@ -14698,6 +14835,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 458452464}
+        m_TargetAssemblyTypeName: TutorialDialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TutorialAlmanacButton, Assembly-CSharp
+        m_MethodName: OnCollectButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1928901863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14984,8 +15145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press <sprite name="keys-Sheet_21"><sprite name="keys-Sheet_22"><sprite
-    name="keys-Sheet_23"><sprite name="keys-Sheet_24"> to continue...
+  m_text: 'Press <sprite name="keys-Sheet_23"> to continue...
 
 '
   m_isRightToLeft: 0
@@ -15006,7 +15166,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 11400000, guid: 91b920fb7b199774f803f9a53db3a763, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: 09d12d3083ca0d747b4060c9bef1b74a, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -15898,7 +16058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8119879813283254819, guid: 0569c679357294148a8964b7e1e4e2b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.32
+      value: 29.01
       objectReference: {fileID: 0}
     - target: {fileID: 8119879813283254819, guid: 0569c679357294148a8964b7e1e4e2b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15968,7 +16128,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3bcc2c19effdeb848bf6538424f4b8a3, type: 2}
     - target: {fileID: 8119879813283254819, guid: 0569c679357294148a8964b7e1e4e2b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 39.58
+      value: 27.71
       objectReference: {fileID: 0}
     - target: {fileID: 8119879813283254819, guid: 0569c679357294148a8964b7e1e4e2b1, type: 3}
       propertyPath: m_LocalPosition.y
