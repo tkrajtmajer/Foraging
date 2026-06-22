@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: 
   sentences:
-  - This is your forage list. You can cross items off by simply clicking on them.
+  - This is your forage list. You can cross items off when you believe you have foraged
+    the correct ones by simply clicking on them.

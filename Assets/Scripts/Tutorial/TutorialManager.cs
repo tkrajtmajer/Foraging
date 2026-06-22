@@ -121,26 +121,26 @@ public class TutorialManager : MonoBehaviour
 
     public void DoFirstInteractable()
     {
-        dialogueManager.ShowInteractableSequence();
         PlayerInteractor.FirstInteract -= DoFirstInteractable;
+        dialogueManager.ShowInteractableSequence();
     }
 
     public void DoFirstInteraction()
     {
+        PlayerInteractor.FirstInteracted -= DoFirstInteraction;
         OnDialogueEnded();
         dialogueManager.ShowInteractSequence();
-        PlayerInteractor.FirstInteract -= DoFirstInteraction;
     }
 
     public void DoMapSequence() 
     {
-        dialogueManager.DisplayNextSentence();
         MapManager.OpenedMap -= DoMapSequence;
+        dialogueManager.DisplayNextSentence();
     }
     
     public void FinishMapSequence()
     {
+        MapManager.ClosedMap -= FinishMapSequence;
         dialogueManager.EndDialogue();
-        MapManager.OpenedMap -= FinishMapSequence;
     }
 }

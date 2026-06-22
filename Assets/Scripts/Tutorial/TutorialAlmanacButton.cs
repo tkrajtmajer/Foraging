@@ -19,6 +19,9 @@ public class TutorialAlmanacButton : MonoBehaviour
         button.onClick.AddListener(item.SelectItem);
         button.onClick.AddListener(tutorial.DisplayNextSentence);
         button.onClick.AddListener(RemoveClickedButton);
+
+        collectButton.onClick.AddListener(OnCollectButtonClicked);
+        leaveButton.onClick.AddListener(OnLeaveButtonClicked);
     }
 
     public void OnExitButtonClicked()

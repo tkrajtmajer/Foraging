@@ -15,5 +15,6 @@ MonoBehaviour:
   speakerName: 
   sentences:
   - Once you have collected an item, you can see it in your backpack. You can select
-    different items in your backpack by pressing the corresponding numbers.
+    different items in your backpack by pressing the corresponding numbers on your
+    keyboard.
   - 'If you want to remove an item from your inventory, you can press <sprite name="keys-Sheet_27">. '

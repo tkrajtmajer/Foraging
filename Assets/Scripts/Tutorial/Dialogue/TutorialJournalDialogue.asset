@@ -21,8 +21,9 @@ MonoBehaviour:
     will not be labeled and will only be displayed as a silhouette. Try selecting
     one of the items to open the information page.
   - Here you will find details about the specific item. On the left page you can
-    see its name, what it looks like, where it can be found and whether or not it
+    see its name, what it looks like, when it can be found and whether or not it
     is poisonous. On the right page you will find a short description of the item's
     physical aspects.
+  - Once you bring back the correct items, more information becomes available here!
   - You can exit any menu by pressing <sprite name="keys-Sheet_21">.
   - Try looking around for items you can collect.

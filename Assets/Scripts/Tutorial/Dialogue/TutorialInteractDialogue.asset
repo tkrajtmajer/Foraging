@@ -15,5 +15,5 @@ MonoBehaviour:
   speakerName: 
   sentences:
   - You can choose to leave the item behind with <size=120%>X or collect it with
-    <size=60%><sprite name="keys-Sheet_26">. \n  <size=100%>You can also access the
+    <size=60%><sprite name="keys-Sheet_26"><size=100%>.\nYou can also access the
     journal by pressing <size=120%>i
