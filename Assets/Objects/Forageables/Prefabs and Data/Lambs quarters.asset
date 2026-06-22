@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
+  m_Name: Lambs quarters
+  m_EditorClassIdentifier: 
+  itemName: Lambs quarters
+  description:
+  - Blue-green leaves
+  - 'Often white and mealy beneath '
+  extraInfo:
+  - Good source of vitamin A and iron
+  - Needs to be cooked
+  locations: 03000000
+  isPoisonous: 0
+  season: 0
+  silhouetteImage: {fileID: 21300000, guid: 488905881ae882e4588427cfdc114593, type: 3}
+  modelPrefab: {fileID: 3583184217059002956, guid: db672310f0a9cf64ab5f996b91977d4c, type: 3}
+  wasDiscovered: 0

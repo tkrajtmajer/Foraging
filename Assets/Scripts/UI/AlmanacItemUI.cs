@@ -23,7 +23,8 @@ public class AlmanacItemUI : MonoBehaviour
             itemName.text = data.itemName;
         }
         else {
-            itemSprite.sprite = data.silhouetteImageOccluded;
+            itemSprite.sprite = data.silhouetteImage;
+            itemSprite.color = new Color(31f / 255f, 31f / 255f, 31f / 255f, 1f);
         }
     }
 

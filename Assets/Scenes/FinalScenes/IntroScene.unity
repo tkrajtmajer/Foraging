@@ -237,6 +237,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 1055620339}
   nextButton: {fileID: 999490939}
   introDialogue: {fileID: 11400000, guid: d658641aaa4e0c83cacb4858bba1121b, type: 2}
+  dialogueWife: {fileID: 11400000, guid: 0359f66d025b3b8d3958ae6ed59aa012, type: 2}
 --- !u!1 &567436816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,7 +1201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 343a59f9ae1c804b7839495e01e442dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 52861dcea14701d1a8b066c6ce508c09, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
+  m_Name: Chickweed
+  m_EditorClassIdentifier: 
+  itemName: Chickweed
+  description:
+  - 'Small oval leaves stand opposite on stem '
+  - 'Small white flowers '
+  extraInfo:
+  - Can be eaten raw or cooked as a vegetable
+  - Often added to salads
+  locations: 0300000004000000
+  isPoisonous: 0
+  season: 0
+  silhouetteImage: {fileID: 21300000, guid: d725371c0c5515040ae916cb54ba2ed0, type: 3}
+  modelPrefab: {fileID: 5317525033187492395, guid: 359beb5f5528f5844b23ac330356e06b, type: 3}
+  wasDiscovered: 0

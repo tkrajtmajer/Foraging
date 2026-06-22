@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
   m_Name: LambsLettuce
   m_EditorClassIdentifier: 
-  itemName: Lambs Lettuce
-  description: -small rosette shape \n- spoon-shaped leaves \n-eaten as a salad green
-    and as an herb with a nutty tangy flavour
-  itemDifficulty: 1
-  location: 3
+  itemName: Lambs lettuce
+  description:
+  - 'Spoon shaped leaves (Thin at stem, broader at tip) '
+  - 'Leaves originate from small rosette '
+  extraInfo:
+  - 'Can be eaten as a salad green '
+  - Mild flavour; easy beginner forageable
+  locations: 0100000003000000
   isPoisonous: 0
-  season: Spring
-  silhouetteImage: {fileID: -183939406271800499, guid: 6488fcaa61661ca489406b7cd2b1f0ce, type: 3}
-  silhouetteImageOccluded: {fileID: 21300000, guid: 50c95ee57a7f25f4bb979832e4c99d35, type: 3}
+  season: 0
+  silhouetteImage: {fileID: 21300000, guid: b6f944d11dcc03e44948a3bd8fa158e4, type: 3}
   modelPrefab: {fileID: 8561632287459613331, guid: 0e05525bb1e974a4691b512d04f76a5f, type: 3}
   wasDiscovered: 0

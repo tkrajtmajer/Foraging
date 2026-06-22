@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FeedbackScreenManager : MonoBehaviour
 {
@@ -28,7 +29,8 @@ public class FeedbackScreenManager : MonoBehaviour
 
     public void OnNextButtonClicked()
     {
-        GameManager.Instance.NextDay();
+        //GameManager.Instance.NextDay();
+        ScreenFader.Instance.FadeAndLoadScene(GameManager.Instance.levelSelectSceneIdx);
     }
 
     public void OnRetryButtonClicked()

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e7f31c8fe428fc9885fc953872e501e, type: 3}
+  m_Name: 1 - easy
+  m_EditorClassIdentifier: 
+  forageablesInRecipe:
+  - {fileID: 11400000, guid: 98b13772fce724277b6221a86f087948, type: 2}
+  - {fileID: 11400000, guid: 3d326fcf3b6d2fd4eb1a3feffc3c5848, type: 2}
+  - {fileID: 11400000, guid: c369b181a48a0bc6a8ad0693fe944e4d, type: 2}
+  recipeName: Woodland salad

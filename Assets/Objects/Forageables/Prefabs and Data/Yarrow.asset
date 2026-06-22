@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
+  m_Name: Yarrow
+  m_EditorClassIdentifier: 
+  itemName: Wild Garlic
+  description:
+  - 'Long fern-like leaves '
+  - Flowers are white/pink
+  - Flowers are positioned in flat-topped clusters
+  extraInfo:
+  - Pick flowering tops and leaves
+  - Traditional wound herb; anti-inflammatory uses
+  locations: 03000000
+  isPoisonous: 0
+  season: 0
+  silhouetteImage: {fileID: 21300000, guid: 88209544902a86846aa974d0bb2ecf90, type: 3}
+  modelPrefab: {fileID: 2470868751083712093, guid: cfa1561a11da6244d899a79117c86461, type: 3}
+  wasDiscovered: 0

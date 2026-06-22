@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
+  m_Name: Coltsfoot
+  m_EditorClassIdentifier: 
+  itemName: Coltsfoot
+  description:
+  - 'Yellow flowers '
+  - 'Flower has a clear central disk '
+  - "Stalks have \u201Cscales\u201D "
+  extraInfo:
+  - NOT EDIBLE -  Has medicinal applications, but not through direct ingestion!
+  locations: 0300000001000000
+  isPoisonous: 1
+  season: 0
+  silhouetteImage: {fileID: 21300000, guid: e8613fbf1a900be42bdc7bfdcf39298b, type: 3}
+  modelPrefab: {fileID: 4577468162451283780, guid: 6c8f0a0a6311f9743a81b3b62be64868, type: 3}
+  wasDiscovered: 0

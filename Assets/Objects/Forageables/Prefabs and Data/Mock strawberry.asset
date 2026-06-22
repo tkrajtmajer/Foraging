@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
+  m_Name: Mock strawberry
+  m_EditorClassIdentifier: 
+  itemName: Mock strawberry
+  description:
+  - 'Yellow flowers '
+  - Fruits are small strawberries
+  - 'Fruit is pointed upward  '
+  extraInfo:
+  - Edible, but flavor isn't nice
+  locations: 0300000000000000
+  isPoisonous: 0
+  season: 0
+  silhouetteImage: {fileID: 21300000, guid: 0b847ffa7a50c1341a63b89ea4d5cf9d, type: 3}
+  modelPrefab: {fileID: 1473785480913992122, guid: cdfa2cd7fc8a03b4c9bb8e6ea6831792, type: 3}
+  wasDiscovered: 0

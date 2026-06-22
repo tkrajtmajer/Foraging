@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
+  m_Name: Alexanders
+  m_EditorClassIdentifier: 
+  itemName: Alexanders
+  description:
+  - Thick grooved stem
+  - Broad leaves with serrated edge
+  - Flowers are pale yellow-green
+  - 'Flowers stand in clusters '
+  extraInfo:
+  - 'Stem later becomes hollow '
+  - 'Crushed leaves have spicy smell (do not try unless sure it is not Hemlock!) '
+  locations: 02000000
+  isPoisonous: 0
+  season: 0
+  silhouetteImage: {fileID: 21300000, guid: d5f7fe9c4845fe542aef28527d2932d9, type: 3}
+  modelPrefab: {fileID: 5376476139477884995, guid: ac4ca61a063f8e547b06c889bd6d60a2, type: 3}
+  wasDiscovered: 0

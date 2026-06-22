@@ -9,7 +9,7 @@ public class InspectUI : MonoBehaviour
     [SerializeField] private GameObject inspectPanel; // UI parent
     [SerializeField] private Image itemImage;
     [SerializeField] DragUI dragUI;
-    [SerializeField] private TextMeshProUGUI itemDescription;
+    //[SerializeField] private TextMeshProUGUI itemDescription;
 
     private ForageableInteractable currentForageable;
     private ForageableData currentForageableData;
@@ -48,7 +48,7 @@ public class InspectUI : MonoBehaviour
 
         // TODO - if journal.IsDiscovered(data) -> show image, else show silhouette
         itemImage.sprite = forageableData.silhouetteImage;
-        itemDescription.text = forageableData.description;
+        //itemDescription.text = forageableData.description;
         //Debug.Log("hello?");
         inspectPanel.SetActive(true);
 
