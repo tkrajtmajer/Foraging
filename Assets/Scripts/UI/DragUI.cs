@@ -19,8 +19,11 @@ public class DragUI : MonoBehaviour, IDragHandler
         
         if (forageableData.modelPrefab != null)
         {
-            currentSpawnedModel = Instantiate(forageableData.modelPrefab, spawnPointModel.position, Quaternion.identity);
+            currentSpawnedModel = Instantiate(forageableData.modelPrefab, spawnPointModel.position, forageableData.modelPrefab.transform.rotation);
             currentSpawnedModel.transform.SetParent(spawnPointModel);
+
+            Vector3 ogScale = forageableData.modelPrefab.transform.localScale;
+            currentSpawnedModel.transform.localScale = ogScale * forageableData.displayScale;
         }
     }
 

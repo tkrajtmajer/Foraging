@@ -32,6 +32,7 @@ public class ForageableData : ScriptableObject
     public Sprite silhouetteImage;
     //public Sprite silhouetteImageOccluded;
     public GameObject modelPrefab; 
+    public float displayScale;
 
     [Header("Internal")]
     public bool wasDiscovered = false; //doesn't have to be public
