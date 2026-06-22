@@ -12,7 +12,8 @@ public class RecipeUI : MonoBehaviour
     [SerializeField] private float padding = 20f;
 
     [SerializeField] private GameObject crossButtonPrefab;
-    [SerializeField] private float crossHeightDelta = 40;
+    [SerializeField] private float crossHeightStart = -29;
+    [SerializeField] private float crossHeightDelta = 35;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class RecipeUI : MonoBehaviour
         foreach (ForageableData item in currentRecipe) {
             ingredientList.text += "- " + item.itemName + "\n";
             GameObject button = Instantiate(crossButtonPrefab, ingredientList.GetComponent<RectTransform>());
-            button.GetComponent<RectTransform>().localPosition = new Vector3(-76, -crossHeightDelta / 2 -i++ * crossHeightDelta, 0);
+            button.GetComponent<RectTransform>().localPosition = new Vector3(-85, crossHeightStart -i++ * crossHeightDelta, 0);
         }
 
         float heightBg = currentRecipe.Count * heightPerIngredient + padding * 2;

@@ -32333,6 +32333,9 @@ MonoBehaviour:
   ingredientList: {fileID: 568081106}
   heightPerIngredient: 40
   padding: 10
+  crossButtonPrefab: {fileID: 2249863935630479525, guid: 873bdec9ece144b44aae13d225a32cb5, type: 3}
+  crossHeightStart: -16
+  crossHeightDelta: 36
 --- !u!1001 &1912312770
 PrefabInstance:
   m_ObjectHideFlags: 0

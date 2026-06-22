@@ -1600,6 +1600,7 @@ GameObject:
   - component: {fileID: 1053466306}
   - component: {fileID: 1053466305}
   - component: {fileID: 1053466308}
+  - component: {fileID: 1053466309}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1663,6 +1664,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placedPinsList: []
+--- !u!114 &1053466309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053466304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11576593b067ab44b9f7aa86a04aca66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelDatabase: {fileID: 11400000, guid: ea7088bb6180af8479204579c0ced2e6, type: 2}
+  currentLevel: 1
 --- !u!1 &1131884683
 GameObject:
   m_ObjectHideFlags: 0

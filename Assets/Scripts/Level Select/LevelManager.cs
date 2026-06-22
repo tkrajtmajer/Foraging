@@ -10,8 +10,6 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    //[SerializeField] ItemDatabase itemDatabase;
-    [SerializeField] private List<Recipe> allRecipes = new List<Recipe>();
     [SerializeField] public LevelDatabase levelDatabase;
     public int currentLevel = 1;
 
@@ -23,15 +21,15 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
+        //if (Instance != null && Instance != this)
+        //{
+        //    Destroy(this);
+        //}
+        //else
+        //{
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
+        //    DontDestroyOnLoad(this.gameObject);
+        //}
     }
 
     public void OnLevelSelected(int levelNum)

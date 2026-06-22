@@ -736,7 +736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &124870086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13004,7 +13004,6 @@ MonoBehaviour:
   inspectPanel: {fileID: 645650759}
   itemImage: {fileID: 2146788441}
   dragUI: {fileID: 1205960273}
-  itemDescription: {fileID: 1665855039}
 --- !u!1001 &1823331357
 PrefabInstance:
   m_ObjectHideFlags: 0
