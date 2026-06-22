@@ -25,4 +25,5 @@ MonoBehaviour:
   season: 0
   silhouetteImage: {fileID: 21300000, guid: 147fa2d11a7673d47bbb2e754ee84e60, type: 3}
   modelPrefab: {fileID: 8561632287459613331, guid: 912a198e8ec936f469687c5fb67d887d, type: 3}
+  displayScale: 1
   wasDiscovered: 0
