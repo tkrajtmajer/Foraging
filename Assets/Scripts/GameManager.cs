@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Recipe currentRecipe; // used by UI
     
     internal int menuScene = 1;
+    internal int levelSelectSceneIdx = 2;
     internal int finalMainSceneIdx = 3;
     internal int scoreSceneIdx = 4; //"ScoreScene";
     internal int endSceneIdx = 5; //"EndScene";
