@@ -137,7 +137,7 @@ public class AlmanacUI : MonoBehaviour
         currentPage += direction;
         currentSelected = 1;
         DrawItemsUI();
-        ChangeSelected(0);
+        //ChangeSelected(0);
     }
 
     private void ChangeSelected(int direction) {
@@ -217,7 +217,7 @@ public class AlmanacUI : MonoBehaviour
         ShowAlmanac();
         ShowItemizedView();
         DrawItemsUI();
-        ChangeSelected(0);
+        //ChangeSelected(0);
     }
 
     private void ShowItemizedView()
