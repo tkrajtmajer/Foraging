@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
-  m_Name: Rosemary
+  m_Name: Watercress
   m_EditorClassIdentifier: 
-  itemName: Rosemary
+  itemName: Watercress
   description:
-  - Dark green needle like leaves
-  - Evergreen shrub
+  - Small round-ish leaves
+  - Hollow stems that float in water
   extraInfo:
-  - Leaves carry distinct fragrance
-  - Stir, mix with butter or use for cocktails
-  location: 2
+  - Risk of liver fluke if near livestock; wash thoroughly
+  - Rich in vitamin C
+  location: 1
   isPoisonous: 0
   season: 0
-  silhouetteImage: {fileID: 21300000, guid: 9b7f887702436b74f87b6c863f249ae3, type: 3}
-  modelPrefab: {fileID: 8561632287459613331, guid: 6078d438323f1c94696a0dc95c27e886, type: 3}
+  silhouetteImage: {fileID: 21300000, guid: d13ae968a44d4f149bd1f4dfb1524d9c, type: 3}
+  modelPrefab: {fileID: 1591593557701450705, guid: 3d6c07c8757048140bf82a6fd8d266c0, type: 3}
   wasDiscovered: 0

@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
-  m_Name: Rosemary
+  m_Name: Wild strawberry
   m_EditorClassIdentifier: 
-  itemName: Rosemary
+  itemName: Wild strawberry
   description:
-  - Dark green needle like leaves
-  - Evergreen shrub
+  - 'White flowers  '
+  - 'Fruits are small strawberries '
+  - Fruit hangs down from stalk
   extraInfo:
-  - Leaves carry distinct fragrance
-  - Stir, mix with butter or use for cocktails
-  location: 2
+  - Pick the berries
+  - Can be used in jams, or eaten raw
+  location: 0
   isPoisonous: 0
   season: 0
-  silhouetteImage: {fileID: 21300000, guid: 9b7f887702436b74f87b6c863f249ae3, type: 3}
-  modelPrefab: {fileID: 8561632287459613331, guid: 6078d438323f1c94696a0dc95c27e886, type: 3}
+  silhouetteImage: {fileID: 21300000, guid: 2d507c31137fee24bb58dcdfb474d75c, type: 3}
+  modelPrefab: {fileID: 3657985409770272132, guid: 5396cc0cf315487459cb50567543a6ce, type: 3}
   wasDiscovered: 0

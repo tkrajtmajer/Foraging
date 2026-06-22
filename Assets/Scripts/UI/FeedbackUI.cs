@@ -101,7 +101,7 @@ public class FeedbackUI : MonoBehaviour
 
         itemPoisonousUI.text = "Not poisonous";
 
-        itemLocationUI.text = "Found in " + currentObj.season + ", in " + currentObj.location.ToString();
+        itemLocationUI.text = "Found in " + currentObj.season.ToString() + ", in " + currentObj.location.ToString();
 
         itemSpriteUI.sprite = currentObj.silhouetteImage;
 

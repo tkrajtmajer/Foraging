@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
-  m_Name: Rosemary
+  m_Name: Mock strawberry
   m_EditorClassIdentifier: 
-  itemName: Rosemary
+  itemName: Mock strawberry
   description:
-  - Dark green needle like leaves
-  - Evergreen shrub
+  - 'Yellow flowers '
+  - Fruits are small strawberries
+  - 'Fruit is pointed upward  '
   extraInfo:
-  - Leaves carry distinct fragrance
-  - Stir, mix with butter or use for cocktails
-  location: 2
+  - Edible, but flavor isn't nice
+  location: 0
   isPoisonous: 0
   season: 0
-  silhouetteImage: {fileID: 21300000, guid: 9b7f887702436b74f87b6c863f249ae3, type: 3}
-  modelPrefab: {fileID: 8561632287459613331, guid: 6078d438323f1c94696a0dc95c27e886, type: 3}
+  silhouetteImage: {fileID: 21300000, guid: 0b847ffa7a50c1341a63b89ea4d5cf9d, type: 3}
+  modelPrefab: {fileID: 1473785480913992122, guid: cdfa2cd7fc8a03b4c9bb8e6ea6831792, type: 3}
   wasDiscovered: 0

@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
-  m_Name: Rosemary
+  m_Name: Coltsfoot
   m_EditorClassIdentifier: 
-  itemName: Rosemary
+  itemName: Coltsfoot
   description:
-  - Dark green needle like leaves
-  - Evergreen shrub
+  - 'Yellow flowers '
+  - 'Flower has a clear central disk '
+  - "Stalks have \u201Cscales\u201D "
   extraInfo:
-  - Leaves carry distinct fragrance
-  - Stir, mix with butter or use for cocktails
-  location: 2
-  isPoisonous: 0
+  - NOT EDIBLE -  Has medicinal applications, but not through direct ingestion!
+  location: 0
+  isPoisonous: 1
   season: 0
-  silhouetteImage: {fileID: 21300000, guid: 9b7f887702436b74f87b6c863f249ae3, type: 3}
-  modelPrefab: {fileID: 8561632287459613331, guid: 6078d438323f1c94696a0dc95c27e886, type: 3}
+  silhouetteImage: {fileID: 21300000, guid: e8613fbf1a900be42bdc7bfdcf39298b, type: 3}
+  modelPrefab: {fileID: 4577468162451283780, guid: 6c8f0a0a6311f9743a81b3b62be64868, type: 3}
   wasDiscovered: 0

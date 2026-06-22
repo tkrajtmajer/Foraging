@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
-  m_Name: Rosemary
+  m_Name: Periwinkle
   m_EditorClassIdentifier: 
-  itemName: Rosemary
+  itemName: Periwinkle
   description:
-  - Dark green needle like leaves
-  - Evergreen shrub
+  - 'Oval shaped leaves '
+  - 'Flowers are light blue/purple '
+  - 'Flowers have five petals '
   extraInfo:
-  - Leaves carry distinct fragrance
-  - Stir, mix with butter or use for cocktails
-  location: 2
-  isPoisonous: 0
+  - "NOT EDIBLE \u2014 all parts poisonous"
+  - Weak look alike to wild pansies
+  location: 3
+  isPoisonous: 1
   season: 0
-  silhouetteImage: {fileID: 21300000, guid: 9b7f887702436b74f87b6c863f249ae3, type: 3}
-  modelPrefab: {fileID: 8561632287459613331, guid: 6078d438323f1c94696a0dc95c27e886, type: 3}
+  silhouetteImage: {fileID: 21300000, guid: 8eda0da7f9164574780f10fb89692cfd, type: 3}
+  modelPrefab: {fileID: 7199169968104190906, guid: 2d70533fa0eeea34d9e5d8ad951b4380, type: 3}
   wasDiscovered: 0

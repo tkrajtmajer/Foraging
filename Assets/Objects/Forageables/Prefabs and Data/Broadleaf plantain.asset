@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
-  m_Name: Rosemary
+  m_Name: Broadleaf plantain
   m_EditorClassIdentifier: 
-  itemName: Rosemary
+  itemName: Broadleaf plantain
   description:
-  - Dark green needle like leaves
-  - Evergreen shrub
+  - 'Large oval-shaped leaves '
+  - 'Smooth leaf edge '
+  - 'Flowers are placed on a tall thin spike '
   extraInfo:
-  - Leaves carry distinct fragrance
-  - Stir, mix with butter or use for cocktails
-  location: 2
+  - 'Has a variety of medical effects '
+  - Rub on nettle stings to ease itching
+  location: 0
   isPoisonous: 0
   season: 0
-  silhouetteImage: {fileID: 21300000, guid: 9b7f887702436b74f87b6c863f249ae3, type: 3}
-  modelPrefab: {fileID: 8561632287459613331, guid: 6078d438323f1c94696a0dc95c27e886, type: 3}
+  silhouetteImage: {fileID: 21300000, guid: 3f75ee8589ed3fa40a0a06e94566c1ff, type: 3}
+  modelPrefab: {fileID: 1980385203853812029, guid: 628e25fa553878749b95a030a476dede, type: 3}
   wasDiscovered: 0

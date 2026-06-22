@@ -8,6 +8,10 @@ public enum ItemLocation
     Field,
     Woodland
 }
+public enum ItemSeason
+{
+    spring
+}
 
 // create foreagable data in assets menu by Right Click -> Create > Foraging > New Forageable Data
 [CreateAssetMenu(fileName = "New Foragable Data", menuName = "Foraging/New Forageable Data")]    
@@ -19,14 +23,14 @@ public class ForageableData : ScriptableObject
     public List<string> extraInfo;
 
     [Header("Stats")]
-    public int itemDifficulty;
+    //public int itemDifficulty;
     public ItemLocation location;
     public bool isPoisonous;
-    public string season;
+    public ItemSeason season;
 
     [Header("Visuals")]
     public Sprite silhouetteImage;
-    public Sprite silhouetteImageOccluded;
+    //public Sprite silhouetteImageOccluded;
     public GameObject modelPrefab; 
 
     [Header("Internal")]

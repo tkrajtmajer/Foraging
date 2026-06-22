@@ -189,10 +189,10 @@ public class AlmanacUI : MonoBehaviour
 
         itemPoisonousUI.text = selectedItem.isPoisonous? "Poisonous" : "Not poisonous";
 
-        itemLocationUI.text = "Found in " + selectedItem.season;
+        itemLocationUI.text = "Found in " + selectedItem.season.ToString();
         if(selectedItem.wasDiscovered) itemLocationUI.text += ", in " + selectedItem.location.ToString();
 
-        itemSpriteUI.sprite = selectedItem.wasDiscovered? selectedItem.silhouetteImage : selectedItem.silhouetteImageOccluded;
+        itemSpriteUI.sprite = selectedItem.silhouetteImage;
         
         if(selectedItem.wasDiscovered) {
             dragUI.SetupDragRender(selectedItem);
@@ -200,6 +200,8 @@ public class AlmanacUI : MonoBehaviour
         }
         else {
             itemRenderUI.SetActive(false);
+
+            // dont need to black out sprite w current setup lol
         }
     }
 

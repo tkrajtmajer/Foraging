@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
-  m_Name: Rosemary
+  m_Name: Alexanders
   m_EditorClassIdentifier: 
-  itemName: Rosemary
+  itemName: Alexanders
   description:
-  - Dark green needle like leaves
-  - Evergreen shrub
+  - Thick grooved stem
+  - Broad leaves with serrated edge
+  - Flowers are pale yellow-green
+  - 'Flowers stand in clusters '
   extraInfo:
-  - Leaves carry distinct fragrance
-  - Stir, mix with butter or use for cocktails
+  - 'Stem later becomes hollow '
+  - 'Crushed leaves have spicy smell (do not try unless sure it is not Hemlock!) '
   location: 2
   isPoisonous: 0
   season: 0
-  silhouetteImage: {fileID: 21300000, guid: 9b7f887702436b74f87b6c863f249ae3, type: 3}
-  modelPrefab: {fileID: 8561632287459613331, guid: 6078d438323f1c94696a0dc95c27e886, type: 3}
+  silhouetteImage: {fileID: 21300000, guid: d5f7fe9c4845fe542aef28527d2932d9, type: 3}
+  modelPrefab: {fileID: 5376476139477884995, guid: ac4ca61a063f8e547b06c889bd6d60a2, type: 3}
   wasDiscovered: 0

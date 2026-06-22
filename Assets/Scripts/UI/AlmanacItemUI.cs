@@ -22,9 +22,9 @@ public class AlmanacItemUI : MonoBehaviour
             itemSprite.sprite = data.silhouetteImage;
             itemName.text = data.itemName;
         }
-        else {
-            itemSprite.sprite = data.silhouetteImageOccluded;
-        }
+        // else {
+        //     itemSprite.sprite = data.silhouetteImageOccluded;
+        // }
     }
 
     public void SelectItem() {
