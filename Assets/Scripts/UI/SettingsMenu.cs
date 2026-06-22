@@ -14,7 +14,7 @@ public class SettingsMenu : MonoBehaviour
         volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
     }
     public void SetVolume(float volume) {
-        //Debug.Log("volume " + volume);
+        Debug.Log("volume " + volume);
         PlayerPrefs.SetFloat("musicVolume", volume);
         music.volume = volume;
     }
