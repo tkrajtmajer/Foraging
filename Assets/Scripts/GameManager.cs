@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     internal int finalMainSceneIdx = 3;
     internal int scoreSceneIdx = 4; //"ScoreScene";
     internal int endSceneIdx = 5; //"EndScene";
+    internal int tutorialSceneIdx = 6;
+
+    internal bool hasDoneTutorial = false;
 
     internal int score;
     internal List<ForageableData> previousInventory;

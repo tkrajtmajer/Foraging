@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/FinalScenes/MainMenu.unity
     guid: 92980162bdc4ee7a6937c4ab64a29ce1
   - enabled: 1
-    path: Assets/Scenes/NewLevelSelect.unity
+    path: Assets/Scenes/FinalScenes/NewLevelSelect.unity
     guid: c1a4c12714f4c0b49baaea20884cd14d
   - enabled: 0
-    path: Assets/Scenes/FinalScenes/LevelSelect.unity
+    path: Assets/Scenes/Discontinued/LevelSelect.unity
     guid: 4d6c6cb7b5e2c53448ba13e4cb5581a9
   - enabled: 1
     path: Assets/Scenes/FinalScenes/MapVersion1.unity
@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: cd58a076db546104abb26af841814ccf
+  - enabled: 1
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 88b1f90d44ded7a46bbd8beba9b9a1cc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
