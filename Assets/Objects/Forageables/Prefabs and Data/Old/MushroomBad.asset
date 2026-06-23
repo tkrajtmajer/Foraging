@@ -20,7 +20,7 @@ MonoBehaviour:
   locations: 00000000
   isPoisonous: 1
   season: 0
-  silhouetteImage: {fileID: -183939406271800499, guid: 6488fcaa61661ca489406b7cd2b1f0ce, type: 3}
+  silhouetteImage: {fileID: -91280864859388864, guid: b259bcc4e17768c49b5f24ad19ca7ce4, type: 3}
   modelPrefab: {fileID: 8561632287459613331, guid: 1ebac9907298d694a8f61a5482f48d1c, type: 3}
   displayScale: 0.5
   wasDiscovered: 0
