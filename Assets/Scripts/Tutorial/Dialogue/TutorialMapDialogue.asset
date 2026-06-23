@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29db22c94e0641ef99312bf76573da3d, type: 3}
+  m_Name: TutorialMapDialogue
+  m_EditorClassIdentifier: 
+  speakerName: 
+  sentences:
+  - You can look at your adventurer map by pressing <sprite name="keys-Sheet_19">
+    or <sprite name="keys-Sheet_9">.
+  - If you want to remember where you found an item, you can select a pin and place
+    it down on the map with Left Click.\nTo remove a pin, press Right Click on top
+    of it.

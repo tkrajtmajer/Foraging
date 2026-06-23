@@ -23,6 +23,8 @@ public class FeedbackUI : MonoBehaviour
     int currentItemToShow = 0;
 
     List<ForageableData> goodObjects = new();
+    List<ForageableData> badObjects = new();
+    List<ForageableData> itemsToShowInInfo = new();
     List<ForageableData> currentRecipe;
     List<ForageableData> playerInventory;
 
@@ -47,7 +49,10 @@ public class FeedbackUI : MonoBehaviour
                 SpawnSpriteInArea(goodSpawnArea, item.silhouetteImage);
             }
 
-            else SpawnSpriteInArea(badSpawnArea, item.silhouetteImage);
+            else {
+                SpawnSpriteInArea(badSpawnArea, item.silhouetteImage);
+                if(item.isPoisonous) badObjects.Add(item);
+            }
         }
     }
 
@@ -73,29 +78,50 @@ public class FeedbackUI : MonoBehaviour
             }
         }
 
-        goodObjects = uniqueGood;
+        List<ForageableData> uniqueBad = new List<ForageableData>();
+
+        foreach (ForageableData item in badObjects) {
+            if (!uniqueBad.Contains(item)) {
+                uniqueBad.Add(item);
+            }
+        }
+
+        itemsToShowInInfo.AddRange(uniqueGood);
+        itemsToShowInInfo.AddRange(uniqueBad);
 
         fakeAlmanac.SetActive(true);
         nextButton.SetActive(false);
 
-        ShowNextGoodItem();
+        ShowNextItemInfo();
     }
 
-    public void ShowNextGoodItem() {
-        if(currentItemToShow >= goodObjects.Count) {
+    public void ShowNextItemInfo() {
+        if(currentItemToShow >= itemsToShowInInfo.Count) {
             ShowReturnScreen();
             return;
         }
 
-        ForageableData currentObj = goodObjects[currentItemToShow];
+        ForageableData currentObj = itemsToShowInInfo[currentItemToShow];
 
         itemNameUI.text = currentObj.itemName;
-        itemDescriptionUI.text = currentObj.description;
-        itemPoisonousUI.text = "Not poisonous";
-        itemLocationUI.text = currentObj.location.ToString() + ", " + currentObj.season;
+        // itemDescriptionUI.text = currentObj.description;
+        itemDescriptionUI.text = "";
+        foreach (string desc in currentObj.description) {
+            itemDescriptionUI.text += "- " + desc + "\n";
+        }
+        foreach (string extra in currentObj.extraInfo) {
+            itemDescriptionUI.text += "- " + extra + "\n";
+        }
+
+        itemPoisonousUI.text = currentObj.isPoisonous ? "Poisonous" : "Not poisonous";
+
+        itemLocationUI.text = "Found in " + currentObj.season.ToString() + ", in " + string.Join(", ", currentObj.locations);
+
         itemSpriteUI.sprite = currentObj.silhouetteImage;
 
         dragUI.SetupDragRender(currentObj);
+
+        currentObj.wasDiscovered = true;
 
         currentItemToShow++;
     }

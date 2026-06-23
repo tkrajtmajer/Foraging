@@ -50,10 +50,12 @@ public class AlmanacUI : MonoBehaviour
 
     void OnEnable() {
         InspectUI.OpenAlmanac += ShowFromInspect;
+        UIManager.ClosedUI += TryHideAlmanac;
     }
 
     void OnDisable() {
         InspectUI.OpenAlmanac -= ShowFromInspect;
+        UIManager.ClosedUI -= TryHideAlmanac;
     }
 
     void Update() {
@@ -70,7 +72,7 @@ public class AlmanacUI : MonoBehaviour
                     ShowAlmanac();
                     ShowItemizedView();
                     DrawItemsUI();
-                    ChangeSelected(0);
+                    //ChangeSelected(0);
                     Time.timeScale = 0f;
                     UIManager.Instance.SetState(UIState.Almanac);
                 }
@@ -135,7 +137,7 @@ public class AlmanacUI : MonoBehaviour
         currentPage += direction;
         currentSelected = 1;
         DrawItemsUI();
-        ChangeSelected(0);
+        //ChangeSelected(0);
     }
 
     private void ChangeSelected(int direction) {
@@ -174,10 +176,23 @@ public class AlmanacUI : MonoBehaviour
 
     private void Select(ForageableData selectedItem) {
         itemNameUI.text = selectedItem.itemName;
-        itemDescriptionUI.text = selectedItem.description;
+
+        itemDescriptionUI.text = "";
+        foreach (string desc in selectedItem.description) {
+            itemDescriptionUI.text += "- " + desc + "\n";
+        }
+        if(selectedItem.wasDiscovered) {
+            foreach (string extra in selectedItem.extraInfo) {
+                itemDescriptionUI.text += "- " + extra + "\n";
+            }
+        }
+
         itemPoisonousUI.text = selectedItem.isPoisonous? "Poisonous" : "Not poisonous";
-        itemLocationUI.text = selectedItem.location.ToString() + ", " + selectedItem.season;
-        itemSpriteUI.sprite = selectedItem.wasDiscovered? selectedItem.silhouetteImage : selectedItem.silhouetteImageOccluded;
+
+        itemLocationUI.text = "Found in " + selectedItem.season.ToString();
+        if(selectedItem.wasDiscovered) itemLocationUI.text += ", in " + string.Join(", ", selectedItem.locations);
+
+        itemSpriteUI.sprite = selectedItem.silhouetteImage;
         
         if(selectedItem.wasDiscovered) {
             dragUI.SetupDragRender(selectedItem);
@@ -185,6 +200,8 @@ public class AlmanacUI : MonoBehaviour
         }
         else {
             itemRenderUI.SetActive(false);
+
+            // dont need to black out sprite w current setup lol
         }
     }
 
@@ -194,11 +211,13 @@ public class AlmanacUI : MonoBehaviour
     }
 
     private void ShowFromInspect(ForageableData selectedItem) {
-        Select(selectedItem);
+        // Select(selectedItem);
 
-        viewFromInspect = true;
+        // viewFromInspect = true;
         ShowAlmanac();
-        ShowIndividualView();
+        ShowItemizedView();
+        DrawItemsUI();
+        //ChangeSelected(0);
     }
 
     private void ShowItemizedView()
@@ -217,6 +236,7 @@ public class AlmanacUI : MonoBehaviour
 
     private void ShowAlmanac()
     {
+        UIManager.Instance.currentUIState = UIState.Almanac;
         bookOpen = true;
         almanacUIContainer.SetActive(true);
     }
@@ -227,4 +247,20 @@ public class AlmanacUI : MonoBehaviour
         almanacUIContainer.SetActive(false);
     }
     
+    public void TryHideAlmanac()
+    {
+        if (UIManager.Instance.currentUIState != UIState.Almanac) return;
+
+        if (viewFromInspect) 
+        { 
+            ToggleItemDetails();
+            Debug.Log("Closed");
+            return; 
+        }
+        
+        
+        HideAlmanac();
+        Time.timeScale = 1f;
+        UIManager.Instance.SetState(UIState.None);
+    }
 }

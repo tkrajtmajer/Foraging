@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
+  m_Name: Periwinkle
+  m_EditorClassIdentifier: 
+  itemName: Periwinkle
+  description:
+  - 'Oval shaped leaves '
+  - 'Flowers are light blue/purple '
+  - 'Flowers have five petals '
+  extraInfo:
+  - "NOT EDIBLE \u2014 all parts poisonous"
+  - Weak look alike to wild pansies
+  locations: 0000000004000000
+  isPoisonous: 1
+  season: 0
+  silhouetteImage: {fileID: 21300000, guid: 8eda0da7f9164574780f10fb89692cfd, type: 3}
+  modelPrefab: {fileID: 7199169968104190906, guid: 2d70533fa0eeea34d9e5d8ad951b4380, type: 3}
+  displayScale: 0.6
+  wasDiscovered: 0

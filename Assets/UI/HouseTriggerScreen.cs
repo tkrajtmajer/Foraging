@@ -8,10 +8,12 @@ public class HouseTriggerScreen : MonoBehaviour
     private void OnEnable()
     {
         HouseInteractable.OnHouseInteracted += OpenUI;
+        UIManager.ClosedUI += OnNoButtonClicked;
     }
     private void OnDisable()
     {
         HouseInteractable.OnHouseInteracted -= OpenUI;
+        UIManager.ClosedUI -= OnNoButtonClicked;
     }
 
     private void Start()

@@ -20,7 +20,7 @@ public class MusicManager : MonoBehaviour
     {
         if (Instance != this && Instance != null)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else
         {
@@ -29,6 +29,7 @@ public class MusicManager : MonoBehaviour
         }
         source = transform.GetComponent<AudioSource>();
         currentMusic = (AudioClip)source.resource;
+        source.volume = PlayerPrefs.GetFloat("musicVolume");
     }
 
     private void OnEnable()
@@ -57,7 +58,7 @@ public class MusicManager : MonoBehaviour
 
     private void ChangeMusic()
     {
-        source.Pause();
+        source.Stop();
         source.resource = (UnityEngine.Audio.AudioResource)currentMusic;
         source.Play();
     }
@@ -69,13 +70,14 @@ public class MusicManager : MonoBehaviour
 
     public void TransitionMusicStartOfDay()
     {
-        StartCoroutine(FadeMusicInPartially(fadeDuration));
+        ChangeMusic();
+        StartCoroutine(FadeMusicInPartially(fadeDuration * 5));
     }
 
     private IEnumerator FadeMusicOutPartially(float fadeDuration)
     {
         float initialVolume = PlayerPrefs.GetFloat("musicVolume");
-        for (float i = 0; i < fadeDuration; i += Time.deltaTime)
+        for (float i = 0; i < fadeDuration; i += Time.unscaledDeltaTime)
         {
             source.volume = initialVolume * (1 - i / (fadeDuration * 1.2f));
             yield return null;
@@ -85,11 +87,13 @@ public class MusicManager : MonoBehaviour
     private IEnumerator FadeMusicInPartially(float fadeDuration)
     {
         float finalVolume = PlayerPrefs.GetFloat("musicVolume");
-        for (float i = 0; i < fadeDuration; i += Time.deltaTime)
+        for (float i = 0; i < fadeDuration; i += Time.unscaledDeltaTime)
         {
             source.volume = finalVolume * i / (fadeDuration * 1.2f);
             yield return null;
         }
         source.volume = finalVolume;
+        yield return null;
     }
+    
 }

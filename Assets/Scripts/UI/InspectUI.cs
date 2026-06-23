@@ -9,7 +9,7 @@ public class InspectUI : MonoBehaviour
     [SerializeField] private GameObject inspectPanel; // UI parent
     [SerializeField] private Image itemImage;
     [SerializeField] DragUI dragUI;
-    [SerializeField] private TextMeshProUGUI itemDescription;
+    //[SerializeField] private TextMeshProUGUI itemDescription;
 
     private ForageableInteractable currentForageable;
     private ForageableData currentForageableData;
@@ -28,10 +28,12 @@ public class InspectUI : MonoBehaviour
 
     void OnEnable() {
         AlmanacUI.CloseAlmanac += ShowInspect;
+        UIManager.ClosedUI += TryCloseUI;
     }
 
     void OnDisable() {
         AlmanacUI.CloseAlmanac -= ShowInspect;
+        UIManager.ClosedUI -= TryCloseUI;
     }
 
     private void OnDestroy()
@@ -46,7 +48,7 @@ public class InspectUI : MonoBehaviour
 
         // TODO - if journal.IsDiscovered(data) -> show image, else show silhouette
         itemImage.sprite = forageableData.silhouetteImage;
-        itemDescription.text = forageableData.description;
+        //itemDescription.text = forageableData.description;
         //Debug.Log("hello?");
         inspectPanel.SetActive(true);
 
@@ -89,7 +91,14 @@ public class InspectUI : MonoBehaviour
 
     private void ShowInspect() {
         Debug.Log("show inspect again");
+        UIManager.Instance.currentUIState = UIState.Inspect;
         inspectPanel.SetActive(true);
+    }
+
+    private void TryCloseUI()
+    {
+        if (UIManager.Instance.currentUIState != UIState.Inspect) return;
+        CloseUI();
     }
 
 

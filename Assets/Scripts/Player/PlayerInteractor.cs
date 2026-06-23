@@ -8,6 +8,9 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private LayerMask layerInteractable;
     private IInteractable canInteract;
 
+    public static event Action FirstInteract;
+    public static event Action FirstInteracted;
+
     void Update()
     {
         if (UIManager.Instance.currentUIState == UIState.None) {
@@ -24,6 +27,7 @@ public class PlayerInteractor : MonoBehaviour
                     //TryInteract();
                     canInteract.Interact();
                     canInteract = null;
+                    FirstInteracted?.Invoke();
                 }
             }
         }
@@ -69,6 +73,8 @@ public class PlayerInteractor : MonoBehaviour
                     if (IsNotNull(canInteract)) canInteract.ChangeMaterial(outlineMaterial, false);
                     canInteract = interactable;
                     canInteract.ChangeMaterial(outlineMaterial, true);
+
+                    if (!GameManager.Instance.hasDoneTutorial && !canInteract.isHouse()) FirstInteract?.Invoke();
                 }
                 return; // avoid interaction with multiple interactables
             }

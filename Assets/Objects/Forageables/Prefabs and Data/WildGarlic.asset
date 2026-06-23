@@ -12,15 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
   m_Name: WildGarlic
   m_EditorClassIdentifier: 
-  itemName: Wild Garlic
-  description: '- leaves can be eaten raw in salads, or blanched and used in place
-    of spinach \n- pick leaves that are bright in color \n- easy to confuse with
-    similar poisonous plants'
-  itemDifficulty: 0
-  location: 4
+  itemName: Wild garlic
+  description:
+  - 'White flower '
+  - 'Six pointed flower '
+  - 'Long broad leaves '
+  extraInfo:
+  - 'When bruised, leaves give of garlic like scent (Carefull: trick can only be
+    used once as scent will linger on hands, thus affecting future tests)'
+  - Can be easy to confuse with poisonous plants
+  locations: 04000000
   isPoisonous: 0
-  season: Spring
-  silhouetteImage: {fileID: 21300000, guid: c09762448952fde41875dd733bbb0677, type: 3}
-  silhouetteImageOccluded: {fileID: 21300000, guid: 7f1b8cbe29ed1a34d99caf966f78903b, type: 3}
+  season: 0
+  silhouetteImage: {fileID: 21300000, guid: 30f159715cf41e446a714aeca04b1a2c, type: 3}
   modelPrefab: {fileID: 8561632287459613331, guid: 253a16731300e624d95c5f77546ecb0b, type: 3}
+  displayScale: 1
   wasDiscovered: 0

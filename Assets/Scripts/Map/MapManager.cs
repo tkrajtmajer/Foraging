@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 using System.Runtime.CompilerServices;
 using TMPro;
+using System.Net;
 
 public class MapManager : MonoBehaviour
 {
@@ -16,12 +15,15 @@ public class MapManager : MonoBehaviour
     [SerializeField] RectTransform mapRect;
     public bool mapOpen = false;
 
-    public PinType selectedPinType = PinType.WildStrawberry;
+    public PinType selectedPinType = PinType.NonPoisonous;
     [SerializeField] MapPinPooler pinPooler;
 
     public static MapManager Instance { get; private set; }
     public InputActionMap toggleMapActions;
     public InputActionMap pinActions;
+
+    public static event Action OpenedMap;
+    public static event Action ClosedMap;
 
     [SerializeField] private TMP_Text currentDayText;
 
@@ -40,6 +42,7 @@ public class MapManager : MonoBehaviour
 
         toggleMapActions["Toggle Map"].performed += ToggleMap;
         pinActions["Place Pin"].performed += PlacePin;
+        pinActions["Remove Pin"].performed += RemovePin;
         //pinActions["Switch Pin Type"].performed += SwitchPinType;
     }
 
@@ -48,7 +51,7 @@ public class MapManager : MonoBehaviour
         toggleMapActions.Enable();
         pinActions.Enable();
 
-        //SceneManager.sceneLoaded += OnSceneLoaded;
+        UIManager.ClosedUI += TryCloseMap;
     }
 
     private void OnDisable()
@@ -56,48 +59,55 @@ public class MapManager : MonoBehaviour
         toggleMapActions.Disable();
         pinActions.Disable();
 
-        //SceneManager.sceneLoaded -= OnSceneLoaded;
+        UIManager.ClosedUI -= TryCloseMap;
     }
-
-    //void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    //{
-    //    if (scene.buildIndex == GameManager.Instance.finalMainSceneIdx)
-    //    {
-    //        GameObject mapUI = GameObject.Find("MapUI");
-    //        mapContainer = mapUI.transform.GetChild(0).gameObject;
-    //        pinPooler = mapContainer.GetComponentInChildren<MapPinPooler>();
-
-    //        currentDayText.text = "Current day: " + GameManager.Instance.currentDay.ToString();
-    //    }
-    //}
 
     private void ToggleMap(InputAction.CallbackContext context) 
     {
         if (mapOpen)
         {
-            mapOpen = false;
-            mapContainer.SetActive(false);
-            UIManager.Instance.SetState(UIState.None);
-            Time.timeScale = 1.0f;
+            CloseMap();
+            ClosedMap?.Invoke();
         }
         else if (UIManager.Instance.currentUIState == UIState.None)
         {
-            mapOpen = true;
-            mapContainer.SetActive(true);
-            UIManager.Instance.SetState(UIState.Map);
-            Time.timeScale = 0.0f;
+            OpenMap();
+            OpenedMap?.Invoke();
         }
     }
 
+    private void OpenMap()
+    {
+        mapOpen = true;
+        mapContainer.SetActive(true);
+        UIManager.Instance.SetState(UIState.Map);
+        Time.timeScale = 0.0f;
+        currentDayText.text = "Current day: " + GameManager.Instance.currentDay.ToString();
+    }
+
+    private void CloseMap()
+    {
+        mapOpen = false;
+        mapContainer.SetActive(false);
+        UIManager.Instance.SetState(UIState.None);
+        Time.timeScale = 1.0f;
+    }
+
+    //public enum PinType
+    //{
+    //    WildStrawberry,
+    //    MockStrawberry,
+    //    Rosemary,
+    //    Dandelion,
+    //    AloeVera,
+    //    StingingNettle,
+    //    WildGarlic,
+    //}
+
     public enum PinType
     {
-        WildStrawberry,
-        MockStrawberry,
-        Rosemary,
-        Dandelion,
-        AloeVera,
-        StingingNettle,
-        WildGarlic,
+        NonPoisonous,
+        Poisonous,
     }
 
     [Serializable]
@@ -119,9 +129,23 @@ public class MapManager : MonoBehaviour
         if (!mapOpen) return;
         Vector2 mousePos = Input.mousePosition;
         //Debug.Log(mousePos);
-        if (!MapContainsMouse(mousePos)) return;
+        if (!MapContainsMouse(mousePos) || pinPooler.HasPinAt(mousePos) != null) return;
         MapPin newPin = pinPooler.GetMapPin(selectedPinType);
         newPin.Spawn(mousePos);
+        PlacedPinsData.Instance.AddPlacedPin(mousePos, selectedPinType);
+    }
+
+    public void RemovePin(InputAction.CallbackContext context)
+    {
+        if (!mapOpen) return;
+        Vector2 mousePos = Input.mousePosition;
+        if (!MapContainsMouse(mousePos)) return;
+        MapPin pin = pinPooler.HasPinAt(mousePos);
+        if (pin != null && !pin.Equals(null))
+        {
+            PlacedPinsData.Instance.RemovePlacedPin(pin);
+            pin.Remove();
+        }
     }
 
     private bool MapContainsMouse(Vector2 mousePos)
@@ -137,5 +161,20 @@ public class MapManager : MonoBehaviour
     public void SelectPinType(int idx)
     {
         selectedPinType = (MapManager.PinType)idx;
+    }
+
+    public void PlacePinsOnReload(List<PlacedPinsData.PlacedData> placedDataList)
+    {
+        foreach (PlacedPinsData.PlacedData data in placedDataList)
+        {
+            MapPin newPin = pinPooler.GetMapPin((PinType)data.type);
+            newPin.Spawn(data.pos);
+        }
+    }
+
+    private void TryCloseMap()
+    {
+        if (UIManager.Instance.currentUIState != UIState.Map) return;
+        CloseMap();
     }
 }

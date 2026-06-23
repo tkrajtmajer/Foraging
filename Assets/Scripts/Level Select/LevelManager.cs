@@ -10,47 +10,38 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    //[SerializeField] ItemDatabase itemDatabase;
-    [SerializeField] private List<Recipe> allRecipes = new List<Recipe>();
-    [SerializeField] public float stdScale = 1.72f;
-    [SerializeField] public float smallScale = 0.96f;
+    [SerializeField] public LevelDatabase levelDatabase;
     public int currentLevel = 1;
+
+    //[SerializeField] private bool[][] levelStates = new bool[5][];
 
     public static event Action<LevelData> LevelLoaded;
 
-
     public static LevelManager Instance;
-
-    public List<LevelData> levelList;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
+        //if (Instance != null && Instance != this)
+        //{
+        //    Destroy(this);
+        //}
+        //else
+        //{
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-    }
-    private void OnEnable()
-    {
-        LevelSelectManager.LevelSelected += OnLevelSelected;
-    }
-
-    private void OnDisable()
-    {
-        LevelSelectManager.LevelSelected -= OnLevelSelected;
+        //    DontDestroyOnLoad(this.gameObject);
+        //}
     }
 
     public void OnLevelSelected(int levelNum)
     {
         Debug.Log("Level " + levelNum + " selected");
-        LevelLoaded?.Invoke(levelList[levelNum - 1]);
+        LevelLoaded?.Invoke(levelDatabase.levelList[levelNum - 1]);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    
+    public void UpdateLevelState(int levelNum, List<bool> levelState)
+    {
+        levelDatabase.levelList[levelNum - 1].levelState = levelState;
+    }
+
 }

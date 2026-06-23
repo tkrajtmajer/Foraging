@@ -45,7 +45,7 @@ public class ScoreScreen : MonoBehaviour
         DialogueData chosenDialogue;
 
         //Debug.Log(score*1.0f/nrItems);
-        if(score*1.0f / nrItems > 0.5) {
+        if(score*1.0f / nrItems == 1.0) {
             chosenDialogue = dialogueGood;
         }
         else chosenDialogue = dialogueBad;
