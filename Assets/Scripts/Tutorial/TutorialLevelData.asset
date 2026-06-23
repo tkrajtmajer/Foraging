@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2783c65e7f2ea9cd3876323179b5d1b9, type: 3}
-  m_Name: TutorialItemDatabase
+  m_Script: {fileID: 11500000, guid: 259d302ab0d567d409c70efe59847c48, type: 3}
+  m_Name: TutorialLevelData
   m_EditorClassIdentifier: 
-  allItemPrefabs:
-  - {fileID: 8561632287459613331, guid: a686ff1dc19cc4f47b51ed8dadccb8d9, type: 3}
-  - {fileID: 8561632287459613331, guid: 1ebac9907298d694a8f61a5482f48d1c, type: 3}
+  levelNumber: 0
+  recipe: {fileID: 0}
+  levelState: 
+  score: 0
+  totalItems: 0

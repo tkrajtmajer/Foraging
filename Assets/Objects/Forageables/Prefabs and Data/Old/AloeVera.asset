@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: AloeVera
   m_EditorClassIdentifier: 
   itemName: Aloe Vera
-  description: '- succulent with thick fleshy leaves containing gel \n- used in medicine
-    as purgative and treatment for burns'
-  itemDifficulty: 0
-  location: 0
+  description: []
+  extraInfo: []
+  locations: 
   isPoisonous: 0
-  season: Spring
+  season: 0
   silhouetteImage: {fileID: 21300000, guid: 261c93ee38dc2f3459a36102ad21a2a0, type: 3}
-  silhouetteImageOccluded: {fileID: 21300000, guid: bbca46cbe755a1049abd9765d4911763, type: 3}
   modelPrefab: {fileID: 8561632287459613331, guid: 0569c679357294148a8964b7e1e4e2b1, type: 3}
-  wasDiscovered: 1
+  displayScale: 0
+  wasDiscovered: 0

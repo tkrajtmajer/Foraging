@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TutorialRecipe
   m_EditorClassIdentifier: 
   forageablesInRecipe:
-  - {fileID: 11400000, guid: 0eb7332a706c67e469eefff55623c71f, type: 2}
-  - {fileID: 11400000, guid: 0eb7332a706c67e469eefff55623c71f, type: 2}
+  - {fileID: 11400000, guid: 6309c34091c1cdb49b2f9c115554344b, type: 2}
+  - {fileID: 11400000, guid: 6309c34091c1cdb49b2f9c115554344b, type: 2}
   recipeName: Tutorial Recipe

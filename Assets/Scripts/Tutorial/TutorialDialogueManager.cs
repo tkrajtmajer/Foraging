@@ -119,7 +119,7 @@ public class TutorialDialogueManager : MonoBehaviour
 
             // Journal
             case ((int)TutorialDialogueSequence.Journal):
-                StartCoroutine(ShowJournalSequence());
+                ShowJournalSequence();
                 break;
             
             // Empty
@@ -158,12 +158,9 @@ public class TutorialDialogueManager : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator ShowJournalSequence()
+    private void ShowJournalSequence()
     {
-        yield return new WaitForSecondsRealtime(2.0f);
-
         tutorialManager.ShowDialogueInactive();
-        yield return null;
     }
 
     public void ShowInteractableSequence()

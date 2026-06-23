@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     internal int score;
     internal List<ForageableData> previousInventory;
 
+    [SerializeField] LevelData tutorialLevelData;
+
     public static GameManager Instance { get; private set; }
 
     public static event Action<int> LoadObjects;
@@ -176,30 +178,30 @@ public class GameManager : MonoBehaviour
         LevelData currentLevelData = LevelManager.Instance.levelDatabase.levelList[currentDay - 1];
 
 
-        // Changed from foreach to for loop to get indexes
-        for (int itemIdx = 0; itemIdx < Instance.currentRecipe.forageablesInRecipe.Count; ++itemIdx)
-        {
-            ForageableData neededItem = Instance.currentRecipe.forageablesInRecipe[itemIdx];
-            bool found = false;
-            for (int i = 0; i < playerForageables.Count; i++)
+            // Changed from foreach to for loop to get indexes
+            for (int itemIdx = 0; itemIdx < Instance.currentRecipe.forageablesInRecipe.Count; ++itemIdx)
             {
-                ForageableData playerItem = playerForageables[i];
-
-                if (playerItem.itemName == neededItem.itemName)
+                ForageableData neededItem = Instance.currentRecipe.forageablesInRecipe[itemIdx];
+                bool found = false;
+                for (int i = 0; i < playerForageables.Count; i++)
                 {
-                    //Debug.Log(playerItem.itemName);
-                    //playerItem.wasDiscovered = true;
-                    score++;
-                    playerForageables.RemoveAt(i); // we remove to prevent double matching
+                    ForageableData playerItem = playerForageables[i];
 
-                    // Change value of false for level state
-                    found = true;
-                    break;
+                    if (playerItem.itemName == neededItem.itemName)
+                    {
+                        //Debug.Log(playerItem.itemName);
+                        //playerItem.wasDiscovered = true;
+                        score++;
+                        playerForageables.RemoveAt(i); // we remove to prevent double matching
+
+                        // Change value of false for level state
+                        found = true;
+                        break;
+                    }
                 }
-            }
 
-            currentLevelData.levelState[itemIdx] = found;
-        }
+                currentLevelData.levelState[itemIdx] = found;
+            }
 
         // Assign new level score to Level Data
         currentLevelData.score = score;

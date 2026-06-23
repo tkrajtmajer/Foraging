@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a819f4754218fa42bc2238e38bd5b74, type: 3}
   m_Name: MushroomBad
   m_EditorClassIdentifier: 
-  itemName: bad mushroom
-  description: a new bad bad room room skibidibobbi shroom
-  itemDifficulty: 0
-  location: 0
-  isPoisonous: 0
-  season: 
-  silhouetteImage: {fileID: -6954340022640903978, guid: 262648ebd806d4b48ad4ad33b565b36e, type: 3}
-  silhouetteImageOccluded: {fileID: 0}
+  itemName: Bad Mushroom
+  description:
+  - Long stem
+  - Uneven cap
+  extraInfo: []
+  locations: 00000000
+  isPoisonous: 1
+  season: 0
+  silhouetteImage: {fileID: -183939406271800499, guid: 6488fcaa61661ca489406b7cd2b1f0ce, type: 3}
   modelPrefab: {fileID: 8561632287459613331, guid: 1ebac9907298d694a8f61a5482f48d1c, type: 3}
+  displayScale: 0
   wasDiscovered: 0
