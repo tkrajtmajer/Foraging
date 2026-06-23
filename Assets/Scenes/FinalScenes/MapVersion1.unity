@@ -2413,6 +2413,7 @@ MonoBehaviour:
   maxDays: 7
   itemDatabase: {fileID: 11400000, guid: 59080c4679214f1c097788def6a27059, type: 2}
   currentRecipe: {fileID: 0}
+  tutorialLevelData: {fileID: 0}
 --- !u!4 &124870090
 Transform:
   m_ObjectHideFlags: 0
@@ -5708,6 +5709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 286582506}
   movementSpeed: 3
+  sprintSpeed: 6
   playerAnimator: {fileID: 192276072}
 --- !u!143 &286582506
 CharacterController:
@@ -6059,7 +6061,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 94613b56e5e37ca439d327929822234f, type: 3}
+  m_Sprite: {fileID: -91280864859388864, guid: b259bcc4e17768c49b5f24ad19ca7ce4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12858,7 +12860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &708100482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19405,10 +19407,10 @@ MonoBehaviour:
   currentDayText: {fileID: 2089552038}
   PinList:
   - type: 0
-    sprite: {fileID: 21300000, guid: 1f1acded1f055fc45bea2cbde5482e7e, type: 3}
+    sprite: {fileID: -183939406271800499, guid: 6488fcaa61661ca489406b7cd2b1f0ce, type: 3}
     prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
   - type: 1
-    sprite: {fileID: 21300000, guid: 94613b56e5e37ca439d327929822234f, type: 3}
+    sprite: {fileID: -91280864859388864, guid: b259bcc4e17768c49b5f24ad19ca7ce4, type: 3}
     prefab: {fileID: 7568476872591303658, guid: 04c56e75479d612448f5f7a80062d37b, type: 3}
 --- !u!4 &1073564541
 Transform:
@@ -31483,7 +31485,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f1acded1f055fc45bea2cbde5482e7e, type: 3}
+  m_Sprite: {fileID: -183939406271800499, guid: 6488fcaa61661ca489406b7cd2b1f0ce, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
