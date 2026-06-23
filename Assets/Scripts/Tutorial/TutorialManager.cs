@@ -5,6 +5,7 @@ using TMPro;
 using System.Collections;
 using System;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -117,6 +118,18 @@ public class TutorialManager : MonoBehaviour
     {
         CloseTutorialUI();
         ++currentDialogueIdx;
+
+        if (currentDialogueIdx >= dialogueList.Count) EndTutorial();
+    }
+
+    private void EndTutorial()
+    {
+        GameManager.Instance.itemDatabase = trueItemsDatabase;
+        GameManager.Instance.hasDoneTutorial = true;
+
+        Time.timeScale = 1.0f;
+
+        ScreenFader.Instance.FadeAndLoadScene(GameManager.Instance.menuScene);
     }
 
     public void DoFirstInteractable()
