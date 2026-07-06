@@ -803,7 +803,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 450}
+  m_SizeDelta: {x: 800, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547211984
 MonoBehaviour:
@@ -1636,7 +1636,9 @@ MonoBehaviour:
   currentDay: 1
   maxDays: 7
   itemDatabase: {fileID: 11400000, guid: 6956e8c2ebdb88a81876e7b71a3a3f50, type: 2}
+  tutItemDatabase: {fileID: 11400000, guid: ee3b746cf989ba34e8b7dd42a212f128, type: 2}
   currentRecipe: {fileID: 0}
+  tutorialLevelData: {fileID: 0}
 --- !u!4 &1053466307
 Transform:
   m_ObjectHideFlags: 0
