@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using UnityEditor.Rendering;
+// using UnityEditor.Rendering;
 using UnityEngine;
 using TMPro;
 using System.Collections;
@@ -20,7 +20,7 @@ public class TutorialManager : MonoBehaviour
 
     [Header("Item Databases")]
     [SerializeField] ItemDatabase tutorialItemsDatabase;
-    [SerializeField] ItemDatabase trueItemsDatabase;
+    // [SerializeField] ItemDatabase trueItemsDatabase;
 
     [Header("Item List")]
     [SerializeField] public GameObject arrow;
@@ -30,12 +30,13 @@ public class TutorialManager : MonoBehaviour
     private void Awake()
     {
         GameManager.Instance.currentRecipe = tutorialData.recipe;
-        GameManager.Instance.itemDatabase = tutorialItemsDatabase;
+        // GameManager.Instance.itemDatabase = tutorialItemsDatabase;
+        // tutorialItemsDatabase = GameManager.Instance.tutItemDatabase;
     }
 
     private void OnDestroy()
     {
-        GameManager.Instance.itemDatabase = trueItemsDatabase;
+        // GameManager.Instance.itemDatabase = trueItemsDatabase;
         GameManager.Instance.hasDoneTutorial = true;
     }
 
@@ -124,7 +125,7 @@ public class TutorialManager : MonoBehaviour
 
     private void EndTutorial()
     {
-        GameManager.Instance.itemDatabase = trueItemsDatabase;
+        // GameManager.Instance.itemDatabase = trueItemsDatabase;
         GameManager.Instance.hasDoneTutorial = true;
 
         Time.timeScale = 1.0f;

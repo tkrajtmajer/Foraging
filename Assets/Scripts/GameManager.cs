@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int maxDays = 7;
 
     [SerializeField] public ItemDatabase itemDatabase;
+    //[SerializeField] public ItemDatabase tutItemDatabase;
     public Recipe currentRecipe; // used by UI
     
     internal int menuScene = 1;

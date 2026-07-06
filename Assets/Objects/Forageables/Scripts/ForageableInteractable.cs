@@ -1,5 +1,5 @@
 using System;
-using UnityEditor.SpeedTree.Importer;
+// using UnityEditor.SpeedTree.Importer;
 using UnityEngine;
 
 public class ForageableInteractable : MonoBehaviour, IInteractable

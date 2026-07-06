@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Yarrow
   m_EditorClassIdentifier: 
   itemName: Wild Garlic
+  itemName: Yarrow
   description:
   - 'Long fern-like leaves '
   - Flowers are white/pink
@@ -27,3 +28,4 @@ MonoBehaviour:
   modelPrefab: {fileID: 2470868751083712093, guid: cfa1561a11da6244d899a79117c86461, type: 3}
   displayScale: 0.5
   wasDiscovered: 0
+  displayScale: 0.7
